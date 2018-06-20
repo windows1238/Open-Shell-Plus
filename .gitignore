@@ -15,8 +15,10 @@
 
 # Build results
 [Dd]ebug/
+[Dd]ebug64/
 [Dd]ebugPublic/
 [Rr]elease/
+[Rr]elease64/
 [Rr]eleases/
 x64/
 x86/
@@ -78,6 +80,7 @@ StyleCopReport.xml
 *.tmp
 *.tmp_proj
 *.log
+*.tlog
 *.vspscc
 *.vssscc
 .builds
@@ -328,3 +331,9 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder
 .mfractor/
+
+# PVS-Studio temporary files (Github integration performance fix)
+*.PVS-Studio.*
+
+# Classic-Shell specific ignores
+Skins/
