@@ -1,3 +1,5 @@
+set PATH=C:\Program Files\7-Zip\;C:\Program Files (x86)\HTML Help Workshop;C:\Program Files (x86)\WiX Toolset v3.11\bin\;%PATH%
+
 @cd %~dp0
 
 @rem Default version
@@ -13,7 +15,19 @@
 @call BuildBinaries.bat
 @if ERRORLEVEL 1 exit /b 1
 
+
 @call _BuildEnglish.bat
+@if ERRORLEVEL 1 exit /b 1
+
+@rem Build other languages
+@call _BuildChineseCN.bat
+@call _BuildChineseTW.bat
+@call _BuildFrench.bat
+@call _BuildGerman.bat
+@call _BuildItalian.bat
+@call _BuildPolish.bat
+@call _BuildRussian.bat
+@call _BuildSpanish.bat
 @if ERRORLEVEL 1 exit /b 1
 
 call BuildArchives.bat
