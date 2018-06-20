@@ -4924,7 +4924,7 @@ void UpdateSettings( void )
 		// make games disabled by default if the folder doesn't exist (like on a server)
 		
 		const wchar_t *defaultMenu, *gameSettings0, *gameSettings1, *gameSettings2;
-		if (GetWinVersion()<WIN_VER_WIN81)
+		if (IsWin10RS4() || GetWinVersion()<WIN_VER_WIN81)
 		{
 			defaultMenu=g_DefaultStartMenu7;
 			gameSettings0=L"Item10.Command=games\n";
