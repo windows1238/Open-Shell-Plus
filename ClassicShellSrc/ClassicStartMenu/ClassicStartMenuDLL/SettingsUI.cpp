@@ -4924,7 +4924,7 @@ void UpdateSettings( void )
 		// make games disabled by default if the folder doesn't exist (like on a server)
 		
 		const wchar_t *defaultMenu, *gameSettings0, *gameSettings1, *gameSettings2;
-		if (IsWin10RS4() || GetWinVersion()<WIN_VER_WIN81)
+		if (GetWinVersion()<WIN_VER_WIN81)
 		{
 			defaultMenu=g_DefaultStartMenu7;
 			gameSettings0=L"Item10.Command=games\n";
@@ -4941,7 +4941,7 @@ void UpdateSettings( void )
 		Assert(wcswcs(defaultMenu,gameSettings0));
 		Assert(wcswcs(defaultMenu,gameSettings1));
 		CAbsolutePidl pidl;
-		if (SUCCEEDED(SHGetKnownFolderIDList(FOLDERID_Games,0,NULL,&pidl)) && !ILIsEmpty(pidl))
+		if (!IsWin10RS4() && SUCCEEDED(SHGetKnownFolderIDList(FOLDERID_Games,0,NULL,&pidl)) && !ILIsEmpty(pidl))
 		{
 			std::vector<wchar_t> buf(Strlen(defaultMenu)+1);
 			wchar_t *str=&buf[0];
