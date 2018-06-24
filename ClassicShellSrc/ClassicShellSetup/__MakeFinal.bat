@@ -1,6 +1,10 @@
+@echo off
 set PATH=C:\Program Files\7-Zip\;C:\Program Files (x86)\HTML Help Workshop;C:\Program Files (x86)\WiX Toolset v3.11\bin\;%PATH%
 
 @cd %~dp0
+
+@rem Clean repository and build fresh. Will erase current changes so disabled by default.
+rem git clean -dfx
 
 @rem Default version
 @set CS_VERSION=4.3.2
