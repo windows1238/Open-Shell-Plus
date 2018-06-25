@@ -18,7 +18,7 @@
 <?define CS_WIN64  = "no"?>
 <?endif ?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Product Id="*" Name="Classic Start" Language="1033" Version="$(env.CS_VERSION)" Manufacturer="Passionate-Coder" UpgradeCode="$(var.CS_UPGRADE)">
+    <Product Id="*" Name="Classic Start" Language="1033" Version="$(env.CS_VERSION)" Manufacturer="PassionateCoder" UpgradeCode="$(var.CS_UPGRADE)">
         <Package Description="Classic Start" Comments="Classic Start" InstallerVersion="500" Compressed="yes" Platform="$(var.CS_PLATFORM)" />
         <Media Id="1" Cabinet="cshell.cab" EmbedCab="yes" CompressionLevel="high"/>
         <Media Id="2" Cabinet="simple.cab" EmbedCab="yes" CompressionLevel="high"/>
@@ -49,7 +49,7 @@
             <ComponentRef Id="ClassicStart.chm" />
             <ComponentRef Id="ClassicStartReadme.rtf" />
             <ComponentRef Id="HISTORY.txt" />
-            <ComponentRef Id="Passionate-Coder" />
+            <ComponentRef Id="PassionateCoder" />
             <ComponentRef Id="TreatAs" />
             <ComponentRef Id="HelpLink" />
             <ComponentRef Id="ReadmeLink" />
@@ -554,8 +554,8 @@
             </Component>
         </DirectoryRef>
         <DirectoryRef Id="TARGETDIR">
-            <Component Id="Passionate-Coder" Guid="19EC9EFC-B901-4EAB-B800-6E98D2261077" Win64="$(var.CS_WIN64)">
-                <RegistryKey Root="HKLM" Key="Software\Passionate-Coder\ClassicStart">
+            <Component Id="PassionateCoder" Guid="19EC9EFC-B901-4EAB-B800-6E98D2261077" Win64="$(var.CS_WIN64)">
+                <RegistryKey Root="HKLM" Key="Software\PassionateCoder\ClassicStart">
                     <RegistryValue Type="integer" Name="Version" KeyPath="yes" Value="$(env.CS_VERSION_NUM)" />
                     <RegistryValue Type="string" Name="Path" Value="[APPLICATIONFOLDER]" />
                     <?if $(var.CS_LANG_NAME)!="en-US" ?>
@@ -642,7 +642,7 @@
             <RegistrySearch Id="IEBuild" Root="HKLM" Key="Software\Microsoft\Internet Explorer" Name="Build" Type="raw" />
         </Property>
         <Property Id="APPLICATIONFOLDER">
-            <RegistrySearch Id="Path" Root="HKLM" Key="Software\Passionate-Coder\ClassicStart" Name="Path" Type="raw" Win64="$(var.CS_WIN64)" />
+            <RegistrySearch Id="Path" Root="HKLM" Key="Software\PassionateCoder\ClassicStart" Name="Path" Type="raw" Win64="$(var.CS_WIN64)" />
         </Property>
         <CustomAction Id="ViewReadme" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
         <CustomAction Id="LaunchStartMenu" Impersonate="yes" ExeCommand="" FileKey="ClassicStartMenu.exe" Return="asyncNoWait" />

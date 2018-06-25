@@ -2294,8 +2294,8 @@ void CMenuContainer::ActivateItem( int index, TActivateType type, const POINT *p
 			if (m_FolderHash[0])
 			{
 				CRegKey regOrder;
-				if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStartMenu\\Order")!=ERROR_SUCCESS)
-					regOrder.Create(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStartMenu\\Order");
+				if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\PassionateCoder\\ClassicStartMenu\\Order")!=ERROR_SUCCESS)
+					regOrder.Create(HKEY_CURRENT_USER,L"Software\\PassionateCoder\\ClassicStartMenu\\Order");
 				wchar_t name[100];
 				Sprintf(name,_countof(name),L"%08X",m_FolderHash[0]);
 				if (m_Options&CONTAINER_AUTOSORT)

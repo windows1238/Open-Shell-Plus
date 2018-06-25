@@ -53,7 +53,7 @@ ProcessWhiteList.tipOverride = Elenco dei processi che possono caricare Classic 
 ProcessBlackList.nameOverride = Elabora elenco non autorizzati
 ProcessBlackList.tipOverride =Elenco dei processi che non possono caricare Classic Explorer. Usa solo il nome file del processo (es. "notepad.exe"), separando i nomi diversi con una virgola o punto e virgola.
 ToolbarItems.nameOverride = Pulsanti barra strumenti
-ToolbarItems.tipOverride = Seleziona i pulsanti che verranno visualizzati nella barra strumenti.\nIl miglior modo per impostare la giusta stringa è configurare i pulsanti nella finestra impostazioni di Classic Explorer e quindi vedere i valori ToolbarItems in HKCU\Software\Passionate-Coder\ClassicExplorer\Settings
+ToolbarItems.tipOverride = Seleziona i pulsanti che verranno visualizzati nella barra strumenti.\nIl miglior modo per impostare la giusta stringa è configurare i pulsanti nella finestra impostazioni di Classic Explorer e quindi vedere i valori ToolbarItems in HKCU\Software\PassionateCoder\ClassicExplorer\Settings
 
 
 ; os-specific

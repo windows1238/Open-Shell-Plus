@@ -34,7 +34,7 @@ void UpdateSettings( void )
 {
 	CRegKey regKey;
 	wchar_t language[100]=L"";
-	if (regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\Passionate-Coder\\ClassicStart",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
+	if (regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\PassionateCoder\\ClassicStart",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
 	{
 		ULONG size=_countof(language);
 		if (regKey.QueryStringValue(L"DefaultLanguage",language,&size)!=ERROR_SUCCESS)
@@ -302,8 +302,8 @@ LRESULT CUpdateDlg::OnDownload( WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& 
 LRESULT CUpdateDlg::OnDontRemind( WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled )
 {
 	CRegKey regKey;
-	if (regKey.Open(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStart",KEY_READ|KEY_WRITE)!=ERROR_SUCCESS)
-		regKey.Create(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStart");
+	if (regKey.Open(HKEY_CURRENT_USER,L"Software\\PassionateCoder\\ClassicStart",KEY_READ|KEY_WRITE)!=ERROR_SUCCESS)
+		regKey.Create(HKEY_CURRENT_USER,L"Software\\PassionateCoder\\ClassicStart");
 	if (m_Data.bNewVersion)
 	{
 		m_Data.bIgnoreVersion=(IsDlgButtonChecked(IDC_CHECKDONT)==BST_CHECKED);

@@ -309,7 +309,7 @@ system will treat it as a name of a string in the <span style="font-weight: bold
 file. The actual text will depend on the current language setting. This
 is useful when creating a toolbar that can be used by multiple languages.<br>
 <br>
-<span style="font-weight: bold;">Note to developers: </span>Buttons for custom commands can be checked or disabled. The toolbar checks the registry key <span style="font-weight: bold;">HKCU\Software\Passionate-Coder\ClassicExplorer</span>
+<span style="font-weight: bold;">Note to developers: </span>Buttons for custom commands can be checked or disabled. The toolbar checks the registry key <span style="font-weight: bold;">HKCU\Software\PassionateCoder\ClassicExplorer</span>
 for a DWORD value with the name of the button (the name used in left
 column). 0 means normal, 1 is disabled and 2 is checked. The toolbar
 reads the registry keys on startup. To force the buttons to update
@@ -368,7 +368,7 @@ no user can edit them:<br>
 <img style="width: 682px; height: 465px;" alt="" src="images/up_locked.png"><br>
 In this example the setting "Show Up button" is locked to always be
 "Before Back/Forward" and can't be changed by any user. This is achieved
-by adding the setting to the <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\Passionate-Coder\ClassicExplorer</span> registry key. Create a string value called "ShowUpButton" and set it to "BeforeBack".<br>
+by adding the setting to the <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\PassionateCoder\ClassicExplorer</span> registry key. Create a string value called "ShowUpButton" and set it to "BeforeBack".<br>
 <br>In some cases you may not want to lock the value for all users, but
 simply modify the initial value of the setting. In such case add
 "_Default" to the name of the value. For example if you want the Up
@@ -376,7 +376,7 @@ button to be before Back by default but still allow the users to change
 it if they wish, create a string value named "ShowUpButton_Default" and
 set it to "BeforeBack".<br>
 <br>
-The easiest way to know the registry name of a setting and its value is to modify it, and then look it up in <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\Passionate-Coder\ClassicExplorer\Settings</span>.<br>
+The easiest way to know the registry name of a setting and its value is to modify it, and then look it up in <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\PassionateCoder\ClassicExplorer\Settings</span>.<br>
 Sometimes you may want to lock a setting to its default value, but you
 don't know what the default value is. Then create a DWORD value and set
 it to 0xDEFA.<br>

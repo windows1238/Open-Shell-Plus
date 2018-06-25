@@ -183,7 +183,7 @@ LRESULT CUninstallDlg::OnInitDialog( UINT uMsg, WPARAM wParam, LPARAM lParam, BO
 	wchar_t path[_MAX_PATH]={0};
 	{
 		HKEY hkey=NULL;
-		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE,L"SOFTWARE\\Passionate-Coder\\ClassicStart",0,KEY_READ|KEY_QUERY_VALUE|KEY_WOW64_64KEY,&hkey)==ERROR_SUCCESS)
+		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE,L"SOFTWARE\\PassionateCoder\\ClassicStart",0,KEY_READ|KEY_QUERY_VALUE|KEY_WOW64_64KEY,&hkey)==ERROR_SUCCESS)
 		{
 			DWORD type=0;
 			DWORD size=sizeof(path);
@@ -996,8 +996,8 @@ static void ManualUninstallInternal( void )
 	DeleteRegKeySOFTWARE(L"Microsoft\\Windows\\CurrentVersion\\Explorer\\Browser Helper Objects\\{449D0D6E-2412-4E61-B68F-1CB625CD9E52}",bIsWow64);
 	DeleteRegKeySOFTWARE(L"Microsoft\\Windows\\CurrentVersion\\Explorer\\Browser Helper Objects\\{EA801577-E6AD-4BD5-8F71-4BE0154331A4}",bIsWow64);
 	DeleteRegKeySOFTWARE(L"Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\ShareOverlay",bIsWow64);
-	DeleteRegKeySOFTWARE(L"Passionate-Coder\\ClassicStart",bIsWow64);
-	DeleteRegKeySOFTWARE(L"Passionate-Coder\\ClassicStart",bIsWow64);
+	DeleteRegKeySOFTWARE(L"PassionateCoder\\ClassicStart",bIsWow64);
+	DeleteRegKeySOFTWARE(L"PassionateCoder\\ClassicStart",bIsWow64);
 
 	DeleteRegValueSOFTWARE(L"Microsoft\\Internet Explorer\\Toolbar",L"{553891B7-A0D5-4526-BE18-D3CE461D6310}",bIsWow64);
 	DeleteRegValueSOFTWARE(L"Microsoft\\Windows\\CurrentVersion\\Policies\\Ext\\CLSID",L"{449D0D6E-2412-4E61-B68F-1CB625CD9E52}",bIsWow64);
@@ -1012,8 +1012,8 @@ static void ManualUninstallInternal( void )
 	if (dlg.GetRemoveUserSettings() || dlg.GetRemoveAllUserSettings())
 	{
 		// delete settings for the current user
-		LogMessage(-1,L"Deleting user settings from HKEY_CURRENT_USER\\Software\\Passionate-Coder");
-		DeleteSettings(HKEY_CURRENT_USER,L"HKEY_CURRENT_USER",L"Software\\Passionate-Coder");
+		LogMessage(-1,L"Deleting user settings from HKEY_CURRENT_USER\\Software\\PassionateCoder");
+		DeleteSettings(HKEY_CURRENT_USER,L"HKEY_CURRENT_USER",L"Software\\PassionateCoder");
 
 		wchar_t local[_MAX_PATH]=L"%LOCALAPPDATA%\\ClassicStart";
 		DoEnvironmentSubst(local,_countof(local));
@@ -1075,7 +1075,7 @@ static void ManualUninstallInternal( void )
 			int error=RegLoadKey(HKEY_USERS,L"CSUTempUser",regFile);
 			if (error==ERROR_SUCCESS)
 			{
-				DeleteSettings(HKEY_USERS,L"HKEY_USERS",L"CSUTempUser\\Software\\Passionate-Coder");
+				DeleteSettings(HKEY_USERS,L"HKEY_USERS",L"CSUTempUser\\Software\\PassionateCoder");
 				RegUnLoadKey(HKEY_USERS,L"CSUTempUser");
 			}
 			else if (error!=ERROR_FILE_NOT_FOUND)
@@ -1086,8 +1086,8 @@ static void ManualUninstallInternal( void )
 	if (dlg.GetRemoveAdminSettings())
 	{
 		// delete admin settings
-		LogMessage(-1,L"Deleting settings from HKEY_LOCAL_MACHINE\\Software\\Passionate-Coder");
-		DeleteSettings(HKEY_LOCAL_MACHINE,L"HKEY_LOCAL_MACHINE",L"Software\\Passionate-Coder");
+		LogMessage(-1,L"Deleting settings from HKEY_LOCAL_MACHINE\\Software\\PassionateCoder");
+		DeleteSettings(HKEY_LOCAL_MACHINE,L"HKEY_LOCAL_MACHINE",L"Software\\PassionateCoder");
 	}
 
 	// delete program data

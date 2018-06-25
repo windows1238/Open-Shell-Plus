@@ -632,7 +632,7 @@ int GenerateUpdateFile( wchar_t *const *params, int count )
 			fwprintf(f,L"\tBEGIN\r\n");
 			fwprintf(f,L"\t\tBLOCK \"040904b0\"\r\n");
 			fwprintf(f,L"\t\tBEGIN\r\n");
-			fwprintf(f,L"\t\t\tVALUE \"CompanyName\", \"Passionate-Coder\"\r\n");
+			fwprintf(f,L"\t\t\tVALUE \"CompanyName\", \"PassionateCoder\"\r\n");
 			fwprintf(f,L"\t\t\tVALUE \"FileDescription\", \"Update information\"\r\n");
 			fwprintf(f,L"\t\t\tVALUE \"FileVersion\", \"%d, %d, %d, 0\"\r\n",v1,v2,v3);
 			fwprintf(f,L"\t\t\tVALUE \"InternalName\", \"Update\"\r\n");

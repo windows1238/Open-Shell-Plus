@@ -412,24 +412,24 @@ static void GetRegPaths( TSettingsComponent component, const wchar_t *&regPath, 
 	switch (component)
 	{
 		case COMPONENT_EXPLORER:
-			regPath=L"Software\\Passionate-Coder\\ClassicExplorer";
-			gpPath=L"Software\\Policies\\Passionate-Coder\\ClassicExplorer";
+			regPath=L"Software\\PassionateCoder\\ClassicExplorer";
+			gpPath=L"Software\\Policies\\PassionateCoder\\ClassicExplorer";
 			break;
 		case COMPONENT_MENU:
-			regPath=L"Software\\Passionate-Coder\\ClassicStartMenu";
-			gpPath=L"Software\\Policies\\Passionate-Coder\\ClassicStartMenu";
+			regPath=L"Software\\PassionateCoder\\ClassicStartMenu";
+			gpPath=L"Software\\Policies\\PassionateCoder\\ClassicStartMenu";
 			break;
 		case COMPONENT_IE:
-			regPath=L"Software\\Passionate-Coder\\ClassicIE";
-			gpPath=L"Software\\Policies\\Passionate-Coder\\ClassicIE";
+			regPath=L"Software\\PassionateCoder\\ClassicIE";
+			gpPath=L"Software\\Policies\\PassionateCoder\\ClassicIE";
 			break;
 		case COMPONENT_UPDATE:
 			regPath=L"";
 			gpPath=L"";
 			break;
 		case COMPONENT_SHARED:
-			regPath=L"Software\\Passionate-Coder\\ClassicStart";
-			gpPath=L"Software\\Policies\\Passionate-Coder\\ClassicStart";
+			regPath=L"Software\\PassionateCoder\\ClassicStart";
+			gpPath=L"Software\\Policies\\PassionateCoder\\ClassicStart";
 			break;
 	}
 }
@@ -2538,28 +2538,28 @@ bool SaveAdmx( TSettingsComponent component, const char *admxFile, const char *a
 	switch (component)
 	{
 		case COMPONENT_EXPLORER:
-			keyName="Software\\Policies\\Passionate-Coder\\ClassicExplorer";
+			keyName="Software\\Policies\\PassionateCoder\\ClassicExplorer";
 			prefix="CE_";
 			catName="ClassicExplorer";
 			admxText1=g_AdmxText1ce;
 			admlText1=g_AdmlText1ce;
 			break;
 		case COMPONENT_MENU:
-			keyName="Software\\Policies\\Passionate-Coder\\ClassicStartMenu";
+			keyName="Software\\Policies\\PassionateCoder\\ClassicStartMenu";
 			prefix="CSM_";
 			catName="ClassicStartMenu";
 			admxText1=g_AdmxText1csm;
 			admlText1=g_AdmlText1csm;
 			break;
 		case COMPONENT_IE:
-			keyName="Software\\Policies\\Passionate-Coder\\ClassicIE";
+			keyName="Software\\Policies\\PassionateCoder\\ClassicIE";
 			prefix="CIE_";
 			catName="ClassicIE";
 			admxText1=g_AdmxText1cie;
 			admlText1=g_AdmlText1cie;
 			break;
 		case COMPONENT_SHARED:
-			keyName="Software\\Policies\\Passionate-Coder\\ClassicStart";
+			keyName="Software\\Policies\\PassionateCoder\\ClassicStart";
 			prefix="CS_";
 			catName="ClassicStart";
 			admxText1=g_AdmxText1cs;

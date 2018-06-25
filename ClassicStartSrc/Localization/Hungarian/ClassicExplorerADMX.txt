@@ -53,7 +53,7 @@ ProcessWhiteList.tipOverride = A folyamatok listája, amelyek betölthetik a Kla
 ProcessBlackList.nameOverride = Folyamat feketelista
 ProcessBlackList.tipOverride = A folyamatok listája, amelyek nem töltik be a Klasszikus Intézőt. Csak a folyamat fájlnevét használd ( mint például "notepad.exe"), a több nevet vesszővel vagy pontosvesszővel válaszd el.
 ToolbarItems.nameOverride = Eszköztár gombok
-ToolbarItems.tipOverride = Válaszd ki az eszköztárban megjelenő gombokat.\nA megfelelő sor kiválasztásához állítsd be a gombokat a Klasszikus Intéző beállítás párbeszédablakában, majd keresd ki a ToolbarItems nevű értéket a HKCU\Software\Passionate-Coder\ClassicExplorer\Settings címen
+ToolbarItems.tipOverride = Válaszd ki az eszköztárban megjelenő gombokat.\nA megfelelő sor kiválasztásához állítsd be a gombokat a Klasszikus Intéző beállítás párbeszédablakában, majd keresd ki a ToolbarItems nevű értéket a HKCU\Software\PassionateCoder\ClassicExplorer\Settings címen
 
 
 ; os-specific

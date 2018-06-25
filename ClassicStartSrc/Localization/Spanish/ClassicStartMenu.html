@@ -179,7 +179,7 @@ modo que ningún usuario las pueda editar:<br>
 <img src="images/settings5.png" style="width: 688px; height: 472px;" alt=""><br>
 En este ejemplo, la configuración "Habilitar el menú del botón secundario" está bloqueada para que siempre
 esté desmarcada y ningún usuario la pueda cambiar. Esto se logra
-agregando la configuración a la clave del registro <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\Passionate-Coder\ClassicStartMenu</span>. Cree un valor DWORD llamado "EnableContextMenu" y establézcalo en 0.<br>
+agregando la configuración a la clave del registro <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\PassionateCoder\ClassicStartMenu</span>. Cree un valor DWORD llamado "EnableContextMenu" y establézcalo en 0.<br>
 <br>
 En algunos casos quizá no desee bloquear el valor para todos los usuarios, sino
 simplemente modificar el valor inicial de la configuración. En tal caso, agregue
@@ -188,7 +188,7 @@ menú contextual esté deshabilitado de manera predeterminada pero seguir permitie
 si les place, cree un valor DWORD con nombre "EnableContextMenu_Default"
 y establézcalo en 0.<br>
 <br>
-La manera más fácil de saber el nombre de una configuración en el registro y su valor es modificarla, y acto seguido buscarla en <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\Passionate-Coder\ClassicStartMenu\Settings</span>.<br>
+La manera más fácil de saber el nombre de una configuración en el registro y su valor es modificarla, y acto seguido buscarla en <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\PassionateCoder\ClassicStartMenu\Settings</span>.<br>
 
 Puede que a veces desee bloquear una configuración en su valor predeterminado, pero
 no sabe cuál es el valor predeterminado. De ser así, cree un valor DWORD y establézcalo

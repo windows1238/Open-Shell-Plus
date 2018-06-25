@@ -190,7 +190,7 @@ Classic Explorer 還原原始檔案總管狀態列，顯示可用磁碟空間和選取檔案的大小:<br>
 </ul>
 如果標籤或提示屬性以 <span style="font-weight: bold;">$</span> (錢字符號) 開頭，則系統將視其為 <span style="font-weight: bold;">ExplorerL10N.ini</span> 檔案中字串的名稱。 實際文字將根據目前語言設定而定。 這在建立多語言所使用的工具列時是有用的。<br>
 <br>
-<span style="font-weight: bold;">開發者提示: </span>自訂命令的按鈕能已勾選或已停用。 工具列檢查登錄檔機碼 <span style="font-weight: bold;">HKCU\Software\Passionate-Coder\ClassicExplorer</span> 對於含按鈕名稱的 DWORD 數值 (名稱用於左欄)。 0 表示正常，1 為已停用，2 為已勾選。 工具列在啟動時讀取登錄檔機碼。 若要強制按鈕更新其狀態在需要尋找所有的檔案總管視窗後，找到類別 <span style="font-weight: bold;">ClassicStart.CBandWindow</span> 的子視窗，並貼上訊息 <span style="font-weight: bold;">WM_CLEAR</span>。 如果您正在開發工作列所使用的自訂 exe 時是有用的。<br>
+<span style="font-weight: bold;">開發者提示: </span>自訂命令的按鈕能已勾選或已停用。 工具列檢查登錄檔機碼 <span style="font-weight: bold;">HKCU\Software\PassionateCoder\ClassicExplorer</span> 對於含按鈕名稱的 DWORD 數值 (名稱用於左欄)。 0 表示正常，1 為已停用，2 為已勾選。 工具列在啟動時讀取登錄檔機碼。 若要強制按鈕更新其狀態在需要尋找所有的檔案總管視窗後，找到類別 <span style="font-weight: bold;">ClassicStart.CBandWindow</span> 的子視窗，並貼上訊息 <span style="font-weight: bold;">WM_CLEAR</span>。 如果您正在開發工作列所使用的自訂 exe 時是有用的。<br>
 
 <br>
 <h1><a name="examples"></a>自訂命令範例</h1>
@@ -219,10 +219,10 @@ set list=%1<br>set list=%list:"=%<br>for /F "delims=" %%i in (%list%) do copy /Y
 
 <h1><a name="admin"></a>系統管理設定</h1>設定是每個使用者且存放在登錄檔。 預設每個使用者能編輯其所有的設定。 系統管理員能鎖定指定設定，因此沒有使用者能編輯:<br>
 <img style="width: 682px; height: 465px;" alt="" src="images/up_locked.png"><br>
-在此範例，設定「顯示上移按鈕」鎖定為始終「在上一頁/下一頁之前」且使用者無法變更。 這是透過加入設定到 <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\Passionate-Coder\ClassicExplorer</span> 登錄檔機碼來達成。 建立名稱為「ShowUpButton」的字串值並設成「BeforeBack」。<br>
+在此範例，設定「顯示上移按鈕」鎖定為始終「在上一頁/下一頁之前」且使用者無法變更。 這是透過加入設定到 <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\PassionateCoder\ClassicExplorer</span> 登錄檔機碼來達成。 建立名稱為「ShowUpButton」的字串值並設成「BeforeBack」。<br>
 <br>某些情形下您可能不要針對所有使用者鎖定數值，而只是簡單的修改設定的初始值。 在此情形則在數值的名稱加入「_Default」。 例如，如果您要預設 [上移] 按鈕在 [上一頁] 之前但仍允許使用者視需要變更，建立名稱為「ShowUpButton_Default」的字串值並設成「BeforeBack」。<br>
 <br>
-了解設定的登錄檔名稱與其數值之輕鬆方式，是修改它接著在以下機碼中尋找: <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\Passionate-Coder\ClassicExplorer\Settings</span>。<br>有時您可能要鎖定設定為預設值，但不知預設值為何。 則建立 DWORD 數值並設定成 0xDEFA。<br>
+了解設定的登錄檔名稱與其數值之輕鬆方式，是修改它接著在以下機碼中尋找: <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\PassionateCoder\ClassicExplorer\Settings</span>。<br>有時您可能要鎖定設定為預設值，但不知預設值為何。 則建立 DWORD 數值並設定成 0xDEFA。<br>
 <br>
 這也是全域設定 <span style="font-weight: bold;">EnableSettings</span>。 在登錄檔設定為 0 以防止使用者開啟 [設定] 對話方塊:<br>
 <img style="width: 603px; height: 257px;" alt="停用所有設定" title="停用所有設定" src="images/settings_disable_ex.png"><br>

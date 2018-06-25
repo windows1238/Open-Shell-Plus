@@ -53,7 +53,7 @@ ProcessWhiteList.tipOverride = Lista över processer som kan ladda Classic Explo
 ProcessBlackList.nameOverride = Processa svarta listan
 ProcessBlackList.tipOverride = Lista över processer som inte kommer att ladda Classic Explorer. Använd endast filnamnet av processen (som "notepad.exe"), separera flera namn med komma eller semikolon.
 ToolbarItems.nameOverride = Verktygsknappar
-ToolbarItems.tipOverride = Välj de knappar som ska visas i verktygsfältet.\nDet bästa sättet att få den rätta strängen är att konfigurera knapparna i Classic Explorer dialogrutan Inställningar och sedan leta upp värdet med namnet ToolbarItems in HKCU\Software\Passionate-Coder\ClassicExplorer\Settings
+ToolbarItems.tipOverride = Välj de knappar som ska visas i verktygsfältet.\nDet bästa sättet att få den rätta strängen är att konfigurera knapparna i Classic Explorer dialogrutan Inställningar och sedan leta upp värdet med namnet ToolbarItems in HKCU\Software\PassionateCoder\ClassicExplorer\Settings
 
 
 ; os-specific

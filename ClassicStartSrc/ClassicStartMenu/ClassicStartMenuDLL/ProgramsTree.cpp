@@ -860,8 +860,8 @@ void CProgramsTree::AddMetroApps( std::vector<CTreeItem*> &items )
 	ULONGLONG curTime;
 	GetSystemTimeAsFileTime((FILETIME*)&curTime);
 	CRegKey regKey;
-	if (regKey.Open(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStartMenu",KEY_WRITE)!=ERROR_SUCCESS)
-		regKey.Create(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStartMenu");
+	if (regKey.Open(HKEY_CURRENT_USER,L"Software\\PassionateCoder\\ClassicStartMenu",KEY_WRITE)!=ERROR_SUCCESS)
+		regKey.Create(HKEY_CURRENT_USER,L"Software\\PassionateCoder\\ClassicStartMenu");
 	regKey.SetQWORDValue(L"LastAppsTime",curTime);
 }
 
@@ -989,7 +989,7 @@ void CProgramsTree::GetFolderItems( std::vector<CTreeItem*> &items, HTREEITEM hP
 		pTreeItem->bAutoSort=false;
 	else
 		m_bAutoSort=false;
-	if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStartMenu\\Order",KEY_READ)==ERROR_SUCCESS)
+	if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\PassionateCoder\\ClassicStartMenu\\Order",KEY_READ)==ERROR_SUCCESS)
 	{
 		wchar_t name[100];
 		{
@@ -1699,8 +1699,8 @@ void CProgramsTree::OrderElements( HTREEITEM hChild, HTREEITEM hParent, const st
 	// save order
 	CRegKey regOrder;
 	wchar_t name[100];
-	if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStartMenu\\Order")!=ERROR_SUCCESS)
-		regOrder.Create(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStartMenu\\Order");
+	if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\PassionateCoder\\ClassicStartMenu\\Order")!=ERROR_SUCCESS)
+		regOrder.Create(HKEY_CURRENT_USER,L"Software\\PassionateCoder\\ClassicStartMenu\\Order");
 
 	Sprintf(name,_countof(name),L"%08X",folderHash);
 	if (bAutoSort)
@@ -1763,8 +1763,8 @@ void CProgramsTree::SaveRenamedOrder( HTREEITEM hItem, const CItemManager::ItemI
 	// save order
 	CRegKey regOrder;
 	wchar_t name[100];
-	if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStartMenu\\Order")!=ERROR_SUCCESS)
-		regOrder.Create(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStartMenu\\Order");
+	if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\PassionateCoder\\ClassicStartMenu\\Order")!=ERROR_SUCCESS)
+		regOrder.Create(HKEY_CURRENT_USER,L"Software\\PassionateCoder\\ClassicStartMenu\\Order");
 
 	Sprintf(name,_countof(name),L"%08X",folderHash);
 	regOrder.SetBinaryValue(name,&order[0],(int)order.size()*4);

@@ -281,7 +281,7 @@ dans le fichier <span style="font-weight: bold;">ExplorerL10N.ini</span>. Le tex
 d&#8217;outils qui peut &ecirc;tre utilis&eacute; dans des langages multiples.<br>
 <br>
 <span style="font-weight: bold;">Note aux d&eacute;veloppeurs : </span> Les boutons des commandes personnalis&eacute;es peuvent coch&eacute;s ou d&eacute;sactiv&eacute;s. La barre d&#8217;outils v&eacute;rifie la 
-clef de registrerie <span style="font-weight: bold;">HKCU\Software\Passionate-Coder\ClassicExplorer</span> pour une valeur avec le nom de ce bouton (le nom utilis&eacute; dans la colonne gauche). 
+clef de registrerie <span style="font-weight: bold;">HKCU\Software\PassionateCoder\ClassicExplorer</span> pour une valeur avec le nom de ce bouton (le nom utilis&eacute; dans la colonne gauche). 
 0 signifie normal, 1 signifie d&eacute;sactiv&eacute; et 2 signifie coch&eacute;. La barre d&#8217;outils lit la clef de registrerie au d&eacute;marrage. Pour forcer les boutons &agrave; mettre &agrave; jour leurs &eacute;tats apr&egrave;s &ccedil;a, 
 vous devez trouver toutes les fen&ecirc;tre de l&#8217;Explorateur, trouver la fen&ecirc;tre enfant avec la classe <span style="font-weight: bold;">ClassicStart.CBandWindow</span>, et 
 poster un message <span style="font-weight: bold;">WM_CLEAR</span>. Ceci est utile si vous d&eacute;veloppez un exe personnalis&eacute; pour &ecirc;tre utilis&eacute; par la barre d&#8217;outils.<br>
@@ -330,12 +330,12 @@ Un administrateur peut verrouiller des param&egrave;tres sp&eacute;cifiques, de 
 <br>
 <img style="width: 682px; height: 465px;" alt="" src="images/up_locked.png"><br>
 Dans cet exemple le param&egrave;tre &quot;Afficher le bouton Haut&quot; est verrouill&eacute; pour toujours &ecirc;tre &quot;Avant Pr&eacute;c&eacute;dent/Suivant&quot; et ne peut pas &ecirc;tre changer par aucun utilisateur.
-Ceci est effectu&eacute; par l&#8217;ajout du param&egrave;tre dans la clef de registrerie <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\Passionate-Coder\ClassicExplorer</span>. 
+Ceci est effectu&eacute; par l&#8217;ajout du param&egrave;tre dans la clef de registrerie <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\PassionateCoder\ClassicExplorer</span>. 
 Cr&eacute;ez une valeur cha&icirc;ne appel&eacute;e &quot;ShowUpButton&quot; et saisissez &quot;BeforeBack&quot;.<br>
 <br>Dans certains cas vous ne voudrez pas verrouiller la valeur pour tous les utilisateurs, mais simplement modifier la valeur initiale du param&egrave;tre. Dans ce cas, ajoutez &quot;_Default&quot; 
 au nom de la valeur. Par exemple si vous voulez que le bouton &quot;Haut&quot; soit avant le bouton &quot;Pr&eacute;c&eacute;dent&quot; par d&eacute;faut mais que vous voulez laisser les utilisateurs changer cet &eacute;tat comme ils le veulent, cr&eacute;ez une valeur cha&icirc;ne nomm&eacute;e &quot;ShowUpButton_Default&quot; et saisissez &quot;BeforeBack&quot;.<br>
 <br>
-La fa&ccedil;on la plus simple de conna&icirc;tre le nom de la registrerie correspondant &agrave; un param&egrave;tre et sa valeur, c&#8217;est de le modifier, et ensuite de le chercher dans <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\Passionate-Coder\ClassicExplorer\Settings</span>.<br>
+La fa&ccedil;on la plus simple de conna&icirc;tre le nom de la registrerie correspondant &agrave; un param&egrave;tre et sa valeur, c&#8217;est de le modifier, et ensuite de le chercher dans <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\PassionateCoder\ClassicExplorer\Settings</span>.<br>
 Quelques fois vous voudrez verrouiller un param&egrave;tre &agrave; sa valeur par d&eacute;faut, mais vous ne savez pas quelle est sa valeur par d&eacute;faut. Dans ce cas, cr&eacute;ez une valeur DWORD et saisissez 
 0xDEFA .<br>
 <br>

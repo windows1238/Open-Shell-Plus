@@ -305,7 +305,7 @@ Si los atributos etiqueta o consejo empiezan con <span style="font-weight: bold;
 lo tratará como el nombre de una cadena en el archivo <span style="font-weight: bold;">ExplorerL10N.ini</span>. El texto real dependerá de la configuración de idioma actual. Resulta
 útil al crear una barra de herramientas que pueda usarse en varios idiomas.<br>
 <br>
-<span style="font-weight: bold;">Nota para desarrolladores: </span>Los botones para comandos personalizados pueden marcarse o deshabilitarse. La barra de herramientas busca en la clave del registro <span style="font-weight: bold;">HKCU\Software\Passionate-Coder\ClassicExplorer</span>
+<span style="font-weight: bold;">Nota para desarrolladores: </span>Los botones para comandos personalizados pueden marcarse o deshabilitarse. La barra de herramientas busca en la clave del registro <span style="font-weight: bold;">HKCU\Software\PassionateCoder\ClassicExplorer</span>
 un valor DWORD con el nombre del botón (el nombre que se usa en la
 columna izquierda). 0 significa normal, 1 deshabilitado y 2 marcado. La barra de herramientas
 lee las claves del registro al iniciarse. Para forzar que los botones actualicen
@@ -364,7 +364,7 @@ modo que ningún usuario las pueda editar:<br>
 <img style="width: 682px; height: 465px;" alt="" src="images/up_locked.png"><br>
 En este ejemplo, la configuración "Mostrar el botón Subir" está bloqueada para que siempre esté
 "Antes de Atrás/Adelante" y ningún usuario la pueda cambiar. Esto se logra
-agregando la configuración a la clave del registro <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\Passionate-Coder\ClassicExplorer</span>. Cree un valor de cadena llamado "ShowUpButton" y establézcalo en "BeforeBack".<br>
+agregando la configuración a la clave del registro <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\PassionateCoder\ClassicExplorer</span>. Cree un valor de cadena llamado "ShowUpButton" y establézcalo en "BeforeBack".<br>
 <br>En algunos casos quizá no desee bloquear el valor para todos los usuarios, sino
 simplemente modificar el valor inicial de la configuración. En tal caso, agregue
 "_Default" al nombre del valor. Por ejemplo, si desea que el botón
@@ -372,7 +372,7 @@ Subir esté antes de Atrás de manera predeterminada pero seguir permitiendo que l
 si les place, cree un valor de cadena con nombre "ShowUpButton_Default" y
 establézcalo en "BeforeBack".<br>
 <br>
-La manera más fácil de saber el nombre de una configuración en el registro y su valor es modificarla, y acto seguido buscarla en <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\Passionate-Coder\ClassicExplorer\Settings</span>.<br>
+La manera más fácil de saber el nombre de una configuración en el registro y su valor es modificarla, y acto seguido buscarla en <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\PassionateCoder\ClassicExplorer\Settings</span>.<br>
 Puede que a veces desee bloquear una configuración en su valor predeterminado, pero no
 sabe cuál es el valor predeterminado. De ser así, cree un valor DWORD y establézcalo
 en 0xDEFA.<br>

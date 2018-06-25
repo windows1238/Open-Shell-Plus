@@ -213,7 +213,7 @@ no user can edit them:<br>
 <img src="images/settings5.png" style="width: 688px; height: 472px;" alt=""><br>
 In this example the setting "Enable right-click menu" is locked to always
 be unchecked and can't be changed by any user. This is achieved
-by adding the setting to the <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\Passionate-Coder\ClassicStartMenu</span> registry key. Create a DWORD value called "EnableContextMenu" and set it to 0.<br>
+by adding the setting to the <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\PassionateCoder\ClassicStartMenu</span> registry key. Create a DWORD value called "EnableContextMenu" and set it to 0.<br>
 <br>
 In some cases you may not want to lock the value for all users, but
 simply modify the initial value of the setting. In such case add
@@ -222,7 +222,7 @@ menu to be disabled by default but still allow the users to enable it
 if they wish, create a DWORD value named "EnableContextMenu_Default"
 and set it to 0.<br>
 <br>
-The easiest way to know the registry name of a setting and its value is to modify it, and then look it up in <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\Passionate-Coder\ClassicStartMenu\Settings</span>.<br>
+The easiest way to know the registry name of a setting and its value is to modify it, and then look it up in <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\PassionateCoder\ClassicStartMenu\Settings</span>.<br>
 
 Sometimes you may want to lock a setting to its default value, but you
 don't know what the default value is. Then create a DWORD value and set

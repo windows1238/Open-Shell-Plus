@@ -53,7 +53,7 @@ ProcessWhiteList.tipOverride = Übersicht der Prozesse die Classic Explorer ausf
 ProcessBlackList.nameOverride = Prozess Negativ Liste
 ProcessBlackList.tipOverride = Übersicht der Prozesse die Classic Explorer nicht ausführen dürfen. Verwenden Sie nur den Dateinamen des Prozesses (wie "notepad.exe"), trennen Sie mehrere Namen mit einem Komma oder Semikolon.
 ToolbarItems.nameOverride = Schaltflächen der Werkzeugleiste
-ToolbarItems.tipOverride = Wählen Sie die Schaltflächen aus die in der Werkzeugleiste angezeigt werden sollen.\nAm einfachsten erhalten Sie die richtige Bezeichnung für die Schaltfläche, wenn Sie die Schaltflächen im Menü für die Classic Explorer Einstellungen konfigurieren und dann den Registrierungswert "ToolbarItems" im Windows Registrierungschlüssel "HKCU\Software\Passionate-Coder\ClassicExplorer\Settings" auslesen.
+ToolbarItems.tipOverride = Wählen Sie die Schaltflächen aus die in der Werkzeugleiste angezeigt werden sollen.\nAm einfachsten erhalten Sie die richtige Bezeichnung für die Schaltfläche, wenn Sie die Schaltflächen im Menü für die Classic Explorer Einstellungen konfigurieren und dann den Registrierungswert "ToolbarItems" im Windows Registrierungschlüssel "HKCU\Software\PassionateCoder\ClassicExplorer\Settings" auslesen.
 
 
 ; os-specific

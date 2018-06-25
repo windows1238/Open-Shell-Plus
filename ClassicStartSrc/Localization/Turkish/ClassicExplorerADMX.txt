@@ -53,7 +53,7 @@ ProcessWhiteList.tipOverride = İşlemler listesi Klasik Gezgin tarafından yük
 ProcessBlackList.nameOverride = İşlemler kara listesi
 ProcessBlackList.tipOverride = İşlemler listesi Klasik Gezgin tarafından yüklenmeyecektir. Sadece işlemin dosya adını kullanın ("notepad.exe" gibi), birden çok ismi virgül veya noktalı virgülle ayırın.
 ToolbarItems.nameOverride = Araç çubuğu düğmeleri
-ToolbarItems.tipOverride = Araç çubuğunda gösterilecek düğmeleri seçin.\nDoğru dizeyi almanın en iyi yolu, Klasik Explorer ayarları iletişim penceresi düğmeleri yapılandırmak ve sonra HKCU\Software\Passionate-Coder\ClassicExplorer\Settings'deki ToolbarItems adlı değere bakmaktır. 
+ToolbarItems.tipOverride = Araç çubuğunda gösterilecek düğmeleri seçin.\nDoğru dizeyi almanın en iyi yolu, Klasik Explorer ayarları iletişim penceresi düğmeleri yapılandırmak ve sonra HKCU\Software\PassionateCoder\ClassicExplorer\Settings'deki ToolbarItems adlı değere bakmaktır. 
 
 
 ; os-specific
