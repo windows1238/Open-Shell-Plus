@@ -636,7 +636,7 @@ int GenerateUpdateFile( wchar_t *const *params, int count )
 			fwprintf(f,L"\t\t\tVALUE \"FileDescription\", \"Update information\"\r\n");
 			fwprintf(f,L"\t\t\tVALUE \"FileVersion\", \"%d, %d, %d, 0\"\r\n",v1,v2,v3);
 			fwprintf(f,L"\t\t\tVALUE \"InternalName\", \"Update\"\r\n");
-			fwprintf(f,L"\t\t\tVALUE \"LegalCopyright\", \"Copyright (C) 2009-2017, Ivo Beltchev\"\r\n");
+			fwprintf(f,L"\t\t\tVALUE \"LegalCopyright\", \"Copyright (C) 2017-2018, The Passionate-Coder Team\"\r\n");
 			fwprintf(f,L"\t\t\tVALUE \"OriginalFilename\", \"update.ver\"\r\n");
 			fwprintf(f,L"\t\t\tVALUE \"ProductName\", \"Classic Start\"\r\n");
 			fwprintf(f,L"\t\t\tVALUE \"ProductVersion\", \"%d, %d, %d, 0\"\r\n",v1,v2,v3);

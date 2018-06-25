@@ -286,7 +286,7 @@ BEGIN
             VALUE "FileDescription", "Adds classic Windows Explorer features"
             VALUE "FileVersion", _PRODUCT_VERSION_STR
             VALUE "InternalName", "ClassicExplorer.dll"
-            VALUE "LegalCopyright", "Copyright (C) 2009-2017, Ivo Beltchev"
+            VALUE "LegalCopyright", "Copyright (C) 2017-2018, The Passionate-Coder Team"
             VALUE "OriginalFilename", "ClassicExplorer.dll"
             VALUE "ProductName", "Classic Start"
             VALUE "ProductVersion", _PRODUCT_VERSION_STR

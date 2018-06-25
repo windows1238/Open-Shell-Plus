@@ -1,8 +1,9 @@
 =============================================================================
 License for the Classic Start Source Code (MIT license)
 
-Copyright (c) 2009-2017, Ivo Beltchev
-http://www.classicshell.net/
+Copyright (c) 2009-2017, Ivo Beltchev http://www.classicshell.net/
+Copyright (C) 2017-2018, The Passionate-Coder Team https://github.com/passionate-coder
+
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -26,8 +27,8 @@ THE SOFTWARE.
 =============================================================================
 License for the Classic Start source assets
 
-Copyright (c) 2009-2013, Ivo Beltchev
-http://www.classicshell.net/
+Copyright (c) 2009-2013, Ivo Beltchev http://www.classicshell.net/
+Copyright (C) 2017-2018, The Passionate-Coder Team https://github.com/passionate-coder
 
 Assets like bitmaps, icons, skins, HTML documentation are copyrighted works.
 Using them in a commercial project is not allowed without the author's written
