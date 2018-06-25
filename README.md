@@ -1,6 +1,10 @@
-# Classic Start ![Classic Shell](https://raw.githubusercontent.com/coddec/Classic-Shell/master/ClassicShellLoc/English/images/ClassicShell.png)
+# Classic Start ![Classic Shell](https://raw.githubusercontent.com/coddec/Classic-Shell/master/ClassicStartLoc/English/images/ClassicStart.png)
 
-Home Page: https://passionate-coder.github.io/Classic-Start/
+# Home Page: https://passionate-coder.github.io/Classic-Start/
+
+# Discussion forum: https://gitq.com/passionate-coder/Classic-Start
+
+# Discussion forum: https://gitter.im/passionate-coder
 
 # ---Changes required to make this file up to date---
 
@@ -31,6 +35,8 @@ Classic Shell Wikipedia Page: https://en.wikipedia.org/wiki/Classic_Shell
 
 FAQ Page: https://coddec.github.io/Classic-Shell/www.classicshell.net/faq/
 
+Forum: https://coddec.github.io/Classic-Shell/www.classicshell.net/forum/index.html
+
 How To Skin a Start Menu: https://coddec.github.io/Classic-Shell/www.classicshell.net/tutorials/skintutorial.html
 	
 Classic Shell - Custom Start Buttons: https://coddec.github.io/Classic-Shell/www.classicshell.net/tutorials/buttontutorial.html
@@ -53,4 +59,4 @@ https://github.com/passionate-coder/Classic-Start/releases
 
 
 ---
-[![Build status](https://ci.appveyor.com/api/projects/status/dib45bf3snylbydy/branch/master?svg=true)](https://ci.appveyor.com/project/passionate-coder/classic-start/branch/master)
+[![GitHub Release](https://img.shields.io/github/release/passionate-coder/Classic-Start.svg)](https://github.com/passionate-coder/Classic-Start/releases) [![Build status](https://ci.appveyor.com/api/projects/status/dib45bf3snylbydy/branch/master?svg=true)](https://ci.appveyor.com/project/passionate-coder/classic-start/branch/master) [![GitQ](https://gitq.com/badge.svg)](https://gitq.com/passionate-coder/Classic-Start) [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/passionate-coder/Disc-Chitchat)
