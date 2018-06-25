@@ -344,5 +344,4 @@ Final/
 Output/
 Temp/
 Localization/
-ClassicShellSrc/ClassicShellSetup/*.bin
-ClassicShellSrc/ClassicShellSetup/en-US/
+*.bin
