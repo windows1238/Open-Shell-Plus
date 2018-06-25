@@ -53,7 +53,7 @@ ProcessWhiteList.tipOverride = クラシックエクスプローラーをロー�
 ProcessBlackList.nameOverride = プロセスのブラックリスト
 ProcessBlackList.tipOverride = クラシックエクスプローラーをロードすることを許可しないプロセスリストです。（例：メモ帳）プロセスのファイル名のみ、コンマまたはセミコロンで区切り、複数の名前を使用してください。
 ToolbarItems.nameOverride = ツールバーボタン
-ToolbarItems.tipOverride = ツールバーで表示するボタンを選択します。\n右の文字列を取得するための最良の方法は、［クラシックエクスプローラー設定]のダイアログボックスのボタンを設定し、〔HKCU\Software\IvoSoft\ClassicExplorer\Setting〕からToolbarItemsの名称の値を検索します
+ToolbarItems.tipOverride = ツールバーで表示するボタンを選択します。\n右の文字列を取得するための最良の方法は、［クラシックエクスプローラー設定]のダイアログボックスのボタンを設定し、〔HKCU\Software\Passionate-Coder\ClassicExplorer\Setting〕からToolbarItemsの名称の値を検索します
 
 
 ; os-specific

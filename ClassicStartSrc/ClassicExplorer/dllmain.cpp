@@ -97,7 +97,7 @@ static DWORD CALLBACK DllInitThread( void* )
 	{
 		g_bLogLevel=false;
 		CRegKey regKey;
-		if (regKey.Open(HKEY_CURRENT_USER,L"Software\\IvoSoft\\ClassicExplorer\\Settings",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
+		if (regKey.Open(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicExplorer\\Settings",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
 		{
 			DWORD log;
 			if (regKey.QueryDWORDValue(L"LogLevel",log)==ERROR_SUCCESS)

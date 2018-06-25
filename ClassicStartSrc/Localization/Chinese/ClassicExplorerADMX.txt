@@ -53,7 +53,7 @@ ProcessWhiteList.tipOverride = 可以加载经典资源管理器的进程列表�
 ProcessBlackList.nameOverride = 进程黑名单
 ProcessBlackList.tipOverride = 不允许加载经典资源管理器的进程列表。列表中仅列出进程的名称（不含路径，如“notepad.exe”），如果有多个进程，可使用半角的逗号（“,”）或分号（“;”）分隔。
 ToolbarItems.nameOverride = 工具栏按钮
-ToolbarItems.tipOverride = 选择在工具栏上显示的按钮。\n提示：要获取设置值，可以在经典“开始”菜单的“设置”对话框中指定热键，然后，在注册表“HKCU\Software\IvoSoft\ClassicExplorer\Settings”键中寻找名称为“ToolbarItems”的键值。
+ToolbarItems.tipOverride = 选择在工具栏上显示的按钮。\n提示：要获取设置值，可以在经典“开始”菜单的“设置”对话框中指定热键，然后，在注册表“HKCU\Software\Passionate-Coder\ClassicExplorer\Settings”键中寻找名称为“ToolbarItems”的键值。
 
 
 ; os-specific

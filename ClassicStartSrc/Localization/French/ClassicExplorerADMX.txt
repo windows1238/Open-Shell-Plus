@@ -53,7 +53,7 @@ ProcessWhiteList.tipOverride = Liste des processus qui pourront charger Classic 
 ProcessBlackList.nameOverride = Liste noir des processus
 ProcessBlackList.tipOverride =  Liste des processus qui ne pourront pas charger Classic Explorer. Utilisez seulement le nom du fichier du processus (comme "notepad.exe"), séparez les noms multiples avec une virgule ou un point virgule.
 ToolbarItems.nameOverride = Boutons de la barre d'outils
-ToolbarItems.tipOverride = Sélectionnez les boutons à afficher dans la barre d'outils.\nLa meilleur façon d'obtenir la bonne chaîne est de configurerles boutons dans la boîte de dialogue des paramètres de Classic Explorer et de chercher la valeur nommé ToolbarItems dans HKCU\Software\IvoSoft\ClassicExplorer\Settings
+ToolbarItems.tipOverride = Sélectionnez les boutons à afficher dans la barre d'outils.\nLa meilleur façon d'obtenir la bonne chaîne est de configurerles boutons dans la boîte de dialogue des paramètres de Classic Explorer et de chercher la valeur nommé ToolbarItems dans HKCU\Software\Passionate-Coder\ClassicExplorer\Settings
 
 
 ; os-specific

@@ -357,7 +357,7 @@ int WINAPI wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpstrC
 	{
 		WaitDllInitThread();
 		CRegKey regKey;
-		if (regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\IvoSoft\\ClassicStart",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
+		if (regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\Passionate-Coder\\ClassicStart",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
 		{
 			DWORD ver1;
 			if (regKey.QueryDWORDValue(L"WinVersion",ver1)==ERROR_SUCCESS)
@@ -396,7 +396,7 @@ int WINAPI wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpstrC
 	{
 		WaitDllInitThread();
 		CRegKey regKey;
-		DWORD error=regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\IvoSoft\\ClassicStart",KEY_WRITE|KEY_WOW64_64KEY);
+		DWORD error=regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\Passionate-Coder\\ClassicStart",KEY_WRITE|KEY_WOW64_64KEY);
 		const wchar_t *nl=error==ERROR_SUCCESS?L"\r\n\r\n":L"\r\n";
 		if (error==ERROR_SUCCESS)
 		{

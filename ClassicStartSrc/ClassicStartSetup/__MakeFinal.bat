@@ -10,6 +10,7 @@ rem git clean -dfx
 @set CS_VERSION=4.3.2
 
 @if defined APPVEYOR_BUILD_VERSION (
+@if defined APPVEYOR_BUILD_VERSION (
 	@set CS_VERSION=%APPVEYOR_BUILD_VERSION%
 )
 

@@ -284,7 +284,7 @@ The command can be:<br>
 文件。实际的文本将取决于当前语言设置。这
 当创建一个工具栏是有用的,可以被多个语言使用.<br>
 <br>
-<span style="font-weight: bold;">开发人员提示: </span>按钮为自定义命令可以检查或禁用。工具栏检查注册表键 <span style="font-weight: bold;">HKCU\Software\IvoSoft\ClassicExplorer</span>
+<span style="font-weight: bold;">开发人员提示: </span>按钮为自定义命令可以检查或禁用。工具栏检查注册表键 <span style="font-weight: bold;">HKCU\Software\Passionate-Coder\ClassicExplorer</span>
 对于一个DWORD值的名称按钮(左中使用的名称
 列)。0表示正常,1和2是检查是禁用的。工具栏
 在启动时读取注册表的键值。迫使按钮来更新
@@ -342,10 +342,10 @@ del %1<br style="font-family: monospace;"></span></span>
 <img style="width: 688px; height: 471px;" alt="" src="images/up_locked.png"><br>
 在这个例子中,设置“显示按钮”是锁定的,永远
 “之前后退/前进”,不能改变任何用户。这是实现
-通过添加设置 <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\IvoSoft\ClassicExplorer</span> 注册表键。创建一个字符串值称为“ShowUpButton”,并将它设置为“BeforeBack”.<br>
+通过添加设置 <span style="font-weight: bold;">HKEY_LOCAL_MACHINE\SOFTWARE\Passionate-Coder\ClassicExplorer</span> 注册表键。创建一个字符串值称为“ShowUpButton”,并将它设置为“BeforeBack”.<br>
 <br>
 在某些情况下,您可能不希望锁定为所有用户的值,只是修改初始值的设置。在这样的情况下添加“默认”名称的值。例如,如果你想要向上按钮是默认之前回来,但仍允许用户改变它,如果他们愿意,创建一个字符串值命名为“ShowUpButton_Default”,并将它设置为“BeforeBack”。<br><br>
-最简单的方式了解注册表名称的设置及修改它,然后检查<span style="font-weight: bold;">HKEY_CURRENT_USER\Software\IvoSoft\ClassicExplorer\Settings</span>.<br>
+最简单的方式了解注册表名称的设置及修改它,然后检查<span style="font-weight: bold;">HKEY_CURRENT_USER\Software\Passionate-Coder\ClassicExplorer\Settings</span>.<br>
 有时你可能想锁定设置为默认值,但你
 不知道默认值是多少时。然后创建一个DWORD值和设置
 为 0xDEFA.<br>

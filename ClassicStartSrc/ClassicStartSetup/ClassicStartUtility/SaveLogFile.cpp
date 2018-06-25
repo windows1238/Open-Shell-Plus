@@ -667,10 +667,10 @@ static void WriteLogFile( FILE *f )
 	// classic shell version
 	{
 		CRegKey regKey;
-		DWORD err=regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\IvoSoft\\ClassicStart",KEY_READ|KEY_WOW64_64KEY);
+		DWORD err=regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\Passionate-Coder\\ClassicStart",KEY_READ|KEY_WOW64_64KEY);
 		if (err!=ERROR_SUCCESS)
 		{
-			fwprintf(f,L"\tFailed to read HKLM\\Software\\IvoSoft\\ClassicStart - 0x%08X\r\n",err);
+			fwprintf(f,L"\tFailed to read HKLM\\Software\\Passionate-Coder\\ClassicStart - 0x%08X\r\n",err);
 		}
 		else
 		{

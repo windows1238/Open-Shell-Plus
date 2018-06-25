@@ -53,7 +53,7 @@ ProcessWhiteList.tipOverride = Списък на процеси, за които
 ProcessBlackList.nameOverride = Черен списък на процеси
 ProcessBlackList.tipOverride = Списък на процеси, за които е забранено да използват Classic Explorer. Използвайте само имена на файлове (например 'notepad.exe'). Разделяйте отделните имена със запетая или точка и запетая
 ToolbarItems.nameOverride = Бутони за лентата
-ToolbarItems.tipOverride = Изберете кои бутони да се показват в лентата с бутоните.\nНай-добрият метод за получаване на правилния текст е първо да конфигурирате бутоните в диалога с настройките и после да вземете текста от стойността ToolbarItems от HKCU\Software\IvoSoft\ClassicExplorer\Settings
+ToolbarItems.tipOverride = Изберете кои бутони да се показват в лентата с бутоните.\nНай-добрият метод за получаване на правилния текст е първо да конфигурирате бутоните в диалога с настройките и после да вземете текста от стойността ToolbarItems от HKCU\Software\Passionate-Coder\ClassicExplorer\Settings
 
 ; os-specific
 FileExplorer.nameOverride = Подмени диалозите само в Explorer (подобрява скоростта)

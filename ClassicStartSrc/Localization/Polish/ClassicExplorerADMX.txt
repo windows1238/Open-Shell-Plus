@@ -53,7 +53,7 @@ ProcessWhiteList.tipOverride = Lista procesów, które może załadować Classic
 ProcessBlackList.nameOverride = Proces czarnej listy
 ProcessBlackList.tipOverride = Lista procesów, których nie może załadować Classic Explorer. Użyj tylko nazwy pliku procesu (np. "notepad.exe"), wiele nazw oddziel przecinkiem lub średnikiem.
 ToolbarItems.nameOverride = Przyciski paska narzędzi
-ToolbarItems.tipOverride = Wybierz przyciski, które będą wyświetlane na pasku narzędzi.\nNajlepszym sposobem, aby uzyskać prawidłowy ciąg jest skonfigurowanie przycisków w oknie dialogowym Ustawienia Classic Explorer, a następnie sprawdzenie wartości o nazwie ToolbarItems w HKCU\Software\IvoSoft\ClassicExplorer\Settings
+ToolbarItems.tipOverride = Wybierz przyciski, które będą wyświetlane na pasku narzędzi.\nNajlepszym sposobem, aby uzyskać prawidłowy ciąg jest skonfigurowanie przycisków w oknie dialogowym Ustawienia Classic Explorer, a następnie sprawdzenie wartości o nazwie ToolbarItems w HKCU\Software\Passionate-Coder\ClassicExplorer\Settings
 
 
 ; os-specific

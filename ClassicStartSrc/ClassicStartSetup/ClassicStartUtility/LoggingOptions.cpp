@@ -115,22 +115,22 @@ CString CLoggingDialog::GetPathForLink( int link )
 
 LRESULT CLoggingDialog::OnInitDialog( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
 {
-	DWORD log=GetSetting(L"Software\\IvoSoft\\ClassicStartMenu\\Settings",L"LogCategories");
+	DWORD log=GetSetting(L"Software\\Passionate-Coder\\ClassicStartMenu\\Settings",L"LogCategories");
 	for (int i=0;i<_countof(g_MenuCheckboxes);i++)
 	{
 		if (log&g_MenuCheckboxes[i][1])
 			CheckDlgButton(g_MenuCheckboxes[i][0],BST_CHECKED);
 	}
 
-	log=GetSetting(L"Software\\IvoSoft\\ClassicStartMenu\\Settings",L"LogStartup");
+	log=GetSetting(L"Software\\Passionate-Coder\\ClassicStartMenu\\Settings",L"LogStartup");
 	if (log)
 		CheckDlgButton(IDC_CHECKSTARTUP,BST_CHECKED);
 
-	log=GetSetting(L"Software\\IvoSoft\\ClassicExplorer\\Settings",L"LogLevel");
+	log=GetSetting(L"Software\\Passionate-Coder\\ClassicExplorer\\Settings",L"LogLevel");
 	if (log)
 		CheckDlgButton(IDC_CHECKEXPLORER,BST_CHECKED);
 
-	log=GetSetting(L"Software\\IvoSoft\\ClassicIE\\Settings",L"LogLevel");
+	log=GetSetting(L"Software\\Passionate-Coder\\ClassicIE\\Settings",L"LogLevel");
 	if (log)
 		CheckDlgButton(IDC_CHECKIE,BST_CHECKED);
 
@@ -156,30 +156,30 @@ LRESULT CLoggingDialog::OnOK( WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bH
 		if (IsDlgButtonChecked(g_MenuCheckboxes[i][0])==BST_CHECKED)
 			log|=g_MenuCheckboxes[i][1];
 	}
-	if (log!=GetSetting(L"Software\\IvoSoft\\ClassicStartMenu\\Settings",L"LogCategories"))
+	if (log!=GetSetting(L"Software\\Passionate-Coder\\ClassicStartMenu\\Settings",L"LogCategories"))
 	{
-		SetSetting(L"Software\\IvoSoft\\ClassicStartMenu\\Settings",L"LogCategories",log);
+		SetSetting(L"Software\\Passionate-Coder\\ClassicStartMenu\\Settings",L"LogCategories",log);
 		res=1;
 	}
 
 	log=IsDlgButtonChecked(IDC_CHECKSTARTUP)==BST_CHECKED?1:0;
-	if (log!=GetSetting(L"Software\\IvoSoft\\ClassicStartMenu\\Settings",L"LogStartup"))
+	if (log!=GetSetting(L"Software\\Passionate-Coder\\ClassicStartMenu\\Settings",L"LogStartup"))
 	{
-		SetSetting(L"Software\\IvoSoft\\ClassicStartMenu\\Settings",L"LogStartup",log);
+		SetSetting(L"Software\\Passionate-Coder\\ClassicStartMenu\\Settings",L"LogStartup",log);
 		res=1;
 	}
 
 	log=IsDlgButtonChecked(IDC_CHECKEXPLORER)==BST_CHECKED?1:0;
-	if (log!=GetSetting(L"Software\\IvoSoft\\ClassicExplorer\\Settings",L"LogLevel"))
+	if (log!=GetSetting(L"Software\\Passionate-Coder\\ClassicExplorer\\Settings",L"LogLevel"))
 	{
-		SetSetting(L"Software\\IvoSoft\\ClassicExplorer\\Settings",L"LogLevel",log);
+		SetSetting(L"Software\\Passionate-Coder\\ClassicExplorer\\Settings",L"LogLevel",log);
 		res=1;
 	}
 
 	log=IsDlgButtonChecked(IDC_CHECKIE)==BST_CHECKED?1:0;
-	if (log!=GetSetting(L"Software\\IvoSoft\\ClassicIE\\Settings",L"LogLevel"))
+	if (log!=GetSetting(L"Software\\Passionate-Coder\\ClassicIE\\Settings",L"LogLevel"))
 	{
-		SetSetting(L"Software\\IvoSoft\\ClassicIE\\Settings",L"LogLevel",log);
+		SetSetting(L"Software\\Passionate-Coder\\ClassicIE\\Settings",L"LogLevel",log);
 		res=1;
 	}
 

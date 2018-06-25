@@ -53,7 +53,7 @@ ProcessWhiteList.tipOverride = 能載入 Classic Explorer 的處理程序清單�
 ProcessBlackList.nameOverride = 處理黑名單
 ProcessBlackList.tipOverride = 不載入 Classic Explorer 的處理程序清單。 只使用處理程序的名稱 (比如「notepad.exe」)，以 , 或 ; 分隔多個名稱。
 ToolbarItems.nameOverride = 工具列按鈕
-ToolbarItems.tipOverride = 選取顯示在工具列的按鈕。\n取得正確字串的最佳方式，在 Classic Start Menu 設定對話方塊組態按鈕，接著在以下位置尋找名稱 ToolbarItems 的數值 HKCU\Software\IvoSoft\ClassicExplorer\Settings
+ToolbarItems.tipOverride = 選取顯示在工具列的按鈕。\n取得正確字串的最佳方式，在 Classic Start Menu 設定對話方塊組態按鈕，接著在以下位置尋找名稱 ToolbarItems 的數值 HKCU\Software\Passionate-Coder\ClassicExplorer\Settings
 
 
 ; os-specific

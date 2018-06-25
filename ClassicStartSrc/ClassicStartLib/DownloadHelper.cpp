@@ -371,7 +371,7 @@ static DWORD WINAPI ThreadVersionCheck( void *param )
 	DWORD curTime=(DWORD)(curTimeL/TIME_DIVISOR); // in 0.01 hours
 
 	CRegKey regKey;
-	if (regKey.Open(HKEY_CURRENT_USER,L"Software\\IvoSoft\\ClassicStart")!=ERROR_SUCCESS)
+	if (regKey.Open(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStart")!=ERROR_SUCCESS)
 	{
 		g_bCheckingVersion=false;
 		return 0;
@@ -605,8 +605,8 @@ DWORD CheckForNewVersion( HWND owner, TSettingsComponent component, TVersionChec
 			return 0; // the build is more than a year old, don't do automatic updates
 
 		CRegKey regKey;
-		if (regKey.Open(HKEY_CURRENT_USER,L"Software\\IvoSoft\\ClassicStart")!=ERROR_SUCCESS)
-			regKey.Create(HKEY_CURRENT_USER,L"Software\\IvoSoft\\ClassicStart");
+		if (regKey.Open(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStart")!=ERROR_SUCCESS)
+			regKey.Create(HKEY_CURRENT_USER,L"Software\\Passionate-Coder\\ClassicStart");
 
 		DWORD lastVersion;
 		if (regKey.QueryDWORDValue(L"LastUpdateVersion",lastVersion)!=ERROR_SUCCESS)
@@ -866,7 +866,7 @@ VersionData::TLoadResult VersionData::Load( const wchar_t *fname, bool bLoadFlag
 	wchar_t defLang[100]=L"";
 	{
 		CRegKey regKeyLng;
-		if (regKeyLng.Open(HKEY_LOCAL_MACHINE,L"Software\\IvoSoft\\ClassicStart",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
+		if (regKeyLng.Open(HKEY_LOCAL_MACHINE,L"Software\\Passionate-Coder\\ClassicStart",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
 		{
 			ULONG size=_countof(defLang);
 			if (regKeyLng.QueryStringValue(L"DefaultLanguage",defLang,&size)!=ERROR_SUCCESS)

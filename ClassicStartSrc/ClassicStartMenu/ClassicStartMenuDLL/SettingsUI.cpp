@@ -4627,7 +4627,7 @@ void UpdateSettings( void )
 	{
 		CRegKey regKey;
 		wchar_t language[100]=L"";
-		if (regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\IvoSoft\\ClassicStart",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
+		if (regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\Passionate-Coder\\ClassicStart",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
 		{
 			ULONG size=_countof(language);
 			if (regKey.QueryStringValue(L"DefaultLanguage",language,&size)!=ERROR_SUCCESS)

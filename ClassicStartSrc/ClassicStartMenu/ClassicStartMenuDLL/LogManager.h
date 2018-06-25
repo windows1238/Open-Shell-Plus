@@ -32,4 +32,4 @@ void InitLog( int categories, const wchar_t *fname );
 void CloseLog( void );
 void LogMessage( const wchar_t *text, ... );
 
-#define STARTUP_LOG L"Software\\IvoSoft\\ClassicStartMenu\\Settings|LogStartup|%LOCALAPPDATA%\\ClassicStart\\StartupLog.txt"
+#define STARTUP_LOG L"Software\\Passionate-Coder\\ClassicStartMenu\\Settings|LogStartup|%LOCALAPPDATA%\\ClassicStart\\StartupLog.txt"

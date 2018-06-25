@@ -381,7 +381,7 @@ int APIENTRY wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
 	DWORD version;
 	{
 		HKEY hKey;
-		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE,L"SOFTWARE\\IvoSoft\\ClassicStart",0,KEY_READ|(b64?KEY_WOW64_64KEY:0),&hKey)==ERROR_SUCCESS)
+		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE,L"SOFTWARE\\Passionate-Coder\\ClassicStart",0,KEY_READ|(b64?KEY_WOW64_64KEY:0),&hKey)==ERROR_SUCCESS)
 		{
 			DWORD size=sizeof(version);
 			if (RegQueryValueEx(hKey,L"Version",0,NULL,(BYTE*)&version,&size)!=ERROR_SUCCESS)

@@ -555,7 +555,7 @@
         </DirectoryRef>
         <DirectoryRef Id="TARGETDIR">
             <Component Id="IvoSoft" Guid="19EC9EFC-B901-4EAB-B800-6E98D2261077" Win64="$(var.CS_WIN64)">
-                <RegistryKey Root="HKLM" Key="Software\IvoSoft\ClassicStart">
+                <RegistryKey Root="HKLM" Key="Software\Passionate-Coder\ClassicStart">
                     <RegistryValue Type="integer" Name="Version" KeyPath="yes" Value="$(env.CS_VERSION_NUM)" />
                     <RegistryValue Type="string" Name="Path" Value="[APPLICATIONFOLDER]" />
                     <?if $(var.CS_LANG_NAME)!="en-US" ?>
@@ -642,7 +642,7 @@
             <RegistrySearch Id="IEBuild" Root="HKLM" Key="Software\Microsoft\Internet Explorer" Name="Build" Type="raw" />
         </Property>
         <Property Id="APPLICATIONFOLDER">
-            <RegistrySearch Id="Path" Root="HKLM" Key="Software\IvoSoft\ClassicStart" Name="Path" Type="raw" Win64="$(var.CS_WIN64)" />
+            <RegistrySearch Id="Path" Root="HKLM" Key="Software\Passionate-Coder\ClassicStart" Name="Path" Type="raw" Win64="$(var.CS_WIN64)" />
         </Property>
         <CustomAction Id="ViewReadme" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
         <CustomAction Id="LaunchStartMenu" Impersonate="yes" ExeCommand="" FileKey="ClassicStartMenu.exe" Return="asyncNoWait" />

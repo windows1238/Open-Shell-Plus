@@ -31,4 +31,4 @@ enum
 	IE_SETTING_PROTECTED=8,
 };
 
-#define CIE_LOG L"Software\\IvoSoft\\ClassicIE\\Settings|LogLevel|%LOCALAPPDATA%\\ClassicStart\\ClassicIELog.txt"
+#define CIE_LOG L"Software\\Passionate-Coder\\ClassicIE\\Settings|LogLevel|%LOCALAPPDATA%\\ClassicStart\\ClassicIELog.txt"

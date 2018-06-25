@@ -53,7 +53,7 @@ ProcessWhiteList.tipOverride = List of processes that can load Classic Explorer.
 ProcessBlackList.nameOverride = Process black list
 ProcessBlackList.tipOverride = List of processes that will not load Classic Explorer. Use only the file name of the process (like "notepad.exe"), separate multiple names with a comma or semicolon.
 ToolbarItems.nameOverride = Toolbar buttons
-ToolbarItems.tipOverride = Select the buttons to be shown in the toolbar.\nThe best way to get the right string is to configure the buttons in the Classic Explorer settings dialog and then look up the value named ToolbarItems in HKCU\Software\IvoSoft\ClassicExplorer\Settings
+ToolbarItems.tipOverride = Select the buttons to be shown in the toolbar.\nThe best way to get the right string is to configure the buttons in the Classic Explorer settings dialog and then look up the value named ToolbarItems in HKCU\Software\Passionate-Coder\ClassicExplorer\Settings
 NoInitialToolbar.nameOverride = No initial showing of the toolbar
 NoInitialToolbar.tipOverride = When this is checked, the Explorer toolbar will not be automatically displayed
 

@@ -15,7 +15,7 @@ HINSTANCE g_hInstance;
 int ExitStartMenu( void )
 {
 	HKEY hKey=NULL;
-	if (RegCreateKeyEx(HKEY_LOCAL_MACHINE,L"SOFTWARE\\IvoSoft\\ClassicStart",0,NULL,REG_OPTION_NON_VOLATILE,KEY_READ|KEY_QUERY_VALUE|KEY_WOW64_64KEY,NULL,&hKey,NULL)==ERROR_SUCCESS)
+	if (RegCreateKeyEx(HKEY_LOCAL_MACHINE,L"SOFTWARE\\Passionate-Coder\\ClassicStart",0,NULL,REG_OPTION_NON_VOLATILE,KEY_READ|KEY_QUERY_VALUE|KEY_WOW64_64KEY,NULL,&hKey,NULL)==ERROR_SUCCESS)
 	{
 		DWORD type=0;
 		wchar_t path[_MAX_PATH];
@@ -50,7 +50,7 @@ int ExitStartMenu( void )
 int FixVersion( void )
 {
 	HKEY hKey=NULL;
-	if (RegCreateKeyEx(HKEY_LOCAL_MACHINE,L"SOFTWARE\\IvoSoft\\ClassicStart",0,NULL,REG_OPTION_NON_VOLATILE,KEY_READ|KEY_WRITE|KEY_WOW64_64KEY,NULL,&hKey,NULL)==ERROR_SUCCESS)
+	if (RegCreateKeyEx(HKEY_LOCAL_MACHINE,L"SOFTWARE\\Passionate-Coder\\ClassicStart",0,NULL,REG_OPTION_NON_VOLATILE,KEY_READ|KEY_WRITE|KEY_WOW64_64KEY,NULL,&hKey,NULL)==ERROR_SUCCESS)
 	{
 		DWORD winVer=GetVersionEx(GetModuleHandle(L"user32.dll"));
 		RegSetValueEx(hKey,L"WinVersion",NULL,REG_DWORD,(BYTE*)&winVer,sizeof(DWORD));

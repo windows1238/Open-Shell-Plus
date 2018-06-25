@@ -171,7 +171,7 @@ static void StartStartMenu( void )
 	path[0]=0;
 	{
 		CRegKey regKey;
-		if (regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\IvoSoft\\ClassicStart",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
+		if (regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\Passionate-Coder\\ClassicStart",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
 		{
 			ULONG size=_countof(path);
 			if (regKey.QueryStringValue(L"Path",path,&size)!=ERROR_SUCCESS)
@@ -270,7 +270,7 @@ static void InstallUpgradeTask( bool bInstall )
 	exePath[0]=0;
 	{
 		CRegKey regKey;
-		if (regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\IvoSoft\\ClassicStart",KEY_READ|KEY_WRITE|KEY_WOW64_64KEY)==ERROR_SUCCESS)
+		if (regKey.Open(HKEY_LOCAL_MACHINE,L"Software\\Passionate-Coder\\ClassicStart",KEY_READ|KEY_WRITE|KEY_WOW64_64KEY)==ERROR_SUCCESS)
 		{
 			if (bInstall)
 			{
