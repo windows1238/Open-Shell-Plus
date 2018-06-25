@@ -996,7 +996,7 @@ static void ManualUninstallInternal( void )
 	DeleteRegKeySOFTWARE(L"Microsoft\\Windows\\CurrentVersion\\Explorer\\Browser Helper Objects\\{449D0D6E-2412-4E61-B68F-1CB625CD9E52}",bIsWow64);
 	DeleteRegKeySOFTWARE(L"Microsoft\\Windows\\CurrentVersion\\Explorer\\Browser Helper Objects\\{EA801577-E6AD-4BD5-8F71-4BE0154331A4}",bIsWow64);
 	DeleteRegKeySOFTWARE(L"Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\ShareOverlay",bIsWow64);
-	DeleteRegKeySOFTWARE(L"IvoSoft\\ClassicStart",bIsWow64);
+	DeleteRegKeySOFTWARE(L"Passionate-Coder\\ClassicStart",bIsWow64);
 	DeleteRegKeySOFTWARE(L"Passionate-Coder\\ClassicStart",bIsWow64);
 
 	DeleteRegValueSOFTWARE(L"Microsoft\\Internet Explorer\\Toolbar",L"{553891B7-A0D5-4526-BE18-D3CE461D6310}",bIsWow64);

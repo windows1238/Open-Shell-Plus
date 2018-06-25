@@ -18,7 +18,7 @@
 <?define CS_WIN64  = "no"?>
 <?endif ?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Product Id="*" Name="Classic Start" Language="1033" Version="$(env.CS_VERSION)" Manufacturer="IvoSoft" UpgradeCode="$(var.CS_UPGRADE)">
+    <Product Id="*" Name="Classic Start" Language="1033" Version="$(env.CS_VERSION)" Manufacturer="Passionate-Coder" UpgradeCode="$(var.CS_UPGRADE)">
         <Package Description="Classic Start" Comments="Classic Start" InstallerVersion="500" Compressed="yes" Platform="$(var.CS_PLATFORM)" />
         <Media Id="1" Cabinet="cshell.cab" EmbedCab="yes" CompressionLevel="high"/>
         <Media Id="2" Cabinet="simple.cab" EmbedCab="yes" CompressionLevel="high"/>
@@ -49,7 +49,7 @@
             <ComponentRef Id="ClassicStart.chm" />
             <ComponentRef Id="ClassicStartReadme.rtf" />
             <ComponentRef Id="HISTORY.txt" />
-            <ComponentRef Id="IvoSoft" />
+            <ComponentRef Id="Passionate-Coder" />
             <ComponentRef Id="TreatAs" />
             <ComponentRef Id="HelpLink" />
             <ComponentRef Id="ReadmeLink" />
@@ -554,7 +554,7 @@
             </Component>
         </DirectoryRef>
         <DirectoryRef Id="TARGETDIR">
-            <Component Id="IvoSoft" Guid="19EC9EFC-B901-4EAB-B800-6E98D2261077" Win64="$(var.CS_WIN64)">
+            <Component Id="Passionate-Coder" Guid="19EC9EFC-B901-4EAB-B800-6E98D2261077" Win64="$(var.CS_WIN64)">
                 <RegistryKey Root="HKLM" Key="Software\Passionate-Coder\ClassicStart">
                     <RegistryValue Type="integer" Name="Version" KeyPath="yes" Value="$(env.CS_VERSION_NUM)" />
                     <RegistryValue Type="string" Name="Path" Value="[APPLICATIONFOLDER]" />

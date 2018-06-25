@@ -3,7 +3,7 @@
 <assemblyIdentity
     version="1.0.0.0"
     processorArchitecture="X86"
-    name="IvoSoft.ClassicStartSetup"
+    name="Passionate-Coder.ClassicStartSetup"
     type="win32"
 />
 <description>Classic Start Setup</description>

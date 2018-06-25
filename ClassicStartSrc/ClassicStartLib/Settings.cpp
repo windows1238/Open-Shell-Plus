@@ -2385,7 +2385,7 @@ static const char *g_AdmxText1a=
 "\t<policyNamespaces>\r\n";
 
 static const char *g_AdmxText1cs=
-"\t\t<target prefix=\"classic_shell\" namespace=\"IvoSoft.Policies.ClassicStart\" />\r\n"
+"\t\t<target prefix=\"classic_shell\" namespace=\"Passionate-Coder.Policies.ClassicStart\" />\r\n"
 "\t</policyNamespaces>\r\n"
 "\t<supersededAdm fileName=\"\" />\r\n"
 "\t<resources minRequiredRevision=\"1.0\"/>\r\n"
@@ -2398,8 +2398,8 @@ static const char *g_AdmxText1cs=
 "\t\t<category name=\"ClassicStart\" displayName=\"$(string.ClassicStartCat)\" explainText=\"$(string.ClassicStartCatHelp)\"/>\r\n";
 
 static const char *g_AdmxText1csm=
-"\t\t<target prefix=\"classic_start_menu\" namespace=\"IvoSoft.Policies.ClassicStartMenu\" />\r\n"
-"\t\t<using prefix=\"classic_shell\" namespace=\"IvoSoft.Policies.ClassicStart\" />\r\n"
+"\t\t<target prefix=\"classic_start_menu\" namespace=\"Passionate-Coder.Policies.ClassicStartMenu\" />\r\n"
+"\t\t<using prefix=\"classic_shell\" namespace=\"Passionate-Coder.Policies.ClassicStart\" />\r\n"
 "\t</policyNamespaces>\r\n"
 "\t<supersededAdm fileName=\"\" />\r\n"
 "\t<resources minRequiredRevision=\"1.0\"/>\r\n"
@@ -2423,8 +2423,8 @@ static const char *g_AdmxText1csm=
 "\t\t</category>\r\n";
 
 static const char *g_AdmxText1ce=
-"\t\t<target prefix=\"classic_explorer\" namespace=\"IvoSoft.Policies.ClassicExplorer\" />\r\n"
-"\t\t<using prefix=\"classic_shell\" namespace=\"IvoSoft.Policies.ClassicStart\" />\r\n"
+"\t\t<target prefix=\"classic_explorer\" namespace=\"Passionate-Coder.Policies.ClassicExplorer\" />\r\n"
+"\t\t<using prefix=\"classic_shell\" namespace=\"Passionate-Coder.Policies.ClassicStart\" />\r\n"
 "\t</policyNamespaces>\r\n"
 "\t<supersededAdm fileName=\"\" />\r\n"
 "\t<resources minRequiredRevision=\"1.0\"/>\r\n"
@@ -2440,8 +2440,8 @@ static const char *g_AdmxText1ce=
 "\t\t</category>\r\n";
 
 static const char *g_AdmxText1cie=
-"\t\t<target prefix=\"classic_ie\" namespace=\"IvoSoft.Policies.ClassicIE\" />\r\n"
-"\t\t<using prefix=\"classic_shell\" namespace=\"IvoSoft.Policies.ClassicStart\" />\r\n"
+"\t\t<target prefix=\"classic_ie\" namespace=\"Passionate-Coder.Policies.ClassicIE\" />\r\n"
+"\t\t<using prefix=\"classic_shell\" namespace=\"Passionate-Coder.Policies.ClassicStart\" />\r\n"
 "\t</policyNamespaces>\r\n"
 "\t<supersededAdm fileName=\"\" />\r\n"
 "\t<resources minRequiredRevision=\"1.0\"/>\r\n"
