@@ -1,4 +1,6 @@
-rem @echo off
+@rem @echo off
+@rem This file is to create all the files required for a new release to publish
+
 set PATH=C:\Program Files\7-Zip\;C:\Program Files (x86)\HTML Help Workshop;C:\Program Files (x86)\WiX Toolset v3.11\bin\;%PATH%
 
 @cd %~dp0
@@ -20,6 +22,24 @@ rem git clean -dfx
 @if ERRORLEVEL 1 exit /b 1
 
 @call _BuildEnglish.bat
+@if ERRORLEVEL 1 exit /b 1
+
+@rem Build other languages
+@call _BuildChineseCN.bat
+@if ERRORLEVEL 1 exit /b 1
+@call _BuildChineseTW.bat
+@if ERRORLEVEL 1 exit /b 1
+@call _BuildFrench.bat
+@if ERRORLEVEL 1 exit /b 1
+@call _BuildGerman.bat
+@if ERRORLEVEL 1 exit /b 1
+@call _BuildItalian.bat
+@if ERRORLEVEL 1 exit /b 1
+@call _BuildPolish.bat
+@if ERRORLEVEL 1 exit /b 1
+@call _BuildRussian.bat
+@if ERRORLEVEL 1 exit /b 1
+@call _BuildSpanish.bat
 @if ERRORLEVEL 1 exit /b 1
 
 call BuildArchives.bat
