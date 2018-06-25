@@ -105,7 +105,7 @@ BEGIN
             VALUE "FileDescription", "Checks for a new version of Classic Start"
             VALUE "FileVersion", _PRODUCT_VERSION_STR
             VALUE "InternalName", "ClassicStartUpdate.exe"
-            VALUE "LegalCopyright", "Copyright (C) 2009-2016, Ivo Beltchev"
+            VALUE "LegalCopyright", "Copyright (C) 2009-2017, Ivo Beltchev"
             VALUE "OriginalFilename", "ClassicStartUpdate.exe"
             VALUE "ProductName", "Classic Start"
             VALUE "ProductVersion", _PRODUCT_VERSION_STR

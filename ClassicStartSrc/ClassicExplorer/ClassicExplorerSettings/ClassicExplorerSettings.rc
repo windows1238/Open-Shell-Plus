@@ -82,7 +82,7 @@ BEGIN
             VALUE "FileDescription", "Classic Explorer Settings"
             VALUE "FileVersion", _PRODUCT_VERSION_STR
             VALUE "InternalName", "ClassicExplorerSettings"
-            VALUE "LegalCopyright", "Copyright (C) 2009-2016, Ivo Beltchev"
+            VALUE "LegalCopyright", "Copyright (C) 2009-2017, Ivo Beltchev"
             VALUE "OriginalFilename", "ClassicExplorerSettings.exe"
             VALUE "ProductName", "Classic Start"
             VALUE "ProductVersion", _PRODUCT_VERSION_STR

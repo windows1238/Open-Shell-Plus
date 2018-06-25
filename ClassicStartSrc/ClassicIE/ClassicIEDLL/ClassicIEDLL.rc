@@ -75,7 +75,7 @@ BEGIN
             VALUE "FileDescription", "Customizations for the title bar and status bar of IE"
             VALUE "FileVersion", _PRODUCT_VERSION_STR
             VALUE "InternalName", "ClassicIEDLL.dll"
-            VALUE "LegalCopyright", "Copyright (C) 2009-2016, Ivo Beltchev"
+            VALUE "LegalCopyright", "Copyright (C) 2009-2017, Ivo Beltchev"
             VALUE "OriginalFilename", "ClassicIEDLL.dll"
             VALUE "ProductName", "Classic Start"
             VALUE "ProductVersion", _PRODUCT_VERSION_STR

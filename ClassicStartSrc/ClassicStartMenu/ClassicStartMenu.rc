@@ -81,7 +81,7 @@ BEGIN
             VALUE "FileDescription", "Classic Start Menu"
             VALUE "FileVersion", _PRODUCT_VERSION_STR
             VALUE "InternalName", "ClassicStartMenu"
-            VALUE "LegalCopyright", "Copyright (C) 2009-2016, Ivo Beltchev"
+            VALUE "LegalCopyright", "Copyright (C) 2009-2017, Ivo Beltchev"
             VALUE "OriginalFilename", "ClassicStartMenu.exe"
             VALUE "ProductName", "Classic Start"
             VALUE "ProductVersion", _PRODUCT_VERSION_STR
