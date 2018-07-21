@@ -1,12 +1,14 @@
 REM ***** Collect PDBs
 
-del Final\ClassicStartPDB_%CS_VERSION_STR%.zip
+set CS_SYMBOLS_NAME=ClassicStartPDB_%CS_VERSION_STR%.7z
+
+if exist Final\%CS_SYMBOLS_NAME% del Final\%CS_SYMBOLS_NAME%
 cd Output
-7z a ..\Final\ClassicStartPDB_%CS_VERSION_STR%.zip PDB32 PDB64
+7z a -mx9 ..\Final\%CS_SYMBOLS_NAME% PDB32 PDB64
 cd ..
 
 if defined APPVEYOR (
-	appveyor PushArtifact Final\ClassicStartPDB_%CS_VERSION_STR%.zip
+	appveyor PushArtifact Final\%CS_SYMBOLS_NAME%
 )
 
 cd ..
