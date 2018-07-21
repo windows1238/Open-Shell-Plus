@@ -13,11 +13,6 @@ if defined APPVEYOR (
 
 cd ..
 
-REM ***** Collect Sources
-
-del ClassicStartSetup\Final\ClassicStartSrc_%CS_VERSION_STR%.zip
-7z a -r -x!*.intermediate.manifest -x!*.embed.manifest -x!*_i.h -x!Website\ ClassicStartSetup\Final\ClassicStartSrc_%CS_VERSION_STR%.zip *.h *.cpp *.rc *.vcproj *.ini *.def *.ico *.idl *.rgs *.jpg *.manifest *.wxl *.wxs *.sln *.bat *.bmp *.txt *.html *.rtf *.gif *.png *.hhp *.hhc ??-??.dll
-
 REM ***** Collect Localization files
 
 del ClassicStartSetup\Final\ClassicStartLoc.zip
