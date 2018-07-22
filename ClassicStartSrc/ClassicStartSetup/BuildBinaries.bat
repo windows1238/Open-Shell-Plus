@@ -109,6 +109,23 @@ copy /B ..\ClassicStartMenu\StartMenuHelper\Setup64\StartMenuHelper64.pdb Output
 copy /B Output\x64\StartMenuHelper64.dll Output\PDB64 > nul
 
 
+REM ********* Source Index PDBs
+
+set PDBSTR_PATH="C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\srcsrv\pdbstr.exe"
+
+if exist %PDBSTR_PATH% (
+	echo --- Adding source index to PDBs
+	call CreateSourceIndex.bat ..\.. > Output\pdbstr.txt
+
+	for %%f in (Output\PDB32\*.pdb) do (
+		%PDBSTR_PATH% -w -p:%%f -s:srcsrv -i:Output\pdbstr.txt
+	)
+
+	for %%f in (Output\PDB64\*.pdb) do (
+		%PDBSTR_PATH% -w -p:%%f -s:srcsrv -i:Output\pdbstr.txt
+	)
+)
+
 REM ********* Build ADMX
 echo --- ADMX
 if exist Output\PolicyDefinitions.zip (
