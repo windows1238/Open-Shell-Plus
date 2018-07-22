@@ -3,7 +3,7 @@ pull_requests:
   do_not_increment_build_number: true
 skip_tags: true
 image: Visual Studio 2017
-shallow_clone: true
+clone_depth: 1
 build_script:
 - cmd: ClassicStartSrc\ClassicStartSetup\__MakeFinal.bat
 test: off
