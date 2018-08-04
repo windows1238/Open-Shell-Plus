@@ -7,7 +7,7 @@
 
 #include "stdafx.h"
 #include "MenuContainer.h"
-#include "MenuDLL.h"
+#include "StartMenuDLL.h"
 #include "Settings.h"
 #include "SettingsUI.h"
 #include "SettingsUIHelper.h"
@@ -143,7 +143,7 @@ void CMenuContainer::ExecuteCommand( const wchar_t *command, bool bElevated, boo
 		wchar_t exe[_MAX_PATH];
 		GetModuleFileName(_AtlBaseModule.GetModuleInstance(),exe,_countof(exe));
 		PathRemoveFileSpec(exe);
-		PathAppend(exe,L"Menu.exe");
+		PathAppend(exe,L"StartMenu.exe");
 
 		RECT rc;
 		if (m_bDestroyed)
@@ -2294,8 +2294,8 @@ void CMenuContainer::ActivateItem( int index, TActivateType type, const POINT *p
 			if (m_FolderHash[0])
 			{
 				CRegKey regOrder;
-				if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\Order")!=ERROR_SUCCESS)
-					regOrder.Create(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\Order");
+				if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\Order")!=ERROR_SUCCESS)
+					regOrder.Create(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\Order");
 				wchar_t name[100];
 				Sprintf(name,_countof(name),L"%08X",m_FolderHash[0]);
 				if (m_Options&CONTAINER_AUTOSORT)

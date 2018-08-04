@@ -4,8 +4,8 @@
 
 #include "stdafx.h"
 #include "resource.h"
-#include "MenuDLL.h"
-#include "OpenShellButton.h"
+#include "StartMenuDLL.h"
+#include "StartButton.h"
 #include "MenuContainer.h"
 #include "SettingsParser.h"
 #include "Translations.h"
@@ -2897,7 +2897,7 @@ static void InitStartMenuDLL( void )
 	g_ProgHook=SetWindowsHookEx(WH_GETMESSAGE,HookProgManThread,NULL,progThread);
 	g_StartHook=SetWindowsHookEx(WH_GETMESSAGE,HookDesktopThread,NULL,GetCurrentThreadId());
 	HWND hwnd=FindWindow(L"Menu.CStartHookWindow",L"StartHookWindow");
-	LoadLibrary(L"MenuDLL.dll"); // keep the DLL from unloading
+	LoadLibrary(L"StartMenuDLL.dll"); // keep the DLL from unloading
 	if (hwnd) PostMessage(hwnd,WM_CLEAR,0,0); // tell the exe to unhook this hook
 	if (GetWinVersion()>=WIN_VER_WIN8)
 	{
@@ -3081,7 +3081,7 @@ static void RecreateStartButton( size_t taskbarId )
 static DWORD WINAPI ExitThreadProc( void *param )
 {
 	Sleep(1000); // wait a second! hopefully by then the hooks will be finished and no more of our code will be executing
-	// send WM_CLOSE to the window in Menu.exe to close that process
+	// send WM_CLOSE to the window in StartMenu.exe to close that process
 	if (param) PostMessage((HWND)param,WM_CLOSE,0,0);
 	FreeLibraryAndExitThread(g_Instance,0);
 }

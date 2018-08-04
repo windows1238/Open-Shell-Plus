@@ -8,7 +8,7 @@
 #include "ResourceHelper.h"
 #include "Settings.h"
 #include "StringUtils.h"
-#include "..\MenuDLL\LogManager.h"
+#include "..\StartMenuDLL\LogManager.h"
 #include <AccCtrl.h>
 #include <Aclapi.h>
 #include <Taskschd.h>
@@ -162,7 +162,7 @@ typedef HRESULT (__stdcall *FDllGetClassObject)(REFCLSID,REFIID,LPVOID*);
 
 static HMODULE g_ExplorerModule=NULL;
 
-static void StartStartMenu( void )
+static void StartMenu( void )
 {
 	STARTUPINFO startupInfo={sizeof(STARTUPINFO)};
 	PROCESS_INFORMATION processInfo;
@@ -183,9 +183,9 @@ static void StartStartMenu( void )
 		GetModuleFileName(g_Instance,path,_countof(path));
 		PathRemoveFileSpec(path);
 	}
-	PathAppend(path,L"Menu.exe");
+	PathAppend(path,L"StartMenu.exe");
 	LogToFile(STARTUP_LOG,L"StartMenuHelper: starting \"%s\" -startup",path);
-	if (CreateProcess(path,L"Menu.exe -startup",NULL,NULL,TRUE,0,NULL,NULL,&startupInfo,&processInfo))
+	if (CreateProcess(path,L"StartMenu.exe -startup",NULL,NULL,TRUE,0,NULL,NULL,&startupInfo,&processInfo))
 	{
 		CloseHandle(processInfo.hProcess);
 		CloseHandle(processInfo.hThread);
@@ -208,7 +208,7 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID* ppv)
 		{
 			LogToFile(STARTUP_LOG,L"StartMenuHelper: DllGetClassObject2");
 			if (GetSettingBool(L"AutoStart"))
-				StartStartMenu();
+				StartMenu();
 			FDllGetClassObject func=(FDllGetClassObject)GetProcAddress(g_ExplorerModule,"DllGetClassObject");
 			if (func)
 				res=func(g_ExplorerClsid,riid,ppv);
@@ -277,7 +277,7 @@ static void InstallUpgradeTask( bool bInstall )
 				ULONG size=_countof(exePath);
 				if (regKey.QueryStringValue(L"Path",exePath,&size)==ERROR_SUCCESS)
 				{
-					PathAppend(exePath,L"Menu.exe");
+					PathAppend(exePath,L"StartMenu.exe");
 				}
 				else
 				{

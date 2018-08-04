@@ -177,7 +177,7 @@ Ikon&#261; mo&#380;e by&#263;:<br style="font-weight: bold;">
 <ul>
 <li><span style="font-weight: bold;">pozostawiono puste</span> - je&#347;li atrybut &#322;&#261;cza wskazuje na plik lub folder, to zostanie u&#380;yta ikona pliku lub folderu<br>
     <span style="font-weight: bold;"></span></li><li><span style="font-weight: bold;">plik zasob&#243;w, ID ikony</span> - na przyk&#322;ad <span style="font-weight: bold;">%windir%\notepad.exe,2</span>. Nie nale&#380;y pozostawia&#263; spacji mi&#281;dzy nazw&#261; pliku a przecinkiem. <span style="font-weight: bold;">Upewnij si&#281;, &#380;e u&#380;ywasz identyfikatora zasobu ikony, a nie indeksu ikony.</span> Aby uzyska&#263; najlepsze rezultaty nale&#380;y u&#380;y&#263; przycisku <span style="font-weight: bold;">[...]</span> umieszczonego przy polu Ikona<br>
-</li><li><span style="font-weight: bold;">ID ikony</span> - jak wy&#380;ej, ale plikiem zasob&#243;w jest <span style="font-weight: bold;">MenuDLL.dll</span>. Jest to przydatne, gdy odnosi si&#281; do ikon w&#322;asnych menu Start<br>
+</li><li><span style="font-weight: bold;">ID ikony</span> - jak wy&#380;ej, ale plikiem zasob&#243;w jest <span style="font-weight: bold;">StartMenuDLL.dll</span>. Jest to przydatne, gdy odnosi si&#281; do ikon w&#322;asnych menu Start<br>
   </li><li><span style="font-weight: bold;">plik ikony</span> -&nbsp; na przyk&#322;ad <span style="font-weight: bold;">C:\Program Files\Mozilla Thunderbird\Email.ico</span></li><li><span style="font-weight: bold;">brak</span> - zostanie u&#380;yta pusta ikona</li>
 </ul>
 Je&#380;eli atrybut etykiety lub porady rozpoczyna si&#281; znakiem <span style="font-weight: bold;">$</span> (znak dolara), wtedy system b&#281;dzie traktowa&#263; go jako nazw&#281; ci&#261;gu w pliku <span style="font-weight: bold;">StartMenuL10N.ini</span>. Rzeczywisty tekst zale&#380;y od bie&#380;&#261;cego ustawienia j&#281;zyka. Jest to przydatne podczas tworzenia menu, kt&#243;re mo&#380;e by&#263; u&#380;ywane przez wiele j&#281;zyk&#243;w.<br>
@@ -201,7 +201,7 @@ by&#322;o domy&#347;lnie wy&#322;&#261;czone, ale u&#380;ytkownicy mieli nadal m
 gdy tego chc&#261;, nale&#380;y utworzy&#263; warto&#347;&#263; DWORD o nazwie "EnableContextMenu_Default"
 i ustawi&#263; jej warto&#347;&#263; na 0.<br>
 <br>
-Najprostszym sposobem poznania nazwy ustawienia i jego warto&#347;ci w rejestrze, kt&#243;re chcesz zmodyfikowa&#263;, jest odszukanie go w kluczu <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\OpenShell\Menu\Settings</span>.<br>
+Najprostszym sposobem poznania nazwy ustawienia i jego warto&#347;ci w rejestrze, kt&#243;re chcesz zmodyfikowa&#263;, jest odszukanie go w kluczu <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\OpenShell\StartMenu\Settings</span>.<br>
 
 Czasem mo&#380;esz chcie&#263; zablokowa&#263; warto&#347;&#263; domy&#347;ln&#261; ustawienia, ale nie znasz jej warto&#347;ci. W takim przypadku utw&#243;rz warto&#347;&#263; DWORD i ustaw jej warto&#347;&#263; na 0xDEFA.<br>
 
@@ -299,7 +299,7 @@ pobra&#263; ze <a href="http://www.classicshell.net/translations/">strony t&#322
 
 <br>
 <br><h1><a name="command_line"></a>Wiersz polecenia</h1>
-<span style="font-weight: bold; color: rgb(0, 112, 192);">Menu.exe</span> obs&#322;uguje 5 parametr&#243;w wiersza polece&#324;: <span style="font-weight: bold; color: rgb(0, 112, 192);">-open</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-toggle</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-togglenew</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-exit </span>i <span style="font-weight: bold; color: rgb(0, 112, 192);">-settings</span>.<br>
+<span style="font-weight: bold; color: rgb(0, 112, 192);">StartMenu.exe</span> obs&#322;uguje 5 parametr&#243;w wiersza polece&#324;: <span style="font-weight: bold; color: rgb(0, 112, 192);">-open</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-toggle</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-togglenew</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-exit </span>i <span style="font-weight: bold; color: rgb(0, 112, 192);">-settings</span>.<br>
 <br>
 Dwa pierwsze wykonuj&#261; to, co sugeruje nazwa. Pierwszy otwiera klasyczne menu start, drugi prze&#322;&#261;cza je. Mo&#380;na u&#380;ywa&#263; parametr&#243;w, aby utworzy&#263; skr&#243;t na pasku szybkiego uruchamiania, kt&#243;ry otwiera menu start, lub ustawi&#263; klawisz szybkiego dost&#281;pu do program&#243;w takich jak <a target="_blank" href="http://www.softpedia.com/get/System/OS-Enhancements/WinKey.shtml">WinKey</a>.<br>
 <br>

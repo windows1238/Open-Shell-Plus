@@ -9,7 +9,7 @@
 #include <atltypes.h>
 #include <atlstr.h>
 #include <atlwin.h>
-#include "..\Menu\MenuDLL\LogManager.h"
+#include "..\StartMenu\StartMenuDLL\LogManager.h"
 #include "StringUtils.h"
 #include <shlobj.h>
 
@@ -115,14 +115,14 @@ CString CLoggingDialog::GetPathForLink( int link )
 
 LRESULT CLoggingDialog::OnInitDialog( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
 {
-	DWORD log=GetSetting(L"Software\\OpenShell\\Menu\\Settings",L"LogCategories");
+	DWORD log=GetSetting(L"Software\\OpenShell\\StartMenu\\Settings",L"LogCategories");
 	for (int i=0;i<_countof(g_MenuCheckboxes);i++)
 	{
 		if (log&g_MenuCheckboxes[i][1])
 			CheckDlgButton(g_MenuCheckboxes[i][0],BST_CHECKED);
 	}
 
-	log=GetSetting(L"Software\\OpenShell\\Menu\\Settings",L"LogStartup");
+	log=GetSetting(L"Software\\OpenShell\\StartMenu\\Settings",L"LogStartup");
 	if (log)
 		CheckDlgButton(IDC_CHECKSTARTUP,BST_CHECKED);
 
@@ -156,16 +156,16 @@ LRESULT CLoggingDialog::OnOK( WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bH
 		if (IsDlgButtonChecked(g_MenuCheckboxes[i][0])==BST_CHECKED)
 			log|=g_MenuCheckboxes[i][1];
 	}
-	if (log!=GetSetting(L"Software\\OpenShell\\Menu\\Settings",L"LogCategories"))
+	if (log!=GetSetting(L"Software\\OpenShell\\StartMenu\\Settings",L"LogCategories"))
 	{
-		SetSetting(L"Software\\OpenShell\\Menu\\Settings",L"LogCategories",log);
+		SetSetting(L"Software\\OpenShell\\StartMenu\\Settings",L"LogCategories",log);
 		res=1;
 	}
 
 	log=IsDlgButtonChecked(IDC_CHECKSTARTUP)==BST_CHECKED?1:0;
-	if (log!=GetSetting(L"Software\\OpenShell\\Menu\\Settings",L"LogStartup"))
+	if (log!=GetSetting(L"Software\\OpenShell\\StartMenu\\Settings",L"LogStartup"))
 	{
-		SetSetting(L"Software\\OpenShell\\Menu\\Settings",L"LogStartup",log);
+		SetSetting(L"Software\\OpenShell\\StartMenu\\Settings",L"LogStartup",log);
 		res=1;
 	}
 

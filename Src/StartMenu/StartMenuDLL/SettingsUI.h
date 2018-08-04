@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "MenuDLL.h"
+#include "StartMenuDLL.h"
 
 enum TMenuStyle
 {

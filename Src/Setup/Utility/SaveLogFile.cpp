@@ -712,7 +712,7 @@ static void WriteLogFile( FILE *f )
 	wchar_t fname[_MAX_PATH];
 	Sprintf(fname,_countof(fname),L"%s\\ClassicExplorer32.dll",csPath);
 	bool bClassicExplorer=GetFileAttributes(fname)!=INVALID_FILE_ATTRIBUTES;
-	Sprintf(fname,_countof(fname),L"%s\\Menu.exe",csPath);
+	Sprintf(fname,_countof(fname),L"%s\\StartMenu.exe",csPath);
 	bool bClassicMenu=GetFileAttributes(fname)!=INVALID_FILE_ATTRIBUTES;
 	Sprintf(fname,_countof(fname),L"%s\\ClassicIE_32.exe",csPath);
 	bool bClassicIE=GetFileAttributes(fname)!=INVALID_FILE_ATTRIBUTES;
@@ -912,7 +912,7 @@ static void WriteLogFileAdmin( FILE *f )
 						{
 							explorers.push_back(processes[i]);
 						}
-						else if (_wcsicmp(name,L"Menu.exe")==0)
+						else if (_wcsicmp(name,L"StartMenu.exe")==0)
 						{
 							menus.push_back(processes[i]);
 						}

@@ -8,7 +8,7 @@
 #include "stdafx.h"
 #include "ItemManager.h"
 #include "MenuContainer.h"
-#include "MenuDLL.h"
+#include "StartMenuDLL.h"
 #include "Settings.h"
 #include "Translations.h"
 #include "ResourceHelper.h"

@@ -7,8 +7,8 @@
 #include "stdafx.h"
 #include "MenuContainer.h"
 #include "Accessibility.h"
-#include "MenuDLL.h"
-#include "OpenShellButton.h"
+#include "StartMenuDLL.h"
+#include "StartButton.h"
 #include "Settings.h"
 #include "Translations.h"
 #include "CustomMenu.h"
@@ -6991,8 +6991,8 @@ void CMenuContainer::SaveItemOrder( const std::vector<SortMenuItem> &items )
 		// save item names in the registry
 		CRegKey regOrder;
 		wchar_t name[100];
-		if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\Order")!=ERROR_SUCCESS)
-			regOrder.Create(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\Order");
+		if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\Order")!=ERROR_SUCCESS)
+			regOrder.Create(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\Order");
 		std::vector<unsigned int> hashes[2];
 		for (std::vector<SortMenuItem>::const_iterator it=items.begin();it!=items.end();++it)
 		{
@@ -7026,7 +7026,7 @@ void CMenuContainer::LoadItemOrder( void )
 		// load item names from the registry
 		std::vector<unsigned int> hashes[2];
 		CRegKey regOrder;
-		if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\Order",KEY_READ)==ERROR_SUCCESS)
+		if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\Order",KEY_READ)==ERROR_SUCCESS)
 		{
 			wchar_t name[100];
 			{
@@ -7190,8 +7190,8 @@ void CMenuContainer::SaveMRUShortcuts( void )
 {
 	Assert(s_bMRULoaded);
 	CRegKey regMRU;
-	if (regMRU.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\MRU",KEY_READ|KEY_WRITE)!=ERROR_SUCCESS)
-		regMRU.Create(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\MRU");
+	if (regMRU.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\MRU",KEY_READ|KEY_WRITE)!=ERROR_SUCCESS)
+		regMRU.Create(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\MRU");
 
 	bool bDelete=false;
 	for (int i=0;i<MRU_PROGRAMS_COUNT;i++)
@@ -7218,7 +7218,7 @@ void CMenuContainer::LoadMRUShortcuts( void )
 	for (int i=0;i<MRU_PROGRAMS_COUNT;i++)
 		s_MRUShortcuts[i].Empty();
 	CRegKey regMRU;
-	if (regMRU.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\MRU",KEY_READ)==ERROR_SUCCESS)
+	if (regMRU.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\MRU",KEY_READ)==ERROR_SUCCESS)
 	{
 		for (int i=0;i<MRU_PROGRAMS_COUNT;i++)
 		{
@@ -7565,7 +7565,7 @@ HWND CMenuContainer::ToggleStartMenu( int taskbarId, bool bKeyboard, bool bAllPr
 	int categories=0;
 	{
 		CRegKey regKey;
-		if (regKey.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\Settings",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
+		if (regKey.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\Settings",KEY_READ|KEY_WOW64_64KEY)==ERROR_SUCCESS)
 		{
 			DWORD log;
 			if (regKey.QueryDWORDValue(L"LogCategories",log)==ERROR_SUCCESS)

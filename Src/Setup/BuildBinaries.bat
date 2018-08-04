@@ -21,7 +21,7 @@ echo --- 32bit
 
 REM ********* Make en-US.dll
 cd ..
-Setup\Utility\Release\Utility.exe makeEN ClassicExplorer\Setup\ClassicExplorer32.dll Menu\Setup\MenuDLL.dll ClassicIE\Setup\ClassicIEDLL_32.dll Update\Release\Update.exe
+Setup\Utility\Release\Utility.exe makeEN ClassicExplorer\Setup\ClassicExplorer32.dll StartMenu\Setup\StartMenuDLL.dll ClassicIE\Setup\ClassicIEDLL_32.dll Update\Release\Update.exe
 @if ERRORLEVEL 1 exit /b 1
 
 Setup\Utility\Release\Utility.exe extract en-US.dll en-US.csv
@@ -37,33 +37,33 @@ copy /B ..\ClassicExplorer\Setup\ClassicExplorer32.dll Output > nul
 copy /B ..\ClassicExplorer\Setup\ClassicExplorerSettings.exe Output > nul
 copy /B ..\ClassicIE\Setup\ClassicIEDLL_32.dll Output > nul
 copy /B ..\ClassicIE\Setup\ClassicIE_32.exe Output > nul
-copy /B ..\Menu\Setup\Menu.exe Output > nul
-copy /B ..\Menu\Setup\MenuDLL.dll Output > nul
+copy /B ..\StartMenu\Setup\StartMenu.exe Output > nul
+copy /B ..\StartMenu\Setup\StartMenuDLL.dll Output > nul
 copy /B ..\Update\Release\Update.exe Output > nul
-copy /B ..\Menu\StartMenuHelper\Setup\StartMenuHelper32.dll Output > nul
+copy /B ..\StartMenu\StartMenuHelper\Setup\StartMenuHelper32.dll Output > nul
 copy /B ..\Setup\SetupHelper\Release\SetupHelper.exe Output > nul
 
 copy /B ..\ClassicExplorer\Setup64\ClassicExplorer64.dll Output\x64 > nul
 copy /B ..\ClassicIE\Setup64\ClassicIEDLL_64.dll Output\x64 > nul
 copy /B ..\ClassicIE\Setup64\ClassicIE_64.exe Output\x64 > nul
-copy /B ..\Menu\Setup64\Menu.exe Output\x64 > nul
-copy /B ..\Menu\Setup64\MenuDLL.dll Output\x64 > nul
-copy /B ..\Menu\StartMenuHelper\Setup64\StartMenuHelper64.dll Output\x64 > nul
+copy /B ..\StartMenu\Setup64\StartMenu.exe Output\x64 > nul
+copy /B ..\StartMenu\Setup64\StartMenuDLL.dll Output\x64 > nul
+copy /B ..\StartMenu\StartMenuHelper\Setup64\StartMenuHelper64.dll Output\x64 > nul
 
-copy /B "..\Menu\Skins\Classic Skin.skin" Output > nul
-copy /B "..\Menu\Skins\Full Glass.skin" Output > nul
-copy /B "..\Menu\Skins\Smoked Glass.skin" Output > nul
-copy /B "..\Menu\Skins\Windows Aero.skin" Output > nul
-copy /B "..\Menu\Skins\Windows Basic.skin" Output > nul
-copy /B "..\Menu\Skins\Windows XP Luna.skin" Output > nul
-copy /B "..\Menu\Skins\Windows 8.skin" Output > nul
-copy /B "..\Menu\Skins\Metro.skin" Output > nul
-copy /B "..\Menu\Skins\Classic Skin.skin7" Output > nul
-copy /B "..\Menu\Skins\Windows Aero.skin7" Output > nul
-copy /B "..\Menu\Skins\Windows 8.skin7" Output > nul
-copy /B "..\Menu\Skins\Midnight.skin7" Output > nul
-copy /B "..\Menu\Skins\Metro.skin7" Output > nul
-copy /B "..\Menu\Skins\Metallic.skin7" Output > nul
+copy /B "..\StartMenu\Skins\Classic Skin.skin" Output > nul
+copy /B "..\StartMenu\Skins\Full Glass.skin" Output > nul
+copy /B "..\StartMenu\Skins\Smoked Glass.skin" Output > nul
+copy /B "..\StartMenu\Skins\Windows Aero.skin" Output > nul
+copy /B "..\StartMenu\Skins\Windows Basic.skin" Output > nul
+copy /B "..\StartMenu\Skins\Windows XP Luna.skin" Output > nul
+copy /B "..\StartMenu\Skins\Windows 8.skin" Output > nul
+copy /B "..\StartMenu\Skins\Metro.skin" Output > nul
+copy /B "..\StartMenu\Skins\Classic Skin.skin7" Output > nul
+copy /B "..\StartMenu\Skins\Windows Aero.skin7" Output > nul
+copy /B "..\StartMenu\Skins\Windows 8.skin7" Output > nul
+copy /B "..\StartMenu\Skins\Midnight.skin7" Output > nul
+copy /B "..\StartMenu\Skins\Metro.skin7" Output > nul
+copy /B "..\StartMenu\Skins\Metallic.skin7" Output > nul
 
 
 REM ********* Collect debug info
@@ -91,21 +91,21 @@ copy /B ..\ClassicIE\Setup64\ClassicIE_64.exe Output\PDB64 > nul
 copy /B Output\x64\ClassicIE_64.exe Output\PDB64 > nul
 
 REM Menu 32
-copy /B ..\Menu\Setup\Menu.pdb Output\PDB32 > nul
-copy /B Output\Menu.exe Output\PDB32 > nul
-copy /B ..\Menu\Setup\MenuDLL.pdb Output\PDB32 > nul
-copy /B Output\MenuDLL.dll Output\PDB32 > nul
-copy /B ..\Menu\StartMenuHelper\Setup\StartMenuHelper32.pdb Output\PDB32 > nul
+copy /B ..\StartMenu\Setup\Menu.pdb Output\PDB32 > nul
+copy /B Output\StartMenu.exe Output\PDB32 > nul
+copy /B ..\StartMenu\Setup\StartMenuDLL.pdb Output\PDB32 > nul
+copy /B Output\StartMenuDLL.dll Output\PDB32 > nul
+copy /B ..\StartMenu\StartMenuHelper\Setup\StartMenuHelper32.pdb Output\PDB32 > nul
 copy /B Output\StartMenuHelper32.dll Output\PDB32 > nul
 copy /B ..\Update\Release\Update.pdb Output\PDB32 > nul
 copy /B Output\Update.exe Output\PDB32 > nul
 
 REM Menu 64
-copy /B ..\Menu\Setup64\Menu.pdb Output\PDB64 > nul
-copy /B Output\x64\Menu.exe Output\PDB64 > nul
-copy /B ..\Menu\Setup64\MenuDLL.pdb Output\PDB64 > nul
-copy /B Output\x64\MenuDLL.dll Output\PDB64 > nul
-copy /B ..\Menu\StartMenuHelper\Setup64\StartMenuHelper64.pdb Output\PDB64 > nul
+copy /B ..\StartMenu\Setup64\Menu.pdb Output\PDB64 > nul
+copy /B Output\x64\StartMenu.exe Output\PDB64 > nul
+copy /B ..\StartMenu\Setup64\StartMenuDLL.pdb Output\PDB64 > nul
+copy /B Output\x64\StartMenuDLL.dll Output\PDB64 > nul
+copy /B ..\StartMenu\StartMenuHelper\Setup64\StartMenuHelper64.pdb Output\PDB64 > nul
 copy /B Output\x64\StartMenuHelper64.dll Output\PDB64 > nul
 
 
@@ -132,7 +132,7 @@ if exist Output\PolicyDefinitions.zip (
   del Output\PolicyDefinitions.zip
 )
 cd ..\Localization\English
-..\..\Menu\Setup\Menu.exe -saveadmx en-US
+..\..\StartMenu\Setup\StartMenu.exe -saveadmx en-US
 @if ERRORLEVEL 1 exit /b 1
 ..\..\ClassicExplorer\Setup\ClassicExplorerSettings.exe -saveadmx en-US
 @if ERRORLEVEL 1 exit /b 1

@@ -18,7 +18,7 @@
 #include "StringUtils.h"
 #include "SettingsUIHelper.h"
 #include <lm.h>
-#include "..\Menu\MenuDLL\MenuDLL.h"
+#include "..\StartMenu\StartMenuDLL\StartMenuDLL.h"
 
 #define EXPLORER_CLSID L"{ECD4FC4D-521C-11D0-B792-00A0C90312E1}"
 #define EMULATION_KEY L"TreatAs"
@@ -55,8 +55,8 @@ static const wchar_t *g_InstalledFiles[]=
 	L"OpenShell.chm",
 	L"OpenShellReadme.rtf",
 	L"Update.exe",
-	L"Menu.exe",
-	L"MenuDLL.dll",
+	L"StartMenu.exe",
+	L"StartMenuDLL.dll",
 	L"ExplorerL10N.ini",
 	L"HISTORY.txt",
 	L"IE Settings.lnk",
@@ -201,7 +201,7 @@ LRESULT CUninstallDlg::OnInitDialog( UINT uMsg, WPARAM wParam, LPARAM lParam, BO
 		Strcpy(defaultPath,_countof(defaultPath),bWow64?L"%ProgramW6432%\\Open-Shell":L"%ProgramFiles%\\Open-Shell");
 		DoEnvironmentSubst(defaultPath,_countof(defaultPath));
 		wchar_t fname1[_MAX_PATH], fname2[_MAX_PATH], fname3[_MAX_PATH];
-		Sprintf(fname1,_countof(fname1),L"%s\\Menu.exe",defaultPath);
+		Sprintf(fname1,_countof(fname1),L"%s\\StartMenu.exe",defaultPath);
 		Sprintf(fname2,_countof(fname2),L"%s\\ClassicExplorer32.dll",defaultPath);
 		Sprintf(fname3,_countof(fname3),L"%s\\ClassicIEDLL_32.dll",defaultPath);
 		if (FileExists(fname1) || FileExists(fname2) || FileExists(fname3))
@@ -917,7 +917,7 @@ static void ManualUninstallInternal( void )
 		int time=GetTickCount();
 
 		wchar_t path[_MAX_PATH];
-		Sprintf(path,_countof(path),L"%s\\Menu.exe",dlg.GetPath());
+		Sprintf(path,_countof(path),L"%s\\StartMenu.exe",dlg.GetPath());
 		int count=FileExists(path)?100:20;
 
 		for (int i=0;i<count;i++)

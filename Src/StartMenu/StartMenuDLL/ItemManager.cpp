@@ -12,7 +12,7 @@
 #include "ResourceHelper.h"
 #include "MenuContainer.h"
 #include "LogManager.h"
-#include "MenuDLL.h"
+#include "StartMenuDLL.h"
 #include "resource.h"
 #include <propkey.h>
 #include <CommonControls.h>

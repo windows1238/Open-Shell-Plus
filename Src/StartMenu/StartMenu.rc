@@ -82,7 +82,7 @@ BEGIN
             VALUE "FileVersion", _PRODUCT_VERSION_STR
             VALUE "InternalName", "Menu"
             VALUE "LegalCopyright", "Copyright (C) 2017-2018, The Open-Shell Team"
-            VALUE "OriginalFilename", "Menu.exe"
+            VALUE "OriginalFilename", "StartMenu.exe"
             VALUE "ProductName", "Open-Shell"
             VALUE "ProductVersion", _PRODUCT_VERSION_STR
         END

@@ -12,10 +12,10 @@
 #include "Settings.h"
 #include "psapi.h"
 
-#include "MenuDLL\MenuDLL.h"
-#include "MenuDLL\SettingsUI.h"
-#include "MenuDLL\resource.h"
-#include "MenuDLL\LogManager.h"
+#include "StartMenuDLL\StartMenuDLL.h"
+#include "StartMenuDLL\SettingsUI.h"
+#include "StartMenuDLL\resource.h"
+#include "StartMenuDLL\LogManager.h"
 
 static HHOOK g_StartHook;
 
@@ -36,7 +36,7 @@ enum THookMode
 
 static bool HookStartMenu( THookMode mode, HWND &menu )
 {
-	HMODULE hHookModule=GetModuleHandle(L"MenuDLL.dll");
+	HMODULE hHookModule=GetModuleHandle(L"StartMenuDLL.dll");
 
 	// find the Progman window and the start button
 

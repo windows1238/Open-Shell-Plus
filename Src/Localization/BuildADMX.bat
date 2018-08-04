@@ -1,5 +1,5 @@
 cd %2
-..\..\Menu\Setup\Menu.exe -saveadmx %1
+..\..\StartMenu\Setup\StartMenu.exe -saveadmx %1
 ..\..\ClassicExplorer\Setup\ClassicExplorerSettings.exe -saveadmx %1
 ..\..\ClassicIE\Setup\ClassicIE_32.exe -saveadmx %1
 cd ..

@@ -18,10 +18,10 @@
     <ClCompile Include="Accessibility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OpenShellButton.cpp">
+    <ClCompile Include="StartButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MenuDLL.cpp">
+    <ClCompile Include="StartMenuDLL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CustomMenu.cpp">
@@ -77,10 +77,10 @@
     <ClInclude Include="Accessibility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OpenShellButton.h">
+    <ClInclude Include="StartButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MenuDLL.h">
+    <ClInclude Include="StartMenuDLL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CustomMenu.h">
@@ -192,7 +192,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MenuDLL.rc">
+    <ResourceCompile Include="StartMenuDLL.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>

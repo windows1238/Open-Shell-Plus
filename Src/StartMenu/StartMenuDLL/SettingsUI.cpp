@@ -4,8 +4,8 @@
 
 #include "stdafx.h"
 #include "resource.h"
-#include "MenuDLL.h"
-#include "OpenShellButton.h"
+#include "StartMenuDLL.h"
+#include "StartButton.h"
 #include "Settings.h"
 #include "SkinManager.h"
 #include "FNVHash.h"
@@ -5169,7 +5169,7 @@ void EditSettings( bool bModal, int tab )
 #ifndef BUILD_SETUP
 	wchar_t path[_MAX_PATH];
 	GetModuleFileName(NULL,path,_countof(path));
-	if (_wcsicmp(PathFindFileName(path),L"Menu.exe")==0)
+	if (_wcsicmp(PathFindFileName(path),L"StartMenu.exe")==0)
 		bModal=true;
 #endif
 	EnableHotkeys(HOTKEYS_SETTINGS);

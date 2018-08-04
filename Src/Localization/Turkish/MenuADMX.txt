@@ -138,25 +138,25 @@ SkinC1.tipOverride = Tek sütunlu klasik tarz tarafından kullanılacak kabuk se
 SkinVariationC1.nameOverride = Tek sütunlu klasik menü için kabuk farklılaşması
 SkinVariationC1.tipOverride = Tek sütunlu klasik tarz tarafından kullanılacak kabuk faklılaşması seçin (birden çok farklılaşma destekleyen kabuklar için)
 SkinOptionsC1.nameOverride = Tek sütunlu klasik menü için kabuk seçenekleri
-SkinOptionsC1.tipOverride = Tek sütunlu klasik tarz tarafından kullanılacak kabuk seçeneklerini seçin.\nSeçenekler bir hex sayılar listesidir. Bunu almanın en iyi yolu Klasik Başlat Menüsü ayarları iletişim seçeneklerini ayarlamak ve ardından HKCU\Software\OpenShell\Menu\Settings'deki SkinOptionsC1 değerine bakmaktır.
+SkinOptionsC1.tipOverride = Tek sütunlu klasik tarz tarafından kullanılacak kabuk seçeneklerini seçin.\nSeçenekler bir hex sayılar listesidir. Bunu almanın en iyi yolu Klasik Başlat Menüsü ayarları iletişim seçeneklerini ayarlamak ve ardından HKCU\Software\OpenShell\StartMenu\Settings'deki SkinOptionsC1 değerine bakmaktır.
 MenuItems1.nameOverride = Tek sütunlu klasik menü için Menü öğeleri
-MenuItems1.tipOverride = Klasik tarz tarafından kullanılacak Tek sütunlu klasik menü için Menü öğelerini seçin.\Doğru dize almanın en iyi yolu, Klasik Başlat Menüsü ayarları iletişim öğelerini yapılandırmak ve ardından HKCU\Software\OpenShell\Menu\Settings'deki MenuItems1 değerine bakmaktır.
+MenuItems1.tipOverride = Klasik tarz tarafından kullanılacak Tek sütunlu klasik menü için Menü öğelerini seçin.\Doğru dize almanın en iyi yolu, Klasik Başlat Menüsü ayarları iletişim öğelerini yapılandırmak ve ardından HKCU\Software\OpenShell\StartMenu\Settings'deki MenuItems1 değerine bakmaktır.
 SkinC2.nameOverride = İki sütunlu klasik menü için kabuk
 SkinC2.tipOverride = İki sütunlu klasik tarz tarafından kullanılacak kabuğu seçin
 SkinVariationC2.nameOverride = İki sütunlu klasik menü için kabuk farklılaşması
 SkinVariationC2.tipOverride = İki sütunlu klasik tarz tarafından kullanılacak kabuk farklılaşmasını seçin (birden çok farklılaşma destekleyen kabuklar için)
 SkinOptionsC2.nameOverride = İki sütunlu klasik menü için kabuk seçenekleri
-SkinOptionsC2.tipOverride = İki sütunlu klasik tarz tarafından kullanılacak kabuk seçeneklerini seçin.\nSeçenekler bir hex sayılar listesidir. Onları almanın en iyi yolu, Klasik Başlat Menüsü ayarları iletişim seçeneklerini ayarlamak ve ardından HKCU\Software\OpenShell\Menu\Settings'deki SkinOptionsC2 değerine bakmaktır.
+SkinOptionsC2.tipOverride = İki sütunlu klasik tarz tarafından kullanılacak kabuk seçeneklerini seçin.\nSeçenekler bir hex sayılar listesidir. Onları almanın en iyi yolu, Klasik Başlat Menüsü ayarları iletişim seçeneklerini ayarlamak ve ardından HKCU\Software\OpenShell\StartMenu\Settings'deki SkinOptionsC2 değerine bakmaktır.
 MenuItems2.nameOverride = İki sütunlu klasik menü için menü öğeleri
-MenuItems2.tipOverride = İki sütunlu klasik tarz tarafından kullanılacak menü öğelerini seçin.\nDoğru dizeyi almanın en iyi yolu, Klasik Başlat Menüsü ayarları iletişim öğeleri yapılandırmak ve ardından HKCU\Software\OpenShell\Menu\Settings'deki MenuItems2 değerine bakmaktır. 
+MenuItems2.tipOverride = İki sütunlu klasik tarz tarafından kullanılacak menü öğelerini seçin.\nDoğru dizeyi almanın en iyi yolu, Klasik Başlat Menüsü ayarları iletişim öğeleri yapılandırmak ve ardından HKCU\Software\OpenShell\StartMenu\Settings'deki MenuItems2 değerine bakmaktır. 
 SkinW7.nameOverride = Windows 7 tarzı için kabuk
 SkinW7.tipOverride = Windows 7 tarzı tarafından kullanılacak kabuğu seçin
 SkinVariationW7.nameOverride = Windows 7 tarzı için kabuk farklılaşması
 SkinVariationW7.tipOverride = Windows 7 tarzı tarafından kullanılacak kabuk farklılaşmasını seçin (birden çok farklılaşma destekleyen kabuklar için)
 SkinOptionsW7.nameOverride = Windows 7 tarzı için kabuk seçenekleri
-SkinOptionsW7.tipOverride = Windows 7 tarzı tarafından kullanılacak kabuk seçeneklerini seçin.\nSeçenekler bir hex sayılar listesidir. Onları almanın en iyi yolu, Klasik Başlat Menüsü ayarları iletişim seçeneklerini ayarlamak ve ardından HKCU\Software\OpenShell\Menu\Settings'deki SkinOptionsW7 değerine bakmaktır.
+SkinOptionsW7.tipOverride = Windows 7 tarzı tarafından kullanılacak kabuk seçeneklerini seçin.\nSeçenekler bir hex sayılar listesidir. Onları almanın en iyi yolu, Klasik Başlat Menüsü ayarları iletişim seçeneklerini ayarlamak ve ardından HKCU\Software\OpenShell\StartMenu\Settings'deki SkinOptionsW7 değerine bakmaktır.
 MenuItems7.nameOverride = Windows 7 tarzı için menü öğeleri 
-MenuItems7.tipOverride = Windows 7 tarzı tarafından kullanılacak menü öğelerini seçin.\nDoğru dize almanın en iyi yolu, Klasik Başlat Menüsü ayarları iletişim öğeleri yapılandırmak ve ardından HKCU\Software\OpenShell\Menu\Settings'deki MenuItems7 değerine bakmaktır.
+MenuItems7.tipOverride = Windows 7 tarzı tarafından kullanılacak menü öğelerini seçin.\nDoğru dize almanın en iyi yolu, Klasik Başlat Menüsü ayarları iletişim öğeleri yapılandırmak ve ardından HKCU\Software\OpenShell\StartMenu\Settings'deki MenuItems7 değerine bakmaktır.
 
 ; windows 7
 SkinA.nameOverride = Windows 7 başlat menüsündeki Tüm Programlar alt menüsü için kabuk
@@ -164,7 +164,7 @@ SkinA.tipOverride = Windows 7 başlat menüsündeki Tüm Programlar alt menüsü
 SkinVariationA.nameOverride = Windows 7 başlat menüsündeki Tüm Programlar alt menüsü için kabuk farklılaşması
 SkinVariationA.tipOverride = Windows 7 başlat menüsündeki Tüm Programlar alt menüsü için kabuk farklılaşması seçin (birden çok farklılaşma destekleyen kabuklar için)
 SkinOptionsA.nameOverride = Windows 7 başlat menüsündeki Tüm Programlar alt menüsü için kabuk seçenekleri
-SkinOptionsA.tipOverride = Windows 7 başlat menüsündeki Tüm Programlar alt menüsü için kabuk seçeneklerini seçin.\nSeçenekler bir hex sayılar listesidir. Bunu almanın en iyi yolu Klasik Başlat Menüsü ayarları iletişim seçeneklerini ayarlamak ve ardından HKCU\Software\OpenShell\Menu\Settings'deki SkinOptionsA değerine bakmaktır.
+SkinOptionsA.tipOverride = Windows 7 başlat menüsündeki Tüm Programlar alt menüsü için kabuk seçeneklerini seçin.\nSeçenekler bir hex sayılar listesidir. Bunu almanın en iyi yolu Klasik Başlat Menüsü ayarları iletişim seçeneklerini ayarlamak ve ardından HKCU\Software\OpenShell\StartMenu\Settings'deki SkinOptionsA değerine bakmaktır.
 
 ; metro ayarları
 SkipMetro.tipAddition = Bu ayar, Windows 8.1 için çalışmaz. Masaüstü'ne önyükleme için yerleşik Windows ayarını kullanmanız gerekir.
@@ -179,7 +179,7 @@ FolderCommonStartMenu.tipOverride = Ortak Başlat Menü dizini için geçersiz k
 FolderCommonPrograms.nameOverride = Ortak Programlar dizini
 FolderCommonPrograms.tipOverride = Ortak Programlar dizini için geçersiz kılma girin.\nYol ortam değişkenleri içerebilir.\nNot: Bu ayar, Ayarlar iletişim kutusundan düzenlenebilir değildir.
 AutoStartDelay.nameOverride = Otomatik başlatma gecikmesi
-AutoStartDelay.tipOverride = Giriş sırasında Başlat menünün otomatik başlatılması için ms olarak gecikme girin (Menu.exe'yi çalıştırarak menüyü elle başlatırken geçerli değildir).\nNot: Bu ayar, Ayarlar iletişim kutusundan düzenlenebilir değildir.
+AutoStartDelay.tipOverride = Giriş sırasında Başlat menünün otomatik başlatılması için ms olarak gecikme girin (StartMenu.exe'yi çalıştırarak menüyü elle başlatırken geçerli değildir).\nNot: Bu ayar, Ayarlar iletişim kutusundan düzenlenebilir değildir.
 
 ; diğer
 StartButtonIcon.tipAddition = Değer bir ICO dosyanın yoludur veya bir  EXE/DLL dosyanın yolu ile bir simge ID'idir
@@ -191,5 +191,5 @@ SoundDrop.tipAddition = Değer bir sistem olayın adı veya bir Wav dosya yolu o
 ExpandFolderLinks.tipAddition = Sadece simgesel bağlantılar için çalışır(bağlantı noktaları gibi) ve sıradan kısayollar için değildir
 StartHoverDelay.nameOverride = Üzerinde gezinme gecikmesi (Başlat düğmesi için)
 AllProgramsDelay.nameOverride = Üzerinde gezinme gecikmesi (Windows 7'deki Tüm Programlar için)
-CSMHotkey.tipAddition = .\n\nTemel değeri ana anahtarın sanal kodudur. Shift için 256, Control için 512 ve Alt için 1024 ekleyin.\nDeğeri almanın en iyi yolu Klasik Başlat Menüsü ayarları iletişim kutusundan kısayol seçmek ve ardından HKCU\Software\OpenShell\Menu\Settings'deki CSMHotkey değerine bakmaktır.
-WSMHotkey.tipAddition = .\n\nTemel değeri ana anahtarın sanal kodudur. Shift için 256, Control için 512 ve Alt için 1024 ekleyin.\nDeğeri almanın en iyi yolu Klasik Başlat Menüsü ayarları iletişim kutusundan kısayol seçmek ve ardından HKCU\Software\OpenShell\Menu\Settings'deki WSMHotkey değerine bakmaktır.
+CSMHotkey.tipAddition = .\n\nTemel değeri ana anahtarın sanal kodudur. Shift için 256, Control için 512 ve Alt için 1024 ekleyin.\nDeğeri almanın en iyi yolu Klasik Başlat Menüsü ayarları iletişim kutusundan kısayol seçmek ve ardından HKCU\Software\OpenShell\StartMenu\Settings'deki CSMHotkey değerine bakmaktır.
+WSMHotkey.tipAddition = .\n\nTemel değeri ana anahtarın sanal kodudur. Shift için 256, Control için 512 ve Alt için 1024 ekleyin.\nDeğeri almanın en iyi yolu Klasik Başlat Menüsü ayarları iletişim kutusundan kısayol seçmek ve ardından HKCU\Software\OpenShell\StartMenu\Settings'deki WSMHotkey değerine bakmaktır.

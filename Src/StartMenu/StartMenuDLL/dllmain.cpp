@@ -5,7 +5,7 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 
 #include "stdafx.h"
-#include "MenuDLL.h"
+#include "StartMenuDLL.h"
 #include "Settings.h"
 #include "Translations.h"
 #include "ResourceHelper.h"

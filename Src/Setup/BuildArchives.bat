@@ -17,7 +17,7 @@ REM ***** Collect Localization files
 
 echo -- Creating localization package
 cd Localization
-7z a -r -x!en-US -x!*WixUI_en-us.wxl -x!*.adml -x!*.admx -x!*LocComments.txt ..\Setup\Final\OpenShellLoc.zip English ..\ClassicExplorer\ExplorerL10N.ini ..\Menu\StartMenuL10N.ini ..\Menu\StartMenuHelper\StartMenuHelperL10N.ini English\OpenShellText-en-US.wxl English\OpenShellEULA.rtf > nul
+7z a -r -x!en-US -x!*WixUI_en-us.wxl -x!*.adml -x!*.admx -x!*LocComments.txt ..\Setup\Final\OpenShellLoc.zip English ..\ClassicExplorer\ExplorerL10N.ini ..\StartMenu\StartMenuL10N.ini ..\StartMenu\StartMenuHelper\StartMenuHelperL10N.ini English\OpenShellText-en-US.wxl English\OpenShellEULA.rtf > nul
 cd ..
 
 cd Setup

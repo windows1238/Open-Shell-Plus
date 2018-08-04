@@ -145,7 +145,7 @@ Open-Shell Menu</span>
 <ul>
 <li><span style="font-weight: bold;">保留空白</span> - 此時如果使用連結屬性指向檔案或資料夾，將使用該檔案或資料夾的圖示<br>
     <span style="font-weight: bold;"></span></li><li><span style="font-weight: bold;">資源檔案,圖示 ID</span> - 例如 <span style="font-weight: bold;">%windir%\notepad.exe,2</span>。 檔案和逗號之間不能有空格。 <span style="font-weight: bold;">確認使用圖示的資源 ID，而非圖示的索引。</span> 為了達到最佳效果，使用圖示方塊旁的 <span style="font-weight: bold;">[...]</span> 按鈕<br>
-</li><li><span style="font-weight: bold;">,圖示 ID</span> - 與上方一樣，但資源檔案為 <span style="font-weight: bold;">MenuDLL.dll</span> 本身。 當參照到開始功能表的自己圖示時是有用的<br>
+</li><li><span style="font-weight: bold;">,圖示 ID</span> - 與上方一樣，但資源檔案為 <span style="font-weight: bold;">StartMenuDLL.dll</span> 本身。 當參照到開始功能表的自己圖示時是有用的<br>
   </li><li><span style="font-weight: bold;">圖示檔案</span> -&nbsp; 例如 <span style="font-weight: bold;">C:\Program Files\Mozilla Thunderbird\Email.ico</span></li><li><span style="font-weight: bold;">none</span> - 這將使用空白圖示</li>
 </ul>
 如果標籤或提示屬性以 <span style="font-weight: bold;">$</span> (錢字符號) 開頭，則系統將視其為 <span style="font-weight: bold;">StartMenuL10N.ini</span> 檔案中字串的名稱。 實際文字將根據目前語言設定而定。 這在建立多語言所使用的功能表時是有用的。<br>
@@ -160,7 +160,7 @@ Open-Shell Menu</span>
 <br>
 某些情形下您可能不要針對所有使用者鎖定數值，而只是簡單的修改設定的初始值。 在此情形則在數值的名稱加入「_Default」。 例如，如果您要預設停用內容功能表但仍允許使用者視需要啟用，建立名稱為「EnableContextMenu_Default」的 DWORD 值並設成 0。<br>
 <br>
-了解設定的登錄檔名稱與其數值之輕鬆方式，是修改它接著在以下機碼中尋找: <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\OpenShell\Menu\Settings</span>。<br>有時您可能要鎖定設定為預設值，但不知預設值為何。 則建立 DWORD 數值並設定成 0xDEFA。<br>
+了解設定的登錄檔名稱與其數值之輕鬆方式，是修改它接著在以下機碼中尋找: <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\OpenShell\StartMenu\Settings</span>。<br>有時您可能要鎖定設定為預設值，但不知預設值為何。 則建立 DWORD 數值並設定成 0xDEFA。<br>
 
 <br>
 
@@ -216,7 +216,7 @@ Open-Shell Menu</span>
 
 <br>
 <br><h1><a name="command_line"></a>命令列</h1>
-<span style="font-weight: bold; color: rgb(0, 112, 192);">Menu.exe</span> 支援 5 個命令列參數: <span style="font-weight: bold; color: rgb(0, 112, 192);">-open</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-toggle</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-togglenew</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-exit </span>和 <span style="font-weight: bold; color: rgb(0, 112, 192);">-settings</span>。<br>
+<span style="font-weight: bold; color: rgb(0, 112, 192);">StartMenu.exe</span> 支援 5 個命令列參數: <span style="font-weight: bold; color: rgb(0, 112, 192);">-open</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-toggle</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-togglenew</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-exit </span>和 <span style="font-weight: bold; color: rgb(0, 112, 192);">-settings</span>。<br>
 <br>
 前兩個名稱的建議。 一個開啟典型 [開始] 功能表，另一個切換。 可以使用參數在 [快速啟動列] 建立開啟 [開始] 功能表的捷徑。 或在程式設定熱鍵，比如 <a target="_blank" href="http://www.softpedia.com/get/System/OS-Enhancements/WinKey.shtml">WinKey</a> 鍵。<br>
 <br>

@@ -8,7 +8,7 @@
 #include "Translations.h"
 #include "StringUtils.h"
 #include "ResourceHelper.h"
-#include "..\MenuDLL\LogManager.h"
+#include "..\StartMenuDLL\LogManager.h"
 
 CStartMenuHelperModule _AtlModule;
 

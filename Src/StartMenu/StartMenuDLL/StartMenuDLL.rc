@@ -326,9 +326,9 @@ BEGIN
             VALUE "CompanyName", "Open-Shell"
             VALUE "FileDescription", "Open-Shell Menu"
             VALUE "FileVersion", _PRODUCT_VERSION_STR
-            VALUE "InternalName", "MenuDLL"
+            VALUE "InternalName", "StartMenuDLL"
             VALUE "LegalCopyright", "Copyright (C) 2017-2018, The Open-Shell Team"
-            VALUE "OriginalFilename", "MenuDLL.dll"
+            VALUE "OriginalFilename", "StartMenuDLL.dll"
             VALUE "ProductName", "Open-Shell"
             VALUE "ProductVersion", _PRODUCT_VERSION_STR
         END
@@ -397,7 +397,7 @@ BEGIN
     IDS_APP_TITLE           "Open-Shell Menu"
     IDS_SETTINGS_TITLE      "Settings for Open-Shell Menu"
     IDS_SETTINGS_TITLE_VER  "Settings for Open-Shell Menu %d.%d.%d"
-    IDS_NEW_SETTINGS        "You need to restart the menu for the new settings to take effect: Right-click on the start button and select ""Exit"". Then run Menu.exe again. It will read the new settings."
+    IDS_NEW_SETTINGS        "You need to restart the menu for the new settings to take effect: Right-click on the start button and select ""Exit"". Then run StartMenu.exe again. It will read the new settings."
     IDS_NO_TEXT             "<No Text>"
 END
 

@@ -7,7 +7,7 @@
 
 #include "stdafx.h"
 #include "MenuContainer.h"
-#include "MenuDLL.h"
+#include "StartMenuDLL.h"
 #include "SettingsUI.h"
 #include "FNVHash.h"
 #include "Settings.h"

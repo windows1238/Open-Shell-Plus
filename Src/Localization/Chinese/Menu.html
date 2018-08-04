@@ -186,7 +186,7 @@ body {
 <ul>
 <li><span style="font-weight: bold;">留空</span> - 然后如果链接属性指向一个文件或文件夹,图标的文件或文件夹将被使用<br>
     <span style="font-weight: bold;"></span></li><li><span style="font-weight: bold;"> 资源文件,icon ID</span> - 例如 <span style="font-weight: bold;">%windir%\notepad.exe,2</span>. 不要忘了文件之间的名称和逗号. <span style="font-weight: bold;">确保您使用的是图标的资源ID,而不是图标的索引.</span> 为了达到最好的使用效果 <span style="font-weight: bold;">[...]</span> 使用按钮图标组<br>
-</li><li><span style="font-weight: bold;">图标 ID</span> - 同上,但资源文件是 <span style="font-weight: bold;">MenuDLL.dll</span> 本身。这是有用的指开始菜单的图标<br>
+</li><li><span style="font-weight: bold;">图标 ID</span> - 同上,但资源文件是 <span style="font-weight: bold;">StartMenuDLL.dll</span> 本身。这是有用的指开始菜单的图标<br>
   </li><li><span style="font-weight: bold;">图标文件</span> - 例如 <span style="font-weight: bold;">C:\Program Files\Mozilla Thunderbird\Email.ico</span></li><li><span style="font-weight: bold;">none</span> - 这将使用一个空白图标</li>
 </ul>
 如果标签或提示属性 <span style="font-weight: bold;">$</span> (美元符号),那么系统将会把它作为一个字符串的名字 <span style="font-weight: bold;">StartMenuL10N.ini</span>
@@ -213,7 +213,7 @@ body {
 <br>
 在某些情况下,您可能不希望锁定为所有用户的值,只是修改初始值的设置。在这样的情况下添加“默认”名称的值。例如如果你想上下文菜单默认为禁用,但仍允许用户启用它,如果他们愿意,创建一个DWORD值命名为“EnableContextMenu_Default”并将它设置为0。<br>
 <br>
-最简单的方式了解注册表名称的设置及其作用然后修改它,然后检查 <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\OpenShell\Menu\Settings</span>.<br>
+最简单的方式了解注册表名称的设置及其作用然后修改它,然后检查 <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\OpenShell\StartMenu\Settings</span>.<br>
 
 有时你可能想锁定设置为默认值,但你
 不知道默认值是。然后创建一个DWORD值和设置
@@ -312,7 +312,7 @@ Files\Open-Shell\Skins</span>. 之后,它将在设置里变为可用.<br>
 
 <br>
 <br><h1><a name="command_line"></a>命令行</h1>
-The <span style="font-weight: bold; color: rgb(0, 112, 192);">Menu.exe</span> 支持5个命令行参数: <span style="font-weight: bold; color: rgb(0, 112, 192);">-open</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-toggle</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-togglenew</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-exit </span>and <span style="font-weight: bold; color: rgb(0, 112, 192);">-settings</span>.<br>
+The <span style="font-weight: bold; color: rgb(0, 112, 192);">StartMenu.exe</span> 支持5个命令行参数: <span style="font-weight: bold; color: rgb(0, 112, 192);">-open</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-toggle</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-togglenew</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-exit </span>and <span style="font-weight: bold; color: rgb(0, 112, 192);">-settings</span>.<br>
 <br>
 前两个做什么名字所暗示的。一打开经典开始菜单,其他
 切换它。您可以使用参数来创建一个快捷方式在你的

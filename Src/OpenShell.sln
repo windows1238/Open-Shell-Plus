@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{B695E1F6
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClassicExplorer", "ClassicExplorer\ClassicExplorer.vcxproj", "{9AF324B7-F786-4D85-B2E1-6E51720F874E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Menu", "Menu\Menu.vcxproj", "{87D5FE20-AF86-458A-9AA3-3131EB06179B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StartMenu", "StartMenu\StartMenu.vcxproj", "{87D5FE20-AF86-458A-9AA3-3131EB06179B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MenuDLL", "Menu\MenuDLL\MenuDLL.vcxproj", "{85DEECBB-1F9B-4983-9D54-3BF42182B7E7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StartMenuDLL", "StartMenu\StartMenuDLL\StartMenuDLL.vcxproj", "{85DEECBB-1F9B-4983-9D54-3BF42182B7E7}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Setup", "Setup\Setup.vcxproj", "{A4A4D3B1-24E7-401E-A37C-72141D7603DC}"
 EndProject
@@ -49,7 +49,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Win87", "Skins\Win87\Win87.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Win8", "Skins\Win8\Win8.vcxproj", "{ED74EBA9-1BCB-4B8F-9AE1-DC63B3C24A94}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StartMenuHelper", "Menu\StartMenuHelper\StartMenuHelper.vcxproj", "{A42C6159-ACA8-46D1-A0FB-19C398B137D5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StartMenuHelper", "StartMenu\StartMenuHelper\StartMenuHelper.vcxproj", "{A42C6159-ACA8-46D1-A0FB-19C398B137D5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UpdateBin", "Setup\UpdateBin\UpdateBin.vcxproj", "{F92A5473-F9E0-412F-923C-6632A66D13C1}"
 EndProject

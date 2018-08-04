@@ -159,7 +159,7 @@ El icono puede:<br style="font-weight: bold;">
 <ul>
 <li><span style="font-weight: bold;">dejarse en blanco</span> - si el atributo vínculo señala a un archivo o carpeta, se usará el icono de dicho archivo o carpeta<br>
     <span style="font-weight: bold;"></span></li><li>ser <span style="font-weight: bold;">archivo de recursos,identificador de icono</span> - por ejemplo <span style="font-weight: bold;">%windir%\notepad.exe,2</span>. No deje espacio entre el nombre de archivo y la coma. <span style="font-weight: bold;">Asegúrese de que usa el identificador del recurso del icono y no el índice del icono.</span> Para los mejores resultados, use el botón <span style="font-weight: bold;">[...]</span> de al lado del cuadro de icono<br>
-</li><li>ser <span style="font-weight: bold;">,identificador de icono</span> - igual que lo anterior, pero el archivo de recursos es <span style="font-weight: bold;">MenuDLL.dll</span> en sí. Esto es útil al hacer referencia a iconos propios del menú inicio<br>
+</li><li>ser <span style="font-weight: bold;">,identificador de icono</span> - igual que lo anterior, pero el archivo de recursos es <span style="font-weight: bold;">StartMenuDLL.dll</span> en sí. Esto es útil al hacer referencia a iconos propios del menú inicio<br>
   </li><li>ser <span style="font-weight: bold;">archivo de icono</span> -&nbsp; por ejemplo <span style="font-weight: bold;">C:\Program Files\Mozilla Thunderbird\Email.ico</span></li><li>ser <span style="font-weight: bold;">none</span> - esto usará un icono vacío</li>
 </ul>
 Si los atributos etiqueta o consejo empiezan con <span style="font-weight: bold;">$</span> (signo de dólares), el sistema lo tratará como el nombre de una cadena en el archivo <span style="font-weight: bold;">StartMenuL10N.ini</span>. El texto real dependerá de la configuración de idioma actual. Resulta útil al crear un menú que pueda usarse en varios idiomas.<br>
@@ -188,7 +188,7 @@ menú contextual esté deshabilitado de manera predeterminada pero seguir permitie
 si les place, cree un valor DWORD con nombre "EnableContextMenu_Default"
 y establézcalo en 0.<br>
 <br>
-La manera más fácil de saber el nombre de una configuración en el registro y su valor es modificarla, y acto seguido buscarla en <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\OpenShell\Menu\Settings</span>.<br>
+La manera más fácil de saber el nombre de una configuración en el registro y su valor es modificarla, y acto seguido buscarla en <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\OpenShell\StartMenu\Settings</span>.<br>
 
 Puede que a veces desee bloquear una configuración en su valor predeterminado, pero
 no sabe cuál es el valor predeterminado. De ser así, cree un valor DWORD y establézcalo
@@ -287,7 +287,7 @@ desde la <a href="http://www.classicshell.net/translations/">página de traduccio
 
 <br>
 <br><h1><a name="command_line"></a>Línea de comandos</h1>
-<span style="font-weight: bold; color: rgb(0, 112, 192);">Menu.exe</span> admite 5 parámetros de línea de comandos: <span style="font-weight: bold; color: rgb(0, 112, 192);">-open</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-toggle</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-togglenew</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-exit </span>y <span style="font-weight: bold; color: rgb(0, 112, 192);">-settings</span>.<br>
+<span style="font-weight: bold; color: rgb(0, 112, 192);">StartMenu.exe</span> admite 5 parámetros de línea de comandos: <span style="font-weight: bold; color: rgb(0, 112, 192);">-open</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-toggle</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-togglenew</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-exit </span>y <span style="font-weight: bold; color: rgb(0, 112, 192);">-settings</span>.<br>
 <br>
 Los dos primeros hacen lo que sugieren sus nombres en inglés. Uno abre el menú inicio clásico, el otro
 lo alterna. Puede usar los parámetros para crear un acceso directo en su

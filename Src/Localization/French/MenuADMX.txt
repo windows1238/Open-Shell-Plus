@@ -135,25 +135,25 @@ SkinC1.tipOverride = Sélectionnez la Peau (skin) à être utilisée par le styl
 SkinVariationC1.nameOverride = Variété de Peau (skin) pour le menu classique avec une colonne
 SkinVariationC1.tipOverride = Sélectionnez la variété de peau (skin) à être utilisée avec le style classique avec une colonne (pour les peaux (skins) qui supportent de multiples variations)
 SkinOptionsC1.nameOverride = Options de Peaux (skins) pour le menu classique avec une colonne
-SkinOptionsC1.tipOverride = Sélectionnez les options de Peaux (skins) à être utilisée avec le style classique avec une colonne.\nLes options sont une liste de nombres Hexa. La meilleur façon de les obtenir est d'ajuster les options dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée SkinOptionsC1 dans HKCU\Software\OpenShell\Menu\Settings
+SkinOptionsC1.tipOverride = Sélectionnez les options de Peaux (skins) à être utilisée avec le style classique avec une colonne.\nLes options sont une liste de nombres Hexa. La meilleur façon de les obtenir est d'ajuster les options dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée SkinOptionsC1 dans HKCU\Software\OpenShell\StartMenu\Settings
 MenuItems1.nameOverride = Elément de menu pour le menu classique avec une colonne
-MenuItems1.tipOverride = Sélectionnez les éléments de menu à être utilisés avec le style classique avec une colonne.\nLa meilleur façon de les obtenir est de configurer les éléments dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée MenuItems1 dans HKCU\Software\OpenShell\Menu\Settings
+MenuItems1.tipOverride = Sélectionnez les éléments de menu à être utilisés avec le style classique avec une colonne.\nLa meilleur façon de les obtenir est de configurer les éléments dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée MenuItems1 dans HKCU\Software\OpenShell\StartMenu\Settings
 SkinC2.nameOverride = Peau (skin) pour le menu classique avec deux colonne
 SkinC2.tipOverride = Sélectionnez la Peau (skin) à être utilisée par le style classique avec deux colonne
 SkinVariationC2.nameOverride = Variété de Peau (skin) pour le menu classique avec deux colonne
 SkinVariationC2.tipOverride = Sélectionnez la variété de peau (skin) à être utilisée avec le style classique avec deux colonne (pour les peaux (skins) qui supportent de multiples variations)
 SkinOptionsC2.nameOverride = Options de Peaux (skins) pour le menu classique avec deux colonne
-SkinOptionsC2.tipOverride = Sélectionnez les options de Peaux (skins) à être utilisée avec le style classique avec deux colonne.\nLes options sont une liste de nombres Hexa. La meilleur façon de les obtenir est d'ajuster les options dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée SkinOptionsC2 dans HKCU\Software\OpenShell\Menu\Settings
+SkinOptionsC2.tipOverride = Sélectionnez les options de Peaux (skins) à être utilisée avec le style classique avec deux colonne.\nLes options sont une liste de nombres Hexa. La meilleur façon de les obtenir est d'ajuster les options dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée SkinOptionsC2 dans HKCU\Software\OpenShell\StartMenu\Settings
 MenuItems2.nameOverride = Elément de menu pour le menu classique avec deux colonne
-MenuItems2.tipOverride = Sélectionnez les éléments de menu à être utilisés avec le style classique avec deux colonne.\nLa meilleur façon de les obtenir est de configurer les éléments dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée MenuItems2 dans HKCU\Software\OpenShell\Menu\Settings
+MenuItems2.tipOverride = Sélectionnez les éléments de menu à être utilisés avec le style classique avec deux colonne.\nLa meilleur façon de les obtenir est de configurer les éléments dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée MenuItems2 dans HKCU\Software\OpenShell\StartMenu\Settings
 SkinW7.nameOverride = Peau (skin) pour le style Windows 7
 SkinW7.tipOverride = Sélectionnez la Peau (skin) à être utilisée par le style Windows 7
 SkinVariationW7.nameOverride = Variété de Peau (skin) pour le style Windows 7
 SkinVariationW7.tipOverride = Sélectionnez la variété de peau (skin) à être utilisée avec  le style Windows 7 (pour les peaux (skins) qui supportent de multiples variations)
 SkinOptionsW7.nameOverride = Options de Peaux (skins) pour le style Windows 7
-SkinOptionsW7.tipOverride = Sélectionnez les options de Peaux (skins) à être utilisée avec le style Windows 7.\nLes options sont une liste de nombres Hexa. La meilleur façon de les obtenir est d'ajuster les options dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée SkinOptionsW7 dans HKCU\Software\OpenShell\Menu\Settings
+SkinOptionsW7.tipOverride = Sélectionnez les options de Peaux (skins) à être utilisée avec le style Windows 7.\nLes options sont une liste de nombres Hexa. La meilleur façon de les obtenir est d'ajuster les options dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée SkinOptionsW7 dans HKCU\Software\OpenShell\StartMenu\Settings
 MenuItems7.nameOverride = Elément de menu pour le style Windows 7
-MenuItems7.tipOverride = Sélectionnez les éléments de menu à être utilisés avec le style Windows 7.\nLa meilleur façon de les obtenir est de configurer les éléments dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée MenuItems7 dans HKCU\Software\OpenShell\Menu\Settings
+MenuItems7.tipOverride = Sélectionnez les éléments de menu à être utilisés avec le style Windows 7.\nLa meilleur façon de les obtenir est de configurer les éléments dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée MenuItems7 dans HKCU\Software\OpenShell\StartMenu\Settings
 
 ; windows 7
 SkinA.nameOverride = Peau (skin) pour le sous-menu Tous les Programmes dans le menu démarrer de Windows 7
@@ -161,7 +161,7 @@ SkinA.tipOverride = Sélectionnez la peau (skin) pour le sous-menu Tous les Prog
 SkinVariationA.nameOverride = Variété de Peau (skin) pour le sous-menu Tous les Programmes dans le menu démarrer de Windows 7
 SkinVariationA.tipOverride = Sélectionnez variété de Peau (skin) pour le sous-menu Tous les Programmes dans le menu démarrer de Windows 7(pour les peaux (skins) qui supportent de multiples variations)
 SkinOptionsA.nameOverride = Options de Peaux (skins) pour le sous-menu Tous les Programmes dans le menu démarrer de Windows 7
-SkinOptionsA.tipOverride = Sélectionnez les options de Peaux (skins) pour le sous-menu Tous les Programmes dans le menu démarrer de Windows 7.\nLes options sont une liste de nombres Hexa. La meilleur façon de les obtenir est d'ajuster les options dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée SkinOptionsA dans HKCU\Software\OpenShell\Menu\Settings
+SkinOptionsA.tipOverride = Sélectionnez les options de Peaux (skins) pour le sous-menu Tous les Programmes dans le menu démarrer de Windows 7.\nLes options sont une liste de nombres Hexa. La meilleur façon de les obtenir est d'ajuster les options dans la boîte de dialogue des paramètres du Menu Démarrer Classique et de les chercher la valeur nommée SkinOptionsA dans HKCU\Software\OpenShell\StartMenu\Settings
 
 ; metro settings
 SkipMetro.tipAddition = Ce paramètre ne marche pas sous Windows 8.1. Vous devez utiliser le paramètre interne de Windows pour charger vers le bureau
@@ -176,7 +176,7 @@ FolderCommonStartMenu.tipOverride = Saisissez une surcharge pour le dossier menu
 FolderCommonPrograms.nameOverride = Dossier Programmes communs
 FolderCommonPrograms.tipOverride = Saisissez une surcharge pour le dossier Programmes communs.\nLe chemin d'accès peut contenir des variables d'environnement.\nNote: Ce paramètre est modifiable à partir de la boîte de dialogue des Paramètres
 AutoStartDelay.nameOverride = Délai de l'Auto-démarrage
-AutoStartDelay.tipOverride = Saisissez le délai en ms lorsque vous lancez le menu démarrer automatiquement pendant une ouverture de session (ne s'applique pas lorsque vous démarrez manuellement le menu en lançant Menu.exe).\nNote: Ce paramètre n'est pas modifiable à partir de la boîte de dialogue des Paramètres
+AutoStartDelay.tipOverride = Saisissez le délai en ms lorsque vous lancez le menu démarrer automatiquement pendant une ouverture de session (ne s'applique pas lorsque vous démarrez manuellement le menu en lançant StartMenu.exe).\nNote: Ce paramètre n'est pas modifiable à partir de la boîte de dialogue des Paramètres
 
 ; other
 StartButtonIcon.tipAddition = Cette valeur peut être un chemin d'accès vers un fichier ICO ou un chemin d'accès vers un EXE/DLL et un ID d'icône
@@ -188,5 +188,5 @@ SoundDrop.tipAddition = Cette valeur peut être un nom d'un événement système
 ExpandFolderLinks.tipAddition = Fonctionne seulement pour les liens symboliques (comme jonctions) et pas les raccourcis simples
 StartHoverDelay.nameOverride = Délai du survol (pour le bouton Démarrer)
 AllProgramsDelay.nameOverride = Délai du survol (Pour Tous les Programmes dans Windows 7)
-CSMHotkey.tipAddition = .\n\nLa valeur de base est le code virtuel principal de la touche. Ajouter 256 pour Maj, 512 pour Contrôle et 1024 pour and 1024 Alt.\nLa meilleur façon pour obtenir la valeur est de sélectionnez la touche raccourcie dans le boîte de dialogue des Paramètres et de chercher la valeur nommée CSMHotkey dans HKCU\Software\OpenShell\Menu\Settings
-WSMHotkey.tipAddition = .\n\nLa valeur de base est le code virtuel principal de la touche. Ajouter 256 pour Maj, 512 pour Contrôle et 1024 pour and 1024 Alt.\nLa meilleur façon pour obtenir la valeur est de sélectionnez la touche raccourcie dans le boîte de dialogue des Paramètres et de chercher la valeur nommée WSMHotkey in HKCU\Software\OpenShell\Menu\Settings
+CSMHotkey.tipAddition = .\n\nLa valeur de base est le code virtuel principal de la touche. Ajouter 256 pour Maj, 512 pour Contrôle et 1024 pour and 1024 Alt.\nLa meilleur façon pour obtenir la valeur est de sélectionnez la touche raccourcie dans le boîte de dialogue des Paramètres et de chercher la valeur nommée CSMHotkey dans HKCU\Software\OpenShell\StartMenu\Settings
+WSMHotkey.tipAddition = .\n\nLa valeur de base est le code virtuel principal de la touche. Ajouter 256 pour Maj, 512 pour Contrôle et 1024 pour and 1024 Alt.\nLa meilleur façon pour obtenir la valeur est de sélectionnez la touche raccourcie dans le boîte de dialogue des Paramètres et de chercher la valeur nommée WSMHotkey in HKCU\Software\OpenShell\StartMenu\Settings

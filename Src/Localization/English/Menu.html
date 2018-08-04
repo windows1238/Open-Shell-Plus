@@ -189,7 +189,7 @@ The icon can be:<br style="font-weight: bold;">
 <ul>
 <li><span style="font-weight: bold;">left blank</span> - then if the link attribute points to a file or a folder, the icon of that file or folder will be used<br>
     <span style="font-weight: bold;"></span></li><li><span style="font-weight: bold;">resource file,icon ID</span> - for example <span style="font-weight: bold;">%windir%\notepad.exe,2</span>. Do not leave space between the file name and the comma. <span style="font-weight: bold;">Make sure you are using the icon's resource ID, and not the icon's index.</span> For best results use the <span style="font-weight: bold;">[...]</span> button next to the icon box<br>
-</li><li><span style="font-weight: bold;">,icon ID</span> - same as above, but the resource file is the <span style="font-weight: bold;">MenuDLL.dll</span> itself. This is useful when referring to the start menu's own icons<br>
+</li><li><span style="font-weight: bold;">,icon ID</span> - same as above, but the resource file is the <span style="font-weight: bold;">StartMenuDLL.dll</span> itself. This is useful when referring to the start menu's own icons<br>
   </li><li><span style="font-weight: bold;">icon file</span> -&nbsp; for example <span style="font-weight: bold;">C:\Program Files\Mozilla Thunderbird\Email.ico</span></li><li><span style="font-weight: bold;">none</span> - this will use a blank icon</li>
 </ul>
 If the label or the tip attribute start with <span style="font-weight: bold;">$</span> (dollar sign), then the system will treat it as a name of a string in the <span style="font-weight: bold;">StartMenuL10N.ini</span>
@@ -222,7 +222,7 @@ menu to be disabled by default but still allow the users to enable it
 if they wish, create a DWORD value named "EnableContextMenu_Default"
 and set it to 0.<br>
 <br>
-The easiest way to know the registry name of a setting and its value is to modify it, and then look it up in <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\OpenShell\Menu\Settings</span>.<br>
+The easiest way to know the registry name of a setting and its value is to modify it, and then look it up in <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\OpenShell\StartMenu\Settings</span>.<br>
 
 Sometimes you may want to lock a setting to its default value, but you
 don't know what the default value is. Then create a DWORD value and set
@@ -326,7 +326,7 @@ downloaded from the <a href="http://www.classicshell.net/translations/">translat
 
 <br>
 <br><h1><a name="command_line"></a>Command Line</h1>
-The <span style="font-weight: bold; color: rgb(0, 112, 192);">Menu.exe</span> supports 5 command line parameters: <span style="font-weight: bold; color: rgb(0, 112, 192);">-open</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-toggle</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-togglenew</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-exit </span>and <span style="font-weight: bold; color: rgb(0, 112, 192);">-settings</span>.<br>
+The <span style="font-weight: bold; color: rgb(0, 112, 192);">StartMenu.exe</span> supports 5 command line parameters: <span style="font-weight: bold; color: rgb(0, 112, 192);">-open</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-toggle</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-togglenew</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-exit </span>and <span style="font-weight: bold; color: rgb(0, 112, 192);">-settings</span>.<br>
 <br>
 The first two do what the name suggests. One opens the classic start menu, the other
 toggles it. You can use the parameters to create a shortcut in your

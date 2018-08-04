@@ -135,25 +135,25 @@ SkinC1.tipOverride = Wählen Sie das Layout für die Verwendung des Classic Men�
 SkinVariationC1.nameOverride = Layout Variationen für das Classic Menü Design mit einer Spalte
 SkinVariationC1.tipOverride = Wählen Sie die Layout Variation für die Verwendung des Classic Menü Designs mit einer Spalte (für Layouts die mehrere Variationen unterstützen)
 SkinOptionsC1.nameOverride = Layout Optionen für das Classic Menü Design mit einer Spalte
-SkinOptionsC1.tipOverride = Wählen Sie die Layout Optionen für die Verwendung des Classic Menü Designs mit einer Spalte.\nDie Optionen bestehen aus einer Liste von Hexadezimalen Nummern. Am einfachsten ist es die Optionen in den Open-Shell Menü Einstellungen anzupassen und dann aus dem Registrierungswert "SkinOptionsC1" in dem Registrierungsschlüssel "HKCU\Software\OpenShell\Menu\Settings" auszulesen
+SkinOptionsC1.tipOverride = Wählen Sie die Layout Optionen für die Verwendung des Classic Menü Designs mit einer Spalte.\nDie Optionen bestehen aus einer Liste von Hexadezimalen Nummern. Am einfachsten ist es die Optionen in den Open-Shell Menü Einstellungen anzupassen und dann aus dem Registrierungswert "SkinOptionsC1" in dem Registrierungsschlüssel "HKCU\Software\OpenShell\StartMenu\Settings" auszulesen
 MenuItems1.nameOverride = Menü Einträge für das Classic Menü Design mit einer Spalte
-MenuItems1.tipOverride = Wählen Sie die Menüeinträge die in dem Classic Menü Design mit einer Spalte verwendet werden.\nAm einfachsten erhalten Sie die richtige Bezeichnung, wenn Sie die Einträge in den Open-Shell Menü Einstellungen konfigurieren und dann den Registrierungswert "MenuItems1" im Windows Registrierungschlüssel "HKCU\Software\OpenShell\Menu\Settings" auslesen.
+MenuItems1.tipOverride = Wählen Sie die Menüeinträge die in dem Classic Menü Design mit einer Spalte verwendet werden.\nAm einfachsten erhalten Sie die richtige Bezeichnung, wenn Sie die Einträge in den Open-Shell Menü Einstellungen konfigurieren und dann den Registrierungswert "MenuItems1" im Windows Registrierungschlüssel "HKCU\Software\OpenShell\StartMenu\Settings" auslesen.
 SkinC2.nameOverride = Layout für das Classic Menü Design mit zwei Spalten
 SkinC2.tipOverride = Wählen Sie das Layout für die Verwendung des Classic Menü Designs mit zwei Spalten aus
 SkinVariationC2.nameOverride = Layout Variationen für das Classic Menü Design mit zwei Spalten
 SkinVariationC2.tipOverride = Wählen Sie die Layout Variation für die Verwendung des Classic Menü Designs mit zwei Spalten (für Layouts die mehrere Variationen unterstützen)
 SkinOptionsC2.nameOverride = Layout Optionen für das Classic Menü Design mit zwei Spalten
-SkinOptionsC2.tipOverride = Wählen Sie die Layout Optionen für die Verwendung des Classic Menü Designs mit zwei Spalten.\nDie Optionen bestehen aus einer Liste von Hexadezimalen Nummern. Am einfachsten ist es die Optionen in den Open-Shell Menü Einstellungen anzupassen und dann aus dem Registrierungswert "SkinOptionsC2" in dem Registrierungsschlüssel "HKCU\Software\OpenShell\Menu\Settings" auszulesen
+SkinOptionsC2.tipOverride = Wählen Sie die Layout Optionen für die Verwendung des Classic Menü Designs mit zwei Spalten.\nDie Optionen bestehen aus einer Liste von Hexadezimalen Nummern. Am einfachsten ist es die Optionen in den Open-Shell Menü Einstellungen anzupassen und dann aus dem Registrierungswert "SkinOptionsC2" in dem Registrierungsschlüssel "HKCU\Software\OpenShell\StartMenu\Settings" auszulesen
 MenuItems2.nameOverride = Menü Einträge für das Classic Menü Design mit zwei Spalten
-MenuItems2.tipOverride = Wählen Sie die Menüeinträge die in dem Classic Menü Design mit zwei Spalten verwendet werden.\nAm einfachsten erhalten Sie die richtige Bezeichnung, wenn Sie die Einträge in den Open-Shell Menü Einstellungen konfigurieren und dann den Registrierungswert "MenuItems2" im Windows Registrierungschlüssel "HKCU\Software\OpenShell\Menu\Settings" auslesen.
+MenuItems2.tipOverride = Wählen Sie die Menüeinträge die in dem Classic Menü Design mit zwei Spalten verwendet werden.\nAm einfachsten erhalten Sie die richtige Bezeichnung, wenn Sie die Einträge in den Open-Shell Menü Einstellungen konfigurieren und dann den Registrierungswert "MenuItems2" im Windows Registrierungschlüssel "HKCU\Software\OpenShell\StartMenu\Settings" auslesen.
 SkinW7.nameOverride = Layout für das Windows 7 Design
 SkinW7.tipOverride = Wählen Sie das Layout für die Verwendung des Windows 7 Designs
 SkinVariationW7.nameOverride = Layout Variationen für das Windows 7 Design
 SkinVariationW7.tipOverride = Wählen Sie die Layout Variation für die Verwendung des Windows 7 Designs (für Layouts die mehrere Variationen unterstützen)
 SkinOptionsW7.nameOverride = Layout Optionen für das Windows 7 Design
-SkinOptionsW7.tipOverride =  Wählen Sie die Layout Optionen für Verwendung des Windows 7 Designs.\nDie Optionen bestehen aus einer Liste von Hexadezimalen Nummern. Am einfachsten ist es die Optionen in den Open-Shell Menü Einstellungen anzupassen und dann aus dem Registrierungswert "SkinOptionsW7" in dem Registrierungsschlüssel "HKCU\Software\OpenShell\Menu\Settings" auszulesen
+SkinOptionsW7.tipOverride =  Wählen Sie die Layout Optionen für Verwendung des Windows 7 Designs.\nDie Optionen bestehen aus einer Liste von Hexadezimalen Nummern. Am einfachsten ist es die Optionen in den Open-Shell Menü Einstellungen anzupassen und dann aus dem Registrierungswert "SkinOptionsW7" in dem Registrierungsschlüssel "HKCU\Software\OpenShell\StartMenu\Settings" auszulesen
 MenuItems7.nameOverride = Menü Einträge für das Windows 7 Design
-MenuItems7.tipOverride = Wählen Sie die Menüeinträge die in dem Windows 7 style.\nverwendet werden.\nAm einfachsten erhalten Sie die richtige Bezeichnung, wenn Sie die Einträge in den Open-Shell Menü Einstellungen konfigurieren und dann den Registrierungswert "MenuItems7" im Windows Registrierungschlüssel "HKCU\Software\OpenShell\Menu\Settings" auslesen.
+MenuItems7.tipOverride = Wählen Sie die Menüeinträge die in dem Windows 7 style.\nverwendet werden.\nAm einfachsten erhalten Sie die richtige Bezeichnung, wenn Sie die Einträge in den Open-Shell Menü Einstellungen konfigurieren und dann den Registrierungswert "MenuItems7" im Windows Registrierungschlüssel "HKCU\Software\OpenShell\StartMenu\Settings" auslesen.
 
 ; windows 7
 SkinA.nameOverride = Layout für das "Alle Programme" Untermenü im Windows 7 Start Menü
@@ -161,7 +161,7 @@ SkinA.tipOverride = Wählen Sie das Layout für die Verwendung des "Alle Program
 SkinVariationA.nameOverride = Layout Variation für das "Alle Programme" Untermenü im Windows 7 Start Menü
 SkinVariationA.tipOverride = Wählen Sie die Layout Variation für die Verwendung des "Alle Programme" Untermenü im Windows 7 Start Menü (für Layouts die mehrere Variationen unterstützen)
 SkinOptionsA.nameOverride = Layout Optionen für das "Alle Programme" Untermenü im Windows 7 Start Menü
-SkinOptionsA.tipOverride = Wählen Sie die Layout Optionen für die Verwendung des "Alle Programme" Untermenü im Windows 7 Start Menü.\nDie Optionen bestehen aus einer Liste von Hexadezimalen Nummern. Am einfachsten ist es die Optionen in den Open-Shell Menü Einstellungen anzupassen und dann aus dem Registrierungswert "SkinOptionsA" in dem Registrierungsschlüssel "HKCU\Software\OpenShell\Menu\Settings" auszulesen
+SkinOptionsA.tipOverride = Wählen Sie die Layout Optionen für die Verwendung des "Alle Programme" Untermenü im Windows 7 Start Menü.\nDie Optionen bestehen aus einer Liste von Hexadezimalen Nummern. Am einfachsten ist es die Optionen in den Open-Shell Menü Einstellungen anzupassen und dann aus dem Registrierungswert "SkinOptionsA" in dem Registrierungsschlüssel "HKCU\Software\OpenShell\StartMenu\Settings" auszulesen
 
 ; metro settings
 SkipMetro.tipAddition = Diese Einstellung ist nicht für Windows 8.1 verfügbar. Sie müssen die in Windows integrierte Einstellung zum Booten im Desktop Modus verwenden
@@ -176,7 +176,7 @@ FolderCommonStartMenu.tipOverride = Geben Sie ein override für den gemeinsamen 
 FolderCommonPrograms.nameOverride = Gemeinsamer Programme Ordner
 FolderCommonPrograms.tipOverride = Geben Sie ein override für den gemeinsamen Programme Ordner.\nDer Verzeichnispfad darf Umgebungsvariablen enthalten.\nHinweis: Diese Einstellung kann nicht über das Einstellungsmenü verändert werden
 AutoStartDelay.nameOverride = Auto-Start Verzögerung
-AutoStartDelay.tipOverride = Geben Sie eine Zeitverzögerung in Millisekunden ein, wenn das Start Menü automatisch während des Logins gestartet werden soll (funktioniert nicht wenn das Start Menü manuell durch das Ausführen von Menu.exe gestartet werden soll).\nHinweis: Diese Einstellung kann nicht über das Einstellungsmenü verändert werden
+AutoStartDelay.tipOverride = Geben Sie eine Zeitverzögerung in Millisekunden ein, wenn das Start Menü automatisch während des Logins gestartet werden soll (funktioniert nicht wenn das Start Menü manuell durch das Ausführen von StartMenu.exe gestartet werden soll).\nHinweis: Diese Einstellung kann nicht über das Einstellungsmenü verändert werden
 
 ; other
 StartButtonIcon.tipAddition = Der Eintrag kann ein Dateipfad zu einer ICO-Datei oder ein Dateipfad zu einer EXE/DLL-Datei sein und die ID eines Symbols
@@ -188,5 +188,5 @@ SoundDrop.tipAddition = Der Eintrag kann ein Name eines The value can be a name 
 ExpandFolderLinks.tipAddition = Funktioniert nur für symbolische Verweise (wie Junctions) und nicht für plain Verknüpfungen
 StartHoverDelay.nameOverride = Hover Verzögerung (für den Start Button)
 AllProgramsDelay.nameOverride = Hover Verzögerung (für "Alle Programme" in Windows 7)
-CSMHotkey.tipAddition = .\n\nDer Grundwert ist der virtuelle Hauptschlüssel Code. Ergänze 256 für die Shift-Taste, 512 für Steuerungs-Taste und 1024 für die Alt-Taste.\nAm einfachsten erhalten Sie den richtigen Wert, wenn Sie den Hotkey in den Open-Shell Menü Einstellungen auswählen und dann den Registrierungswert "CSMHotkey" im Windows Registrierungschlüssel "HKCU\Software\OpenShell\Menu\Settings" auslesen.
-WSMHotkey.tipAddition = .\n\nDer Grundwert ist der virtuelle Hauptschlüssel Code. Ergänze 256 für die Shift-Taste, 512 für Steuerungs-Taste und 1024 für die Alt-Taste.\nAm einfachsten erhalten Sie den richtigen Wert, wenn Sie den Hotkey in den Open-Shell Menü Einstellungen auswählen und dann den Registrierungswert "WSMHotkey" im Windows Registrierungschlüssel "HKCU\Software\OpenShell\Menu\Settings" auslesen.
+CSMHotkey.tipAddition = .\n\nDer Grundwert ist der virtuelle Hauptschlüssel Code. Ergänze 256 für die Shift-Taste, 512 für Steuerungs-Taste und 1024 für die Alt-Taste.\nAm einfachsten erhalten Sie den richtigen Wert, wenn Sie den Hotkey in den Open-Shell Menü Einstellungen auswählen und dann den Registrierungswert "CSMHotkey" im Windows Registrierungschlüssel "HKCU\Software\OpenShell\StartMenu\Settings" auslesen.
+WSMHotkey.tipAddition = .\n\nDer Grundwert ist der virtuelle Hauptschlüssel Code. Ergänze 256 für die Shift-Taste, 512 für Steuerungs-Taste und 1024 für die Alt-Taste.\nAm einfachsten erhalten Sie den richtigen Wert, wenn Sie den Hotkey in den Open-Shell Menü Einstellungen auswählen und dann den Registrierungswert "WSMHotkey" im Windows Registrierungschlüssel "HKCU\Software\OpenShell\StartMenu\Settings" auslesen.

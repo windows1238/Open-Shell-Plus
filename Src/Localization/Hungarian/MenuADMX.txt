@@ -135,25 +135,25 @@ SkinC1.tipOverride = Válassz használandó témát az egy oszlopos klasszikus s
 SkinVariationC1.nameOverride = Téma variáció az egy oszlopos klasszikus menühöz
 SkinVariationC1.tipOverride = Válassz téma variációt az egy oszlopos klasszikus stílushoz (olyan témák esetében, amelyek támogatják a több variációt)
 SkinOptionsC1.nameOverride = Témabeállítások az egy oszlopos klasszikus menühöz
-SkinOptionsC1.tipOverride = Válassz témabeállításokat az egy oszlopos klasszikus stílushoz.\nA beállítások hex számokként jelennek meg. A megfelelő értékekhez szerkeszd a beállításokat a Klasszikus Start menü beállítások párbeszédablakában, majd keresd ki a SkinOptionsC1 nevű értéket a HKCU\Software\OpenShell\Menu\Settings címen
+SkinOptionsC1.tipOverride = Válassz témabeállításokat az egy oszlopos klasszikus stílushoz.\nA beállítások hex számokként jelennek meg. A megfelelő értékekhez szerkeszd a beállításokat a Klasszikus Start menü beállítások párbeszédablakában, majd keresd ki a SkinOptionsC1 nevű értéket a HKCU\Software\OpenShell\StartMenu\Settings címen
 MenuItems1.nameOverride = Menüelemek az egy oszlopos klasszikus menühöz
-MenuItems1.tipOverride = Válassz menüelemeket az egy oszlopos klasszikus stílushoz.\nA megfelelő sor beállításához szerkeszd az elemeket a Klasszikus Start menü beállítások párbeszédablakában, majd keresd ki a MenuItems1 nevű értéket a HKCU\Software\OpenShell\Menu\Settings címen
+MenuItems1.tipOverride = Válassz menüelemeket az egy oszlopos klasszikus stílushoz.\nA megfelelő sor beállításához szerkeszd az elemeket a Klasszikus Start menü beállítások párbeszédablakában, majd keresd ki a MenuItems1 nevű értéket a HKCU\Software\OpenShell\StartMenu\Settings címen
 SkinC2.nameOverride = Téma két oszlopos klasszikus menühöz
 SkinC2.tipOverride = Válassz használandó témát a két oszlopos klasszikus stílushoz
 SkinVariationC2.nameOverride = Téma variáció a két oszlopos klasszikus menühöz
 SkinVariationC2.tipOverride = Válassz téma variációt a két oszlopos klasszikus stílushoz (olyan témák esetében, amelyek támogatják a több variációt)
 SkinOptionsC2.nameOverride = Témabeállítások a két oszlopos klasszikus menühöz
-SkinOptionsC2.tipOverride = Válassz témabeállításokat a két oszlopos klasszikus stílushoz.\nA beállítások hex számokként jelennek meg. A megfelelő értékekhez szerkeszd a beállításokat a Klasszikus Start menü beállítások párbeszédablakában, majd keresd ki a SkinOptionsC2 nevű értéket a HKCU\Software\OpenShell\Menu\Settings címen
+SkinOptionsC2.tipOverride = Válassz témabeállításokat a két oszlopos klasszikus stílushoz.\nA beállítások hex számokként jelennek meg. A megfelelő értékekhez szerkeszd a beállításokat a Klasszikus Start menü beállítások párbeszédablakában, majd keresd ki a SkinOptionsC2 nevű értéket a HKCU\Software\OpenShell\StartMenu\Settings címen
 MenuItems2.nameOverride = Menüelemek a két oszlopos klasszikus menühöz
-MenuItems2.tipOverride = Válassz menüelemeket a két oszlopos klasszikus stílushoz.\nA megfelelő sor beállításához szerkeszd az elemeket a Klasszikus Start menü beállítások párbeszédablakában, majd keresd ki a MenuItems2 nevű értéket a HKCU\Software\OpenShell\Menu\Settings címen
+MenuItems2.tipOverride = Válassz menüelemeket a két oszlopos klasszikus stílushoz.\nA megfelelő sor beállításához szerkeszd az elemeket a Klasszikus Start menü beállítások párbeszédablakában, majd keresd ki a MenuItems2 nevű értéket a HKCU\Software\OpenShell\StartMenu\Settings címen
 SkinW7.nameOverride = Téma a Windows 7 stílushoz
 SkinW7.tipOverride = Válassz használandó témát a Windows 7 stílushoz
 SkinVariationW7.nameOverride = Téma variáció a Windows 7 stílushoz
 SkinVariationW7.tipOverride = Válassz téma variációt a Windows 7 stílushoz (olyan témák esetében, amelyek támogatják a több variációt)
 SkinOptionsW7.nameOverride = Témabeállítások a Windows 7 stílushoz
-SkinOptionsW7.tipOverride = Válassz témabeállításokat a Windows 7 stílushoz.\nA beállítások hex számokként jelennek meg. A megfelelő értékekhez szerkeszd a beállításokat a Klasszikus Start menü beállítások párbeszédablakában, majd keresd ki a SkinOptionsW7 nevű értéket a HKCU\Software\OpenShell\Menu\Settings címen
+SkinOptionsW7.tipOverride = Válassz témabeállításokat a Windows 7 stílushoz.\nA beállítások hex számokként jelennek meg. A megfelelő értékekhez szerkeszd a beállításokat a Klasszikus Start menü beállítások párbeszédablakában, majd keresd ki a SkinOptionsW7 nevű értéket a HKCU\Software\OpenShell\StartMenu\Settings címen
 MenuItems7.nameOverride = Menüelemek a Windows 7 stílushoz
-MenuItems7.tipOverride = Válaszd ki a menüelemeket a Windows 7 stílushoz.\nA megfelelő sor beállításához szerkeszd az elemeket a Klasszikus Start menü beállítások párbeszédablakában, majd keresd ki a MenuItems7 nevű értéket a HKCU\Software\OpenShell\Menu\Settings címet
+MenuItems7.tipOverride = Válaszd ki a menüelemeket a Windows 7 stílushoz.\nA megfelelő sor beállításához szerkeszd az elemeket a Klasszikus Start menü beállítások párbeszédablakában, majd keresd ki a MenuItems7 nevű értéket a HKCU\Software\OpenShell\StartMenu\Settings címet
 
 ; windows 7
 SkinA.nameOverride = Téma a Windows 7 start menü Minden program almenüjéhez
@@ -161,7 +161,7 @@ SkinA.tipOverride = Válassz témát a Minden program almenühöz a Windows 7 st
 SkinVariationA.nameOverride = Téma variáció a Windows 7 start menü Minden program almenüjéhez
 SkinVariationA.tipOverride = Válassz téma variációt a Minden program almenühöz a Windows 7 start menüben(olyan témák esetében, amelyek támogatják a több variációt)
 SkinOptionsA.nameOverride = Témabeállítások a Windows 7 start menü Minden program almenüjéhez
-SkinOptionsA.tipOverride = Válassz témabeállításokat a Minden program almenühöz a Windows 7 start menüben.\nA beállítások hex számokként jelennek meg. A megfelelő értékekhez szerkeszd a beállításokat a Klasszikus Intéző beállítás párbeszédablakában, majd keresd ki a SkinOptionsA értéket a HKCU\Software\OpenShell\Menu\Settings címen
+SkinOptionsA.tipOverride = Válassz témabeállításokat a Minden program almenühöz a Windows 7 start menüben.\nA beállítások hex számokként jelennek meg. A megfelelő értékekhez szerkeszd a beállításokat a Klasszikus Intéző beállítás párbeszédablakában, majd keresd ki a SkinOptionsA értéket a HKCU\Software\OpenShell\StartMenu\Settings címen
 
 ; metro settings
 SkipMetro.tipAddition = Ez a beállítás Windows 8.1 alatt nem működik. A beépített Windows beállítást kell használnod az automatikus Asztalra bootoláshoz
@@ -176,7 +176,7 @@ FolderCommonStartMenu.tipOverride = Adj meg egy felülíró értéket a közös 
 FolderCommonPrograms.nameOverride = Közös Programok mappa
 FolderCommonPrograms.tipOverride = Adj meg egy felülíró értéket a közös Programok mappához.\nAz útvonal tartalmazhat környezeti változókat.\nMegjegyzés: Ez a beállítás nem szerkeszthető a Beállítások párbeszédablakból
 AutoStartDelay.nameOverride = Automatikus indítás időzítés
-AutoStartDelay.tipOverride = Add meg a Start menü automatikus indításának időzítését bejelentkezéskor milliszekundumban (nem érvényes a menü manuális elindításakor a Menu.exe-vel).\nMegjegyzés: Ez a beállítás nem szerkeszthető a Beállítások párbeszédablakból
+AutoStartDelay.tipOverride = Add meg a Start menü automatikus indításának időzítését bejelentkezéskor milliszekundumban (nem érvényes a menü manuális elindításakor a StartMenu.exe-vel).\nMegjegyzés: Ez a beállítás nem szerkeszthető a Beállítások párbeszédablakból
 
 ; other
 StartButtonIcon.tipAddition = Az érték lehet egy útvonal egy ICO fájlhoz vagy egy EXE/DLL-hez és az ikon azonosítójához
@@ -188,5 +188,5 @@ SoundDrop.tipAddition = Az érték lehet egy egy rendszeresemény neve vagy egy 
 ExpandFolderLinks.tipAddition = Csak szimbolikus linkekkel (mint például csatolási pontok) és nem egyszerű parancsikonokkal működik
 StartHoverDelay.nameOverride = Kurzor lebegés (a Start gomb felett)
 AllProgramsDelay.nameOverride = Lebegés időzítés (Windows 7 esetén a Minden programnál)
-CSMHotkey.tipAddition = .\n\nA főkulcs virtuális kódjának alapértéke. Adj hozzá 256-ot a Shifthez, 512-őt a Controlhoz és 1024-et az Althoz.\nA megfelelő érték kiválasztásához állítsd be a gyorsgombot a Klasszikus Start menü beállítás párbeszédablakában, majd keresd ki a CSMHotkey nevű értéket a HKCU\Software\OpenShell\Menu\Settings címen
-WSMHotkey.tipAddition = .\n\nA főkulcs virtuális kódjának alapértéke. Adj hozzá 256-ot a Shifthez, 512-őt a Controlhoz és 1024-et az Althoz.\nA megfelelő érték kiválasztásához állítsd be a gyorsgombot a Klasszikus Start menü beállítás párbeszédablakában, majd keresd ki a WSMHotkey nevű értéket a HKCU\Software\OpenShell\Menu\Settings címen
+CSMHotkey.tipAddition = .\n\nA főkulcs virtuális kódjának alapértéke. Adj hozzá 256-ot a Shifthez, 512-őt a Controlhoz és 1024-et az Althoz.\nA megfelelő érték kiválasztásához állítsd be a gyorsgombot a Klasszikus Start menü beállítás párbeszédablakában, majd keresd ki a CSMHotkey nevű értéket a HKCU\Software\OpenShell\StartMenu\Settings címen
+WSMHotkey.tipAddition = .\n\nA főkulcs virtuális kódjának alapértéke. Adj hozzá 256-ot a Shifthez, 512-őt a Controlhoz és 1024-et az Althoz.\nA megfelelő érték kiválasztásához állítsd be a gyorsgombot a Klasszikus Start menü beállítás párbeszédablakában, majd keresd ki a WSMHotkey nevű értéket a HKCU\Software\OpenShell\StartMenu\Settings címen

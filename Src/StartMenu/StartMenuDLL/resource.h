@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by MenuDLL.rc
+// Used by StartMenuDLL.rc
 //
 #define IDI_APPICON                     1
 #define IDI_APPSICON                    2

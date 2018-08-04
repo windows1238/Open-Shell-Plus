@@ -162,7 +162,7 @@ L&#8217;ic&ocirc;ne peut &ecirc;tre :<br style="font-weight: bold;">
 <ul>
 <li><span style="font-weight: bold;">laisser vide</span> - puis si le l'attribut lien pointe vers un fichier ou un dossier, l&#8217;ic&ocirc;ne de ce fichier ou dossier sera utilis&eacute;<br>
     <span style="font-weight: bold;"></span></li><li><span style="font-weight: bold;">fichier ressource, ic&ocirc;ne ID</span> - par exemple<span style="font-weight: bold;">%windir%\notepad.exe,2</span>. Ne laissez pas d'espace entre le nom du fichier et la virgule. <span style="font-weight: bold;">Soyez certain d'utiliser la ressource ID de l&#8217;ic&ocirc;ne, et pas l&#8217;index de l&#8217;ic&ocirc;ne.</span> Pour de meilleurs r&eacute;sultats utilisez le bouton the <span style="font-weight: bold;">[...]</span> &agrave; c&ocirc;t&eacute; de la zone d'&eacute;dition d'ic&ocirc;ne<br>
-</li><li><span style="font-weight: bold;">,ic&ocirc;ne ID</span> - pareil qu'au dessus, mais le fichier ressource est la <span style="font-weight: bold;">MenuDLL.dll</span> elle-m&ecirc;me. 
+</li><li><span style="font-weight: bold;">,ic&ocirc;ne ID</span> - pareil qu'au dessus, mais le fichier ressource est la <span style="font-weight: bold;">StartMenuDLL.dll</span> elle-m&ecirc;me. 
 C'est utile quand vous vous r&eacute;ferrez aux ic&ocirc;nes du menu d&eacute;marrer<br>
   </li><li><span style="font-weight: bold;">fichier ic&ocirc;ne</span> -&nbsp; par exemple <span style="font-weight: bold;">C:\Program Files\Mozilla Thunderbird\Email.ico</span></li><li><span style="font-weight: bold;">none</span> - ceci utilisera un ic&ocirc;ne vide/transparent</li>
 </ul>
@@ -184,7 +184,7 @@ Dans certains cas vous ne voudrez peut &ecirc;tre pas verrouiller une valeur pou
 nom de la valeur. Par exemple si vous voulez que le menu contextuel soit d&eacute;sactiv&eacute; par d&eacute;faut mais que vous voulez autoriser les utilisateurs &agrave; modifier cette valeur s&#8217;ils le veulent, cr&eacute;ez
 une valeur DWORD nomm&eacute;e &quot;EnableContextMenu_Default&quot; et configurez l&agrave; &agrave; 0.<br>
 <br>
-La fa&ccedil;on la plus facile de conna&icirc;tre le nom registrerie d'un param&egrave;tre et &ccedil;a valeur pour la modifier, est de la rechercher dans <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\OpenShell\Menu\Settings</span>.<br>
+La fa&ccedil;on la plus facile de conna&icirc;tre le nom registrerie d'un param&egrave;tre et &ccedil;a valeur pour la modifier, est de la rechercher dans <span style="font-weight: bold;">HKEY_CURRENT_USER\Software\OpenShell\StartMenu\Settings</span>.<br>
 
 Quelqes fois vous voudrez verrouiller un param&egrave;tre &agrave; sa valeur par d&eacute;faut, mais vous ne savez quelle est la valeur par d&eacute;faut. Dans ce cas cr&eacute;ez une valeur DWORD et 
 configurez l&agrave; &agrave; 0xDEFA.<br>
@@ -267,7 +267,7 @@ de votre Open-Shell.<br>
 
 <br>
 <br><h1><a name="command_line"></a>Ligne de commande</h1>
-Le <span style="font-weight: bold; color: rgb(0, 112, 192);">Menu.exe</span> supporte 5 param&egrave;tres de commandes en ligne : <span style="font-weight: bold; color: rgb(0, 112, 192);">-open</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-toggle</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-togglenew</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-exit </span>and <span style="font-weight: bold; color: rgb(0, 112, 192);">-settings</span>.<br>
+Le <span style="font-weight: bold; color: rgb(0, 112, 192);">StartMenu.exe</span> supporte 5 param&egrave;tres de commandes en ligne : <span style="font-weight: bold; color: rgb(0, 112, 192);">-open</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-toggle</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-togglenew</span>, <span style="font-weight: bold; color: rgb(0, 112, 192);">-exit </span>and <span style="font-weight: bold; color: rgb(0, 112, 192);">-settings</span>.<br>
 <br>
 Les deux premiers font ce que leurs noms sugg&egrave;rent. L&#8217;un ouvre le menu classique d&eacute;marrer (classic start menu), l&#8217;autre le bascule.
 Vous pouvez utilisez les param&egrave;tres pour cr&eacute;er un raccourci dans votre barre de lancement rapide qui ouvre le menu d&eacute;marrer. Ou pour configurer

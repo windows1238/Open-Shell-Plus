@@ -304,7 +304,7 @@ int MakeEnglishDll( wchar_t *const *params, int count )
 		UpdateResource(hEn,RT_DIALOG,MAKEINTRESOURCE(id),language,pRes,SizeofResource(hExplorer,hResInfo));
 	}
 
-	// get strings and dialog from MenuDLL.dll
+	// get strings and dialog from StartMenuDLL.dll
 	hMenu=LoadLibraryEx(params[2],NULL,LOAD_LIBRARY_AS_DATAFILE|LOAD_LIBRARY_AS_IMAGE_RESOURCE);
 	if (!hMenu)
 	{

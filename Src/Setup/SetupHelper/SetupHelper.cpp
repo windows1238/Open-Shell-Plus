@@ -25,7 +25,7 @@ int ExitStartMenu( void )
 			STARTUPINFO startupInfo={sizeof(startupInfo)};
 			PROCESS_INFORMATION processInfo;
 			memset(&processInfo,0,sizeof(processInfo));
-			wcscat_s(path,L"Menu.exe");
+			wcscat_s(path,L"StartMenu.exe");
 			HANDLE h=CreateFile(path,GENERIC_READ,FILE_SHARE_READ|FILE_SHARE_WRITE,NULL,OPEN_EXISTING,FILE_ATTRIBUTE_NORMAL,NULL);
 			if (h!=INVALID_HANDLE_VALUE)
 			{

@@ -13,7 +13,7 @@
 #include "ResourceHelper.h"
 #include "FNVHash.h"
 #include "LogManager.h"
-#include "MenuDLL.h"
+#include "StartMenuDLL.h"
 #include "SettingsUI.h"
 #include <uxtheme.h>
 #include <algorithm>
@@ -989,7 +989,7 @@ void CProgramsTree::GetFolderItems( std::vector<CTreeItem*> &items, HTREEITEM hP
 		pTreeItem->bAutoSort=false;
 	else
 		m_bAutoSort=false;
-	if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\Order",KEY_READ)==ERROR_SUCCESS)
+	if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\Order",KEY_READ)==ERROR_SUCCESS)
 	{
 		wchar_t name[100];
 		{
@@ -1699,8 +1699,8 @@ void CProgramsTree::OrderElements( HTREEITEM hChild, HTREEITEM hParent, const st
 	// save order
 	CRegKey regOrder;
 	wchar_t name[100];
-	if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\Order")!=ERROR_SUCCESS)
-		regOrder.Create(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\Order");
+	if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\Order")!=ERROR_SUCCESS)
+		regOrder.Create(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\Order");
 
 	Sprintf(name,_countof(name),L"%08X",folderHash);
 	if (bAutoSort)
@@ -1763,8 +1763,8 @@ void CProgramsTree::SaveRenamedOrder( HTREEITEM hItem, const CItemManager::ItemI
 	// save order
 	CRegKey regOrder;
 	wchar_t name[100];
-	if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\Order")!=ERROR_SUCCESS)
-		regOrder.Create(HKEY_CURRENT_USER,L"Software\\OpenShell\\Menu\\Order");
+	if (regOrder.Open(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\Order")!=ERROR_SUCCESS)
+		regOrder.Create(HKEY_CURRENT_USER,L"Software\\OpenShell\\StartMenu\\Order");
 
 	Sprintf(name,_countof(name),L"%08X",folderHash);
 	regOrder.SetBinaryValue(name,&order[0],(int)order.size()*4);
