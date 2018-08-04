@@ -18,8 +18,8 @@
 <?define CS_WIN64  = "no"?>
 <?endif ?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="Open-Shell" Language="1033" Version="$(env.CS_VERSION)" Manufacturer="OpenShell" UpgradeCode="$(var.CS_UPGRADE)">
-		<Package Description="Open-Shell" Comments="Open-Shell" InstallerVersion="500" Compressed="yes" Platform="$(var.CS_PLATFORM)" />
+	<Product Id="*" Name="Open-Shell" Language="1033" Version="$(env.CS_VERSION)" Manufacturer="The Open-Shell Team" UpgradeCode="$(var.CS_UPGRADE)">
+		<Package Description="Open-Shell" Comments="Start Menu Replacement" InstallerVersion="500" Compressed="yes" Platform="$(var.CS_PLATFORM)" />
 		<Media Id="1" Cabinet="cshell.cab" EmbedCab="yes" CompressionLevel="high" />
 		<Media Id="2" Cabinet="simple.cab" EmbedCab="yes" CompressionLevel="high" />
 		<?if $(var.x64)=0 ?>
