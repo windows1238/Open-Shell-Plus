@@ -399,14 +399,7 @@
 				<!-- <Text><![CDATA[<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=5N8TPRAQJWX8G&lc=US&item_name=Classic%20Shell&no_note=1&no_shipping=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted">!(loc.DonateLink)</a>]]></Text> -->
 				<!-- <Condition Action="show">NOT Installed</Condition> -->
 				<!-- </Control> -->
-				<Control Type="Icon" Id="Icon3" Width="12" Height="12" X="185" Y="203" Hidden="yes" Text="facebook.ico">
-					<Condition Action="show">NOT Installed</Condition>
-				</Control>
-				<Control Type="Hyperlink" Id="Link3" Width="140" Height="10" X="200" Y="204" Hidden="yes" ToolTip="www.facebook.com">
-					<Text><![CDATA[<a href="https://www.facebook.com/classicshell">!(loc.FacebookLink)</a>]]></Text>
-					<Condition Action="show">NOT Installed</Condition>
-				</Control>
-				<Control Id="OptionalCheckBox" Type="CheckBox" X="188" Y="220" Width="130" Height="12" Hidden="yes" Property="WIXUI_EXITDIALOGOPTIONALCHECKBOX" CheckBoxValue="1" Text="!(loc.ViewReadme)">
+				<Control Id="OptionalCheckBox" Type="CheckBox" X="188" Y="204" Width="130" Height="12" Hidden="yes" Property="WIXUI_EXITDIALOGOPTIONALCHECKBOX" CheckBoxValue="1" Text="!(loc.ViewReadme)">
 					<Condition Action="show">NOT Installed</Condition>
 				</Control>
 			</Dialog>
@@ -658,6 +651,5 @@
 		<Binary Id="dialog2.jpg" SourceFile="..\Setup\dialog2.jpg" />
 		<Binary Id="donate.ico" SourceFile="..\Setup\donate.ico" />
 		<Binary Id="web.ico" SourceFile="..\Setup\web.ico" />
-		<Binary Id="facebook.ico" SourceFile="..\Setup\facebook.ico" />
 	</Product>
 </Wix>
