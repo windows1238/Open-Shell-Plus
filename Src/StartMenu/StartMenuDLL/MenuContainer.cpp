@@ -1385,7 +1385,7 @@ void CMenuContainer::AddStandardItems( void )
 					if (shutdown==SHUTDOWN_TYPE_RESTART)
 					{
 						item.name=FindTranslation(L"Menu.Restart",L"&Restart");
-						if (s_bHasUpdates && GetWinVersion()>=WIN_VER_WIN8)
+						if (s_bHasUpdates && GetWinVersion()>=WIN_VER_WIN8 && GetWinVersion()<WIN_VER_WIN10)
 							const_cast<StdMenuItem*>(item.pStdItem)->tip=FindTranslation(L"Menu.RestartUpdate",L"Update and restart");
 						else
 							const_cast<StdMenuItem*>(item.pStdItem)->tip=FindTranslation(L"Menu.RestartTip",L"");
