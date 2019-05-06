@@ -1,0 +1,8 @@
+------------------------------------------------
+This website was built off of code by Quackit
+The original demo can be found here:
+https://www.quackit.com/html/templates/frames/frames_example_5.html
+The original code can be found here: 
+https://www.quackit.com/html/examples/frames/frames_example_5_code.cfm
+
+Modifyed by TheCrafters001
