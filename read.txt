@@ -1,0 +1,3 @@
+I hate static pages.
+-------------------
+You may need to update the pages manually. To do that, right click, then click "Reload frame", on all the IFrames.
