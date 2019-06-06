@@ -7709,9 +7709,6 @@ HWND CMenuContainer::ToggleStartMenu( int taskbarId, bool bKeyboard, bool bAllPr
 
 	s_bHasUpdates=(!bRemote || GetSettingBool(L"RemoteShutdown")) && GetSettingBool(L"CheckWinUpdates") && CheckForUpdates();
 
-
-	s_bHasUpdates = (!bRemote || GetSettingBool(L"RemoteShutdown")) && GetSettingBool(L"CheckWinUpdates") && CheckForUpdates();
-
 	// Check control panel options for power buttons
 	bool bHibernate = true, bSleep = true, bLock = true;
 	{
@@ -7739,7 +7736,7 @@ HWND CMenuContainer::ToggleStartMenu( int taskbarId, bool bKeyboard, bool bAllPr
 		GetPwrCapabilities(&powerCaps);
 
 		// no sleep capabilities, turn off the sleep option
-		if (!powerCaps.SystemS1 && !powerCaps.SystemS2 && !powerCaps.SystemS3 && !powerCaps.AoAc)
+		if (!(powerCaps.SystemS1 || powerCaps.SystemS2 || powerCaps.SystemS3 || powerCaps.AoAc))
 		{
 			bSleep = false;
 		}
@@ -7764,7 +7761,6 @@ HWND CMenuContainer::ToggleStartMenu( int taskbarId, bool bKeyboard, bool bAllPr
 					}*/
 		}
 	}
-
 
 	for (int i=0;i<_countof(g_StdOptions);i++)
 	{
@@ -7974,7 +7970,7 @@ HWND CMenuContainer::ToggleStartMenu( int taskbarId, bool bKeyboard, bool bAllPr
 				}
 				break;
 			case MENU_LOCK:
-				g_StdOptions[i].options = bLock ? MENU_ENABLED | MENU_EXPANDED:0;
+				g_StdOptions[i].options=(bLock)?MENU_ENABLED|MENU_EXPANDED:0;
 				break;
 			case MENU_SLEEP:
 				g_StdOptions[i].options=(!s_bNoClose && bSleep)?MENU_ENABLED|MENU_EXPANDED:0;
