@@ -8,7 +8,7 @@
 
 [Discussion room](https://gitter.im/Open-Shell)
 
-[Latest nightly build](https://ci.appveyor.com/project/passionate-coder/open-shell-menu/branch/master/artifacts)
+[Latest nightly build](https://ci.appveyor.com/project/passionate-coder/open-shell-menu/)  =>  Artifacts
 
 ### Features
 
