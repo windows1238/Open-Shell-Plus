@@ -607,9 +607,9 @@
 		<Property Id="ApplicationFolderName" Value="Open-Shell" />
 		<Property Id="WixAppFolder" Value="WixPerMachineFolder" />
 		<Property Id="ALLUSERS" Value="1" />
-		<Property Id="ARPHELPLINK" Value="http://www.classicshell.net/forum/" />
+		<Property Id="ARPHELPLINK" Value="https://gitter.im/Open-Shell/" />
 		<Property Id="ARPSIZE" Value="9000" />
-		<Property Id="ARPURLINFOABOUT" Value="http://www.classicshell.net/" />
+		<Property Id="ARPURLINFOABOUT" Value="https://github.com/Open-Shell/Open-Shell-Menu/" />
 		<Property Id="ARPNOMODIFY" Value="1" />
 		<Property Id="ARPNOREPAIR" Value="1" />
 		<Property Id="START_MENU_FOLDER" Value="1" />
