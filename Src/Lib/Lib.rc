@@ -310,7 +310,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_VERSION_URL         "http://www.classicshell.net/files/updates/update_"
+    IDS_VERSION_URL         "https://github.com/Open-Shell/Open-Shell-Menu/releases/download_"
 END
 
 #endif    // English (U.S.) resources
