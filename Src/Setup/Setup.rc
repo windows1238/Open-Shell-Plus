@@ -102,6 +102,7 @@ END
 
 IDR_MSI_FILE32          MSI_FILE                "Temp\\Setup32.msi_"
 IDR_MSI_FILE64          MSI_FILE                "Temp\\Setup64.msi_"
+IDR_MSI_FILEARM64       MSI_FILE                "Temp\\SetupARM64.msi_"
 IDR_MSI_CHECKSUM        MSI_FILE                "msichecksum.bin"
 
 

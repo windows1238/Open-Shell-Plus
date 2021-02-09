@@ -87,7 +87,7 @@ int CalcMsiChecksum( wchar_t *const *params, int count )
 
 	// load files
 	wchar_t path1[_MAX_PATH];
-	std::vector<unsigned char> buf1, buf2;
+	std::vector<unsigned char> buf1, buf2, buf3;
 	Sprintf(path1,_countof(path1),L"%s\\Setup32.msi",params[1]);
 	LoadFile(path1,buf1);
 	if (buf1.empty())
@@ -103,13 +103,24 @@ int CalcMsiChecksum( wchar_t *const *params, int count )
 		Printf("Failed to open file %s\n",path2);
 		return 1;
 	}
+	wchar_t path3[_MAX_PATH];
+	Sprintf(path3,_countof(path3),L"%s\\SetupARM64.msi",params[1]);
+	LoadFile(path3,buf3);
+	if (buf3.empty())
+	{
+		Printf("Failed to open file %s\n",path2);
+		return 1;
+	}
 
 	int len1=(int)buf1.size();
 	int len2=(int)buf2.size();
+	int len3=(int)buf3.size();
 
 	for (std::vector<unsigned char>::iterator it=buf1.begin();it!=buf1.end();++it)
 		*it^=0xFF;
 	for (std::vector<unsigned char>::iterator it=buf2.begin();it!=buf2.end();++it)
+		*it^=0xFF;
+	for (std::vector<unsigned char>::iterator it=buf3.begin();it!=buf3.end();++it)
 		*it^=0xFF;
 
 	// detect common blocks (assuming at least 256K in size and in the same order in both files)
@@ -178,9 +189,23 @@ int CalcMsiChecksum( wchar_t *const *params, int count )
 		fclose(f);
 	}
 
-	unsigned int fnvs[2];
+	// save ARM64 MSI
+	{
+		Strcat(path3,_countof(path3),L"_");
+		FILE *f=NULL;
+		if (_wfopen_s(&f,path3,L"wb") || !f)
+		{
+			Printf("Failed to write %s\n",path3);
+			return 1;
+		}
+		fwrite(&buf3[0],1,len3,f);
+		fclose(f);
+	}
+
+	unsigned int fnvs[3];
 	fnvs[0]=CalcFNVHash(&buf1[0],len1,FNV_HASH0);
 	fnvs[1]=CalcFNVHash(&buf2[0],len2,FNV_HASH0);
+	fnvs[2]=CalcFNVHash(&buf3[0],len3,FNV_HASH0);
 
 	// save fnvs and chunks
 	{
@@ -1092,7 +1117,7 @@ static HRESULT CALLBACK TaskDialogCallback( HWND hwnd, UINT uNotification, WPARA
 // Open-Shell utility - multiple utilities for building and maintaining Open-Shell
 // Usage:
 //   no parameters - saves a troubleshooting log
-//   crcmsi <msi path> // creates a file with checksum of both msi files
+//   crcmsi <msi path> // creates a file with checksum of all three msi files
 //   makeEN <explorer dll> <start menu dll> <ie dll> <update exe> // extracts the localization resources and creates a sample en-US.DLL
 //   extract <dll> <csv> // extracts the string table, the dialog text, and the L10N text from a DLL and stores it in a CSV
 //   extract en-us.dll <dll> <csv> // extracts the string table, the dialog text, and the L10N text from two DLL and stores it in a CSV
