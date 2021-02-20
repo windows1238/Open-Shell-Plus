@@ -12,7 +12,7 @@
 #include "StringUtils.h"
 #include "FNVHash.h"
 
-// Setup.exe is a bootstrap application that contains installers for x86, x64 and ARM64.
+// Setup.exe is a bootstrap application that contains installers for x86 and x64 or ARM64.
 // It unpacks the right installer into the temp directory and executes it.
 
 typedef BOOL (WINAPI *FIsWow64Process)( HANDLE hProcess, PBOOL Wow64Process );
@@ -81,13 +81,13 @@ static int ExtractMsi( HINSTANCE hInstance, const wchar_t *msiName, ExtractType 
 		}
 		return ERR_HASH_NOTFOUND;
 	}
-	unsigned int hash0=((unsigned int*)pRes)[extractType==ARM64?2:extractType==x64?1:0];
+	unsigned int hash0=((unsigned int*)pRes)[extractType==x64?1:0];
 	const Chunk *pChunks=NULL;
 	int chunkCount=0;
 	if (extractType==x64)
 	{
-		chunkCount=((unsigned int*)pRes)[3];
-		pChunks=(Chunk*)((unsigned int*)pRes+4);
+		chunkCount=((unsigned int*)pRes)[2];
+		pChunks=(Chunk*)((unsigned int*)pRes+3);
 	}
 
 	// extract the installer
@@ -98,7 +98,7 @@ static int ExtractMsi( HINSTANCE hInstance, const wchar_t *msiName, ExtractType 
 		HGLOBAL hRes=LoadResource(hInstance,hResInfo);
 		pRes32=(unsigned char*)LockResource(hRes);
 	}
-	if (!pRes32)
+	if (!pRes32 && extractType!=ARM64)
 	{
 		if (!bQuiet)
 		{
@@ -340,9 +340,10 @@ int APIENTRY wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
 
 	// Use IsWow64Process2 if it's available (Windows 10 1511+), otherwise fall back to IsWow64Process
 	FIsWow64Process2 isWow64Process2=(FIsWow64Process2)GetProcAddress(hKernel32,"IsWow64Process2");
+	USHORT processMachine = 0;
 	if (isWow64Process2)
 	{
-		USHORT processMachine = 0, nativeMachine = 0;
+		USHORT nativeMachine = 0;
 		isWow64Process2(GetCurrentProcess(), &processMachine, &nativeMachine);
 		extractType=nativeMachine==IMAGE_FILE_MACHINE_AMD64?x64:nativeMachine==IMAGE_FILE_MACHINE_ARM64?ARM64:x86;
 	}
@@ -373,7 +374,7 @@ int APIENTRY wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
 
 	// On ARM64 we must launch msiexec.exe from system32 and not syswow64 as would otherwise happen
 	PVOID wow64FsRedirVal=NULL;
-	if (extractType == ARM64)
+	if (extractType == ARM64 && processMachine != IMAGE_FILE_MACHINE_ARM64)
 		Wow64DisableWow64FsRedirection(&wow64FsRedirVal);
 
 	// start the installer
@@ -381,7 +382,7 @@ int APIENTRY wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
 	PROCESS_INFORMATION processInfo;
 	memset(&processInfo,0,sizeof(processInfo));
 	BOOL ret=CreateProcess(NULL,cmdLine,NULL,NULL,TRUE,0,NULL,NULL,&startupInfo,&processInfo);
-	if (extractType == ARM64)
+	if (extractType == ARM64 && processMachine != IMAGE_FILE_MACHINE_ARM64)
 		Wow64RevertWow64FsRedirection(wow64FsRedirVal);
 	if (!ret)
 	{
