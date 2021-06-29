@@ -54,10 +54,10 @@ END
 
 // Solution loading fail-safe
 #ifndef _PRODUCT_VERSION
-#define _PRODUCT_VERSION 4.4.102
+#define _PRODUCT_VERSION 4.4.166
 #endif
 #ifndef _PRODUCT_VERSION_STR
-#define _PRODUCT_VERSION_STR "4.4.102"
+#define _PRODUCT_VERSION_STR "4.4.166"
 #endif
 
 VS_VERSION_INFO VERSIONINFO
@@ -81,7 +81,7 @@ BEGIN
             VALUE "FileDescription", "Open-Shell Menu"
             VALUE "FileVersion", _PRODUCT_VERSION_STR
             VALUE "InternalName", "Menu"
-            VALUE "LegalCopyright", "Copyright (C) 2017-2018, The Open-Shell Team"
+            VALUE "LegalCopyright", "Copyright (C) 2017-2048, MIT License, The Open-Shell Team"
             VALUE "OriginalFilename", "StartMenu.exe"
             VALUE "ProductName", "Open-Shell"
             VALUE "ProductVersion", _PRODUCT_VERSION_STR
