@@ -3617,7 +3617,10 @@ void CCustomMenuDlg7::SerializeData( void )
 	stringBuilder.push_back(0);
 	CSettingsLockWrite lock;
 	m_pSetting->value=CComVariant(&stringBuilder[0]);
-	m_pSetting->flags&=~CSetting::FLAG_DEFAULT;
+	if (m_pSetting->value==m_pSetting->defValue)
+		m_pSetting->flags|=CSetting::FLAG_DEFAULT;
+	else
+		m_pSetting->flags&=~CSetting::FLAG_DEFAULT;
 	SetSettingsDirty();
 }
 
@@ -3844,7 +3847,10 @@ LRESULT CMenuStyleDlg::OnClick( WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& 
 		CheckDlgButton(IDC_RADIO_CLASSIC,pSetting->value.intVal==MENU_CLASSIC1?BST_CHECKED:BST_UNCHECKED);
 		CheckDlgButton(IDC_RADIO_TWO_COLUMNS,pSetting->value.intVal==MENU_CLASSIC2?BST_CHECKED:BST_UNCHECKED);
 		CheckDlgButton(IDC_RADIO_WIN7,pSetting->value.intVal==MENU_WIN7?BST_CHECKED:BST_UNCHECKED);
-		pSetting->flags&=~CSetting::FLAG_DEFAULT;
+		if (pSetting->value==pSetting->defValue)
+			pSetting->flags|=CSetting::FLAG_DEFAULT;
+		else
+			pSetting->flags&=~CSetting::FLAG_DEFAULT;
 		SetSettingsDirty();
 
 		SetSettingsStyle(styleFlag,CSetting::FLAG_MENU_MASK);
@@ -3862,7 +3868,10 @@ LRESULT CMenuStyleDlg::OnEnabled( WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL
 		CSettingsLockWrite lock;
 		CSetting *pSetting=FindSetting(L"EnableStartButton");
 		pSetting->value=CComVariant(bEnabled);
-		pSetting->flags&=~CSetting::FLAG_DEFAULT;
+		if (pSetting->value==pSetting->defValue)
+			pSetting->flags|=CSetting::FLAG_DEFAULT;
+		else
+			pSetting->flags&=~CSetting::FLAG_DEFAULT;
 		SetSettingsDirty();
 	}
 	Update(false);
@@ -3901,7 +3910,10 @@ LRESULT CMenuStyleDlg::OnButtonStyle( WORD wNotifyCode, WORD wID, HWND hWndCtl, 
 		CSettingsLockWrite lock;
 		CSetting *pSetting=FindSetting(L"StartButtonType");
 		pSetting->value=CComVariant(style);
-		pSetting->flags&=~CSetting::FLAG_DEFAULT;
+		if (pSetting->value==pSetting->defValue)
+			pSetting->flags|=CSetting::FLAG_DEFAULT;
+		else
+			pSetting->flags&=~CSetting::FLAG_DEFAULT;
 		SetSettingsDirty();
 	}
 	Update(false);
@@ -3925,7 +3937,10 @@ LRESULT CMenuStyleDlg::OnPick( WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& b
 			CSettingsLockWrite lock;
 			CSetting *pSetting=FindSetting(L"StartButtonPath");
 			pSetting->value=CComVariant(path);
-			pSetting->flags&=~CSetting::FLAG_DEFAULT;
+			if (pSetting->value==pSetting->defValue)
+				pSetting->flags|=CSetting::FLAG_DEFAULT;
+			else
+				pSetting->flags&=~CSetting::FLAG_DEFAULT;
 			SetSettingsDirty();
 		}
 		Update(true);
@@ -4546,7 +4561,10 @@ void UpgradeSettings( bool bShared )
 		items.Replace(L"Command=recent_items\n",L"Command=recent_programs\n");
 		items.Replace(L"Command=control_panel_categories\n",L"Command=control_panel\n");
 		pSettingItems->value=items;
-		pSettingItems->flags&=~CSetting::FLAG_DEFAULT;
+		if (pSettingItems->value==pSettingItems->defValue)
+			pSettingItems->flags|=CSetting::FLAG_DEFAULT;
+		else
+			pSettingItems->flags&=~CSetting::FLAG_DEFAULT;
 	}
 
 	// set initial menu style
@@ -4554,7 +4572,10 @@ void UpgradeSettings( bool bShared )
 	if (!pSettingStyle->IsLocked())
 	{
 		pSettingStyle->value=(bTwoColumns?1:0);
-		pSettingStyle->flags&=~CSetting::FLAG_DEFAULT;
+		if (pSettingStyle->value==pSettingStyle->defValue)
+			pSettingStyle->flags|=CSetting::FLAG_DEFAULT;
+		else
+			pSettingStyle->flags&=~CSetting::FLAG_DEFAULT;
 		SetSettingsStyle(bTwoColumns?CSetting::FLAG_MENU_CLASSIC2:CSetting::FLAG_MENU_CLASSIC1,CSetting::FLAG_MENU_MASK);
 	}
 
@@ -4566,7 +4587,10 @@ void UpgradeSettings( bool bShared )
 		if (!pSetting->IsDefault())
 		{
 			pSettingSkin->value=pSetting->value;
-			pSettingSkin->flags&=~CSetting::FLAG_DEFAULT;
+			if (pSettingSkin->value==pSettingSkin->defValue)
+				pSettingSkin->flags|=CSetting::FLAG_DEFAULT;
+			else
+				pSettingSkin->flags&=~CSetting::FLAG_DEFAULT;
 		}
 	}
 	CSetting *pSettingOpt=FindSetting(bTwoColumns?L"SkinOptionsC2":L"SkinOptionsC1");
@@ -4576,7 +4600,10 @@ void UpgradeSettings( bool bShared )
 		if (!pSetting->IsDefault())
 		{
 			pSettingOpt->value=pSetting->value;
-			pSettingOpt->flags&=~CSetting::FLAG_DEFAULT;
+			if (pSettingOpt->value==pSettingOpt->defValue)
+				pSettingOpt->flags|=CSetting::FLAG_DEFAULT;
+			else
+				pSettingOpt->flags&=~CSetting::FLAG_DEFAULT;
 		}
 	}
 	CSetting *pSettingVar=FindSetting(bTwoColumns?L"SkinVariationC2":L"SkinVariationC1");
@@ -4586,7 +4613,10 @@ void UpgradeSettings( bool bShared )
 		if (!pSetting->IsDefault())
 		{
 			pSettingVar->value=pSetting->value;
-			pSettingVar->flags&=~CSetting::FLAG_DEFAULT;
+			if (pSettingVar->value==pSettingVar->defValue)
+				pSettingVar->flags|=CSetting::FLAG_DEFAULT;
+			else
+				pSettingVar->flags&=~CSetting::FLAG_DEFAULT;
 		}
 	}
 
@@ -4598,7 +4628,10 @@ void UpgradeSettings( bool bShared )
 		if (!pSetting->IsDefault())
 		{
 			pSettingSkin->value=pSetting->value;
-			pSettingSkin->flags&=~CSetting::FLAG_DEFAULT;
+			if (pSettingSkin->value==pSettingSkin->defValue)
+				pSettingSkin->flags|=CSetting::FLAG_DEFAULT;
+			else
+				pSettingSkin->flags&=~CSetting::FLAG_DEFAULT;
 		}
 	}
 	pSettingOpt=FindSetting(L"SkinOptionsA");
@@ -4608,7 +4641,10 @@ void UpgradeSettings( bool bShared )
 		if (!pSetting->IsDefault())
 		{
 			pSettingOpt->value=pSetting->value;
-			pSettingOpt->flags&=~CSetting::FLAG_DEFAULT;
+			if (pSettingOpt->value==pSettingOpt->defValue)
+				pSettingOpt->flags|=CSetting::FLAG_DEFAULT;
+			else
+				pSettingOpt->flags&=~CSetting::FLAG_DEFAULT;
 		}
 	}
 	pSettingVar=FindSetting(L"SkinVariationA");
@@ -4618,7 +4654,10 @@ void UpgradeSettings( bool bShared )
 		if (!pSetting->IsDefault())
 		{
 			pSettingVar->value=pSetting->value;
-			pSettingVar->flags&=~CSetting::FLAG_DEFAULT;
+			if (pSettingVar->value==pSettingVar->defValue)
+				pSettingVar->flags|=CSetting::FLAG_DEFAULT;
+			else
+				pSettingVar->flags&=~CSetting::FLAG_DEFAULT;
 		}
 	}
 }
