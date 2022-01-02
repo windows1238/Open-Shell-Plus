@@ -143,9 +143,9 @@ HBITMAP CMenuContainer::LoadUserImage( int size, HBITMAP hMask )
 		LOG_MENU(LOG_OPEN,L"Loading user image: '%s'",path);
 		SIZE s={size,size};
 		if (str.IsEmpty())
-			hBitmap=LoadImageFile(path,&s,false,false,NULL);
+			hBitmap=LoadImageFile(path,&s,false,false,NULL,NULL);
 		else
-			hBitmap=LoadImageFile(path,&s,true,true,NULL);
+			hBitmap=LoadImageFile(path,&s,true,true,NULL,NULL);
 	}
 	if (hBitmap && hMask)
 	{

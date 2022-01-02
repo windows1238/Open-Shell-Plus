@@ -384,7 +384,7 @@ HICON CreateDisabledIcon( HICON hIcon, int iconSize )
 }
 
 // Loads an image file into a bitmap and optionally resizes it
-HBITMAP LoadImageFile( const wchar_t *path, const SIZE *pSize, bool bUseAlpha, bool bPremultiply, std::vector<unsigned int> *pButtonAnim )
+HBITMAP LoadImageFile( const wchar_t *path, const SIZE *pSize, bool bUseAlpha, bool bPremultiply, std::vector<unsigned int> *pButtonAnim, const SIZE *maxSize)
 {
 	HBITMAP srcBmp=NULL;
 	if (_wcsicmp(PathFindExtension(path),L".bmp")==0)
@@ -476,8 +476,19 @@ HBITMAP LoadImageFile( const wchar_t *path, const SIZE *pSize, bool bUseAlpha, b
 			frameWidthD=abs(pSize->cx);
 			if (pSize->cy)
 				frameHeightD=pSize->cy;
+			else if (maxSize && maxSize->cy > 0)
+			{
+				float aspectRatio = (float)frameWidthS / (float)frameHeightS;
+				frameHeightD = frameWidthD * frameHeightS / frameWidthS;
+				if (frameHeightD > maxSize->cy) {
+					frameHeightD = maxSize->cy;
+					frameWidthD = frameHeightD * aspectRatio;
+				}
+			}
 			else
-				frameHeightD=frameWidthD*frameHeightS/frameWidthS;
+			{
+				frameHeightD = frameWidthD * frameHeightS / frameWidthS;
+			}
 		}
 	}
 

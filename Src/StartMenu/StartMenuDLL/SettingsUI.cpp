@@ -2748,7 +2748,7 @@ void CCustomMenuDlg7::CItemList::SubclassWindow( HWND hWnd, CCustomMenuDlg7 *pOw
 		else
 			size.cx=0;
 		if (size.cx<50) size.cx=50;
-		
+
 		SelectObject(hdc,font0);
 		DeleteDC(hdc);
 		LVCOLUMN column={LVCF_WIDTH|LVCF_TEXT,0,size.cx,(LPWSTR)(LPCWSTR)str};
@@ -3218,7 +3218,7 @@ void CCustomMenuDlg7::CItemList::InsertItem( int index, int copy )
 	ListView_EnsureVisible(m_hWnd,index,FALSE);
 	UpdateItem(index);
 	m_pOwner->SerializeData();
-	
+
 	ListView_SetItemState(m_hWnd,index,LVIS_SELECTED|LVIS_FOCUSED,LVIS_SELECTED|LVIS_FOCUSED);
 	m_Line=index;
 	if (copy<0)
@@ -3993,7 +3993,7 @@ void CMenuStyleDlg::UpdateIcon( bool bForce )
 	SIZE size={-MAX_ICON_SIZE,0};
 	std::vector<unsigned int> buttonAnim;
 	int frames=3;
-	HBITMAP bitmap=LoadImageFile(path,&size,true,false,&buttonAnim);
+	HBITMAP bitmap=LoadImageFile(path,&size,true,false,&buttonAnim,NULL);
 	if (bitmap)
 	{
 		if (!buttonAnim.empty())
@@ -4737,7 +4737,7 @@ void UpdateSettings( void )
 	UpdateSetting(L"UserFiles",CComVariant(bNoDocs?0:1),bNoDocs);
 	UpdateSetting(L"UserDocuments",CComVariant(bNoDocs?0:1),bNoDocs);
 	UpdateSetting(L"UserPictures",CComVariant(bNoDocs?0:1),bNoDocs);
-	
+
 	bool bNoEdit=SHRestricted(REST_NOCHANGESTARMENU)!=0;
 	UpdateSetting(L"EnableDragDrop",CComVariant(bNoEdit?0:1),bNoEdit);
 	UpdateSetting(L"EnableContextMenu",CComVariant(bNoEdit?0:1),bNoEdit);
@@ -4931,7 +4931,7 @@ void UpdateSettings( void )
 	UpdateSetting(L"MenuItems2",CComVariant(g_DefaultStartMenu2),false);
 	{
 		// make games disabled by default if the folder doesn't exist (like on a server)
-		
+
 		const wchar_t *defaultMenu, *gameSettings0, *gameSettings1, *gameSettings2;
 		if (GetWinVersion()<WIN_VER_WIN81)
 		{

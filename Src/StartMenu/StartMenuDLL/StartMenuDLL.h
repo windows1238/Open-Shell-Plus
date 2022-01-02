@@ -73,6 +73,7 @@ struct TaskbarInfo
 };
 
 TaskbarInfo *GetTaskbarInfo( size_t taskbarId );
+SIZE *GetTaskBarSize( size_t taskbarId );
 UINT GetTaskbarPosition( HWND taskBar, MONITORINFO *pInfo, HMONITOR *pMonitor, RECT *pRc );
 
 extern HWND STARTMENUAPI g_TaskBar, g_OwnerWindow;
