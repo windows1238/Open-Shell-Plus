@@ -476,18 +476,15 @@ HBITMAP LoadImageFile( const wchar_t *path, const SIZE *pSize, bool bUseAlpha, b
 			frameWidthD=abs(pSize->cx);
 			if (pSize->cy)
 				frameHeightD=pSize->cy;
-			else if (maxSize && maxSize->cy > 0)
-			{
-				float aspectRatio = (float)frameWidthS / (float)frameHeightS;
-				frameHeightD = frameWidthD * frameHeightS / frameWidthS;
-				if (frameHeightD > maxSize->cy) {
-					frameHeightD = maxSize->cy;
-					frameWidthD = frameHeightD * aspectRatio;
-				}
-			}
 			else
 			{
 				frameHeightD = frameWidthD * frameHeightS / frameWidthS;
+			}
+
+			if (maxSize && maxSize->cy > 0 && frameHeightD > maxSize->cy)
+			{
+				frameHeightD = maxSize->cy;
+				frameWidthD = frameHeightD * frameWidthS / frameHeightS;
 			}
 		}
 	}
