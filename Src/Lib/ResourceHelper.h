@@ -35,7 +35,7 @@ HICON ShExtractIcon( const char *path, int index, int iconSize );
 HBITMAP BitmapFromIcon( HICON hIcon, int iconSize, unsigned int **pBits, bool bDestroyIcon );
 
 // Loads an image file into a bitmap and optionally resizes it
-HBITMAP LoadImageFile( const wchar_t *path, const SIZE *pSize, bool bUseAlpha, bool bPremultiply, std::vector<unsigned int> *pButtonAnim, const SIZE *maxSize);
+HBITMAP LoadImageFile( const wchar_t *path, const SIZE *pSize, bool bUseAlpha, bool bPremultiply, std::vector<unsigned int> *pButtonAnim, const SIZE *maxSize = NULL);
 
 // Loads a bitmap from a IMAGE resource
 HBITMAP LoadImageResource( HMODULE hModule, const wchar_t *name, bool bTopDown, bool bPremultiply );

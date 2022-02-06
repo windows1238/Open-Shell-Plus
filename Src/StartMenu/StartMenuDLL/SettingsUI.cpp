@@ -3993,7 +3993,7 @@ void CMenuStyleDlg::UpdateIcon( bool bForce )
 	SIZE size={-MAX_ICON_SIZE,0};
 	std::vector<unsigned int> buttonAnim;
 	int frames=3;
-	HBITMAP bitmap=LoadImageFile(path,&size,true,false,&buttonAnim,NULL);
+	HBITMAP bitmap=LoadImageFile(path,&size,true,false,&buttonAnim);
 	if (bitmap)
 	{
 		if (!buttonAnim.empty())

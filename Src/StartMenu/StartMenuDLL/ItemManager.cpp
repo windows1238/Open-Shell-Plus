@@ -323,7 +323,7 @@ static HBITMAP BitmapFromMetroBitmap( HBITMAP hBitmap, int bitmapSize, DWORD met
 static HBITMAP LoadMetroBitmap0(const wchar_t *path, int bitmapSize, DWORD metroColor = 0xFFFFFFFF)
 {
 	SIZE size={-bitmapSize,bitmapSize};
-	HBITMAP hBitmap=LoadImageFile(path,&size,true,true,NULL,NULL);
+	HBITMAP hBitmap=LoadImageFile(path,&size,true,true,NULL);
 	if (hBitmap)
 	{
 		if (metroColor==0xFFFFFFFF)
@@ -403,7 +403,7 @@ static HBITMAP LoadMetroBitmap( const wchar_t *location, int bitmapSize, DWORD m
 	if (bFound)
 	{
 		SIZE size={2-bitmapSize,bitmapSize-2};
-		HBITMAP hBitmap=LoadImageFile(path,&size,true,true,NULL,NULL);
+		HBITMAP hBitmap=LoadImageFile(path,&size,true,true,NULL);
 		if (hBitmap)
 			return BitmapFromMetroBitmap(hBitmap,bitmapSize,metroColor);
 	}
@@ -462,7 +462,7 @@ static HBITMAP LoadMetroBitmap2( const wchar_t *location, int bitmapSize, DWORD 
 		if (iconSize>bitmapSize)
 			iconSize=bitmapSize;
 		SIZE size={iconSize,iconSize};
-		HBITMAP hBitmap=LoadImageFile(path,&size,true,true,NULL,NULL);
+		HBITMAP hBitmap=LoadImageFile(path,&size,true,true,NULL);
 		if (hBitmap)
 			return BitmapFromMetroBitmap(hBitmap,bitmapSize,metroColor);
 	}
