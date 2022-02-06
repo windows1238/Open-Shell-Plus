@@ -687,13 +687,13 @@ bool PointAroundStartButton( size_t taskbarId, const CPoint &pt )
 		return pt.x<rc.right;
 }
 
-SIZE* GetTaskBarSize(size_t taskbarId)
+SIZE GetTaskBarSize(size_t taskbarId)
 {
 	const TaskbarInfo* taskBar = GetTaskbarInfo(taskbarId);
+	if (!taskBar) return {};
 	RECT rcTask;
 	GetWindowRect(taskBar->taskBar, &rcTask);
-	SIZE *taskbarSize = new SIZE{ rcTask.right - rcTask.left,rcTask.bottom - rcTask.top };
-	return taskbarSize;
+	return { rcTask.right - rcTask.left, rcTask.bottom - rcTask.top };
 }
 
 // declare few interfaces so we don't need the Win8 SDK

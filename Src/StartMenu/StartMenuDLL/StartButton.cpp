@@ -529,8 +529,8 @@ void CStartButton::LoadBitmap( void )
 		std::vector<unsigned int> buttonAnim;
 		if (*path)
 		{
-			SIZE* taskbarSize = GetTaskBarSize(m_TaskbarId);
-			m_Bitmap=LoadImageFile(path,&size,true,true,&buttonAnim,taskbarSize);
+			SIZE taskbarSize = GetTaskBarSize(m_TaskbarId);
+			m_Bitmap=LoadImageFile(path,&size,true,true,&buttonAnim,&taskbarSize);
 		}
 		if (!m_Bitmap)
 		{
