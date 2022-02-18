@@ -9,7 +9,7 @@
 [Latest nightly build](https://ci.appveyor.com/project/passionate-coder/open-shell-menu/branch/master/artifacts)  
 
 ### Features
-- Classic style Start Menu for Windows 7, 8, 8.1, 10
+- Classic style Start Menu for Windows 7, 8, 8.1, 10, ([11](https://github.com/Open-Shell/Open-Shell-Menu/discussions/745))
 - Toolbar for Windows Explorer
 - Classic copy UI (Windows 7 only)
 - Show file size in Explorer status bar
