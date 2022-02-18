@@ -5,7 +5,7 @@
 [![GitHub Release](https://img.shields.io/github/release/Open-Shell/Open-Shell-Menu.svg)](https://github.com/Open-Shell/Open-Shell-Menu/releases) [![GitHub Pre-Release](https://img.shields.io/github/release/Open-Shell/Open-Shell-Menu/all.svg)](https://github.com/Open-Shell/Open-Shell-Menu/releases) [![Build status](https://ci.appveyor.com/api/projects/status/2wj5x5qoypfjj0tr/branch/master?svg=true)](https://ci.appveyor.com/project/passionate-coder/open-shell-menu/branch/master) [![GitQ](https://gitq.com/badge.svg)](https://gitq.com/passionate-coder/Classic-Start) [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/open-shell/Lobby)
 
 ### Features
-- Classic style Start Menu for Windows 7, 8, 8.1, 10
+- Classic style Start Menu for Windows 7, 8, 8.1, 10, ([11](https://github.com/Open-Shell/Open-Shell-Menu/discussions/745))
 - Toolbar for Windows Explorer
 - Classic copy UI (Windows 7 only)
 - Show file size in Explorer status bar
