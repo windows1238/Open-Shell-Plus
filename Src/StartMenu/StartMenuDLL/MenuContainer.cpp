@@ -1272,6 +1272,10 @@ void CMenuContainer::AddStandardItems( void )
 			item.bSplit=item.bFolder && (item.pStdItem->settings&StdMenuItem::MENU_SPLIT_BUTTON)!=0;
 
 			// get icon
+			const MenuSkin::TIconSize mainIconSizeOrig=mainIconSize;
+			if (item.bInline && mainIconSize==MenuSkin::ICON_SIZE_NONE)
+				mainIconSize=s_Skin.Main_icon_size;
+			
 			CItemManager::TIconSizeType iconSizeType;
 			int refreshFlags;
 			if (bSearchProvider7 || m_bSubMenu)
@@ -1327,6 +1331,8 @@ void CMenuContainer::AddStandardItems( void )
 			}
 			else
 				item.pItemInfo=g_ItemManager.GetCustomIcon(NULL,iconSizeType);
+
+			mainIconSize=mainIconSizeOrig;
 
 			// get name
 			if (pStdItem->label && _wcsicmp(pStdItem->label,L"none")==0)
