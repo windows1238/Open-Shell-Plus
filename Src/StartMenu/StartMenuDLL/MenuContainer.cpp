@@ -1271,9 +1271,9 @@ void CMenuContainer::AddStandardItems( void )
 			item.bSplit=item.bFolder && (item.pStdItem->settings&StdMenuItem::MENU_SPLIT_BUTTON)!=0;
 
 			// get icon
-			MenuSkin::TIconSize mainIconSize = s_Skin.Main_icon_size;
-			if (bSecondColumn && !item.bInline)
-				mainIconSize=s_Skin.Main2_icon_size;
+			MenuSkin::TIconSize mainIconSize=!bSecondColumn ? s_Skin.Main_icon_size : s_Skin.Main2_icon_size;
+			if (item.bInline && mainIconSize==MenuSkin::ICON_SIZE_NONE)
+				mainIconSize=s_Skin.Main_icon_size;
 			
 			CItemManager::TIconSizeType iconSizeType;
 			int refreshFlags;
