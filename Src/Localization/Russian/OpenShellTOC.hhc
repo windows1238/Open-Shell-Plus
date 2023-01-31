@@ -40,7 +40,14 @@
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Сведения об обложках">
 			<param name="Local" value="StartMenu.html#skins">
+			<param name="ImageNumber" value="1">
 			</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Start Menu Skinning Tutorial">
+				<param name="Local" value="SkinTutorial.html#skin_tutorial">
+				</OBJECT>
+			</UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Поиск">
 			<param name="Local" value="StartMenu.html#search">
@@ -48,7 +55,14 @@
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Пользовательская кнопка Пуск">
 			<param name="Local" value="StartMenu.html#button">
+			<param name="ImageNumber" value="1">
 			</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Custom Start Buttons Tutorial">
+				<param name="Local" value="ButtonTutorial.html#button_tutorial">
+				</OBJECT>
+			</UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Локализация">
 			<param name="Local" value="StartMenu.html#localization">
