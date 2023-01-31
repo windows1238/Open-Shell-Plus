@@ -4,12 +4,48 @@ Compiled file=OpenShell.chm
 Contents file=OpenShellTOC.hhc
 Default topic=Main.html
 Display compile progress=Yes
-Language=0x419 Russian (Russia)
+Language=0x419 Русский (Россия)
 Title=Справка Open-Shell
 
 [FILES]
 ClassicExplorer.html
 StartMenu.html
 ClassicIE.html
+License.html
+Links.html
+Main.html
+images\skins.gif
+images\acc_locked.png
+images\after.png
+images\before.png
+images\button_images.png
+images\button_settings.png
+images\customize_menu.png
+images\explorer_settings.png
+images\ie9_caption.png
+images\ie9_settings.png
+images\ie9_status.png
+images\item_settings.png
+images\menu_settings.png
+images\OpenShell.png
+images\search1.png
+images\search2.png
+images\search3.png
+images\settings_disable_ex.png
+images\settings_disable_ie9.png
+images\settings_disable_sm.png
+images\settings1.png
+images\settings2.png
+images\settings3.png
+images\settings4.png
+images\settings5.png
+images\statusbar.png
+images\style1.png
+images\style2.png
+images\style3.png
+images\titlebar.png
+images\toolbar.png
+images\toolbar_settings.png
+images\up_locked.png
 
 [INFOTYPES]
