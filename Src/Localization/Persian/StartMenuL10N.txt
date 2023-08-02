@@ -79,6 +79,7 @@ Menu.Open = با&ز کردن
 Menu.OpenAll = باز کردن تمام &کاربرها
 Menu.Explore = کاو&ش
 Menu.ExploreAll = کاوش ت&مام کاربرها
+Menu.OpenPinned = Open Pinned
 Menu.MenuSettings = تنظیمات
 Menu.MenuHelp = راهنما
 Menu.MenuExit = خروج
