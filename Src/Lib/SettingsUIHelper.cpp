@@ -1066,7 +1066,7 @@ LRESULT CEditCustomItemDlg::OnCancel( WORD wNotifyCode, WORD wID, HWND hWndCtl, 
 	return 0;
 }
 
-void CEditCustomItemDlg::UpdateIcons( int iconID, int iconDID, int iconHID = NULL )
+void CEditCustomItemDlg::UpdateIcons( int iconID, int iconDID, int iconHID )
 {
 	unsigned int key=m_pItem->GetIconKey();
 
