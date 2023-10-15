@@ -360,7 +360,7 @@ protected:
 	LRESULT OnCancel( WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled );
 
 	void InitDialog( CWindow commandCombo, const CStdCommand *pStdcommands, int style, int mask, CWindow linkCombo, const KNOWNFOLDERID *const *pCommonLinks );
-	void UpdateIcons( int iconID, int iconDID, int HID );
+	void UpdateIcons( int iconID, int iconDID, int HID = NULL );
 	CString GetComboText( WORD wNotifyCode, WORD wID );
 
 private:
