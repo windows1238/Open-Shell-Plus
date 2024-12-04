@@ -1222,8 +1222,14 @@ static void UpdateStartButtonPosition(const TaskbarInfo* taskBar, const WINDOWPO
 		RecreateStartButton(taskBar->taskbarId);
 
 	RECT rcTask;
+	GetWindowRect(taskBar->taskBar, &rcTask);
+	if (RECT rc; GetWindowRgnBox(taskBar->taskBar, &rc) != ERROR)
+	{
+		MapWindowPoints(taskBar->taskBar, NULL, (POINT*)&rc, 2);
+		rcTask = rc;
+	}
 	MONITORINFO info;
-	UINT uEdge = GetTaskbarPosition(taskBar->taskBar, &info, NULL, &rcTask);
+	UINT uEdge = GetTaskbarPosition(taskBar->taskBar, &info, NULL, NULL);
 	DWORD buttonFlags = SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOSIZE;
 	if (IsWindowVisible(taskBar->taskBar))
 		buttonFlags |= SWP_SHOWWINDOW;
