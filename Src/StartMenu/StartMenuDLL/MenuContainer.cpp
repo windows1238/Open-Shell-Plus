@@ -5989,7 +5989,7 @@ LRESULT CMenuContainer::OnKeyDown( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL
 						ytop-=m_ScrollOffset;
 						ybottom-=m_ScrollOffset;
 					}
-					int d=min(abs(ytop-y0),abs(ybottom-y0));
+					int d=std::min(abs(ytop-y0),abs(ybottom-y0));
 					if (dist>d)
 					{
 						index=i;
@@ -6056,7 +6056,7 @@ LRESULT CMenuContainer::OnKeyDown( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL
 								ytop-=m_ScrollOffset;
 								ybottom-=m_ScrollOffset;
 							}
-							int d=min(abs(ytop-y0),abs(ybottom-y0));
+							int d= std::min(abs(ytop-y0),abs(ybottom-y0));
 							if (dist>d)
 							{
 								index=i;
@@ -7517,16 +7517,16 @@ POINT CMenuContainer::CalculateCorner( void )
 
 	POINT corner;
 	if (m_Options&CONTAINER_LEFT)
-		corner.x=max(s_MainMenuLimits.left,s_StartRect.left)+margin.left;
+		corner.x= std::max(s_MainMenuLimits.left,s_StartRect.left)+margin.left;
 	else
-		corner.x=min(s_MainMenuLimits.right,s_StartRect.right)+margin.right;
+		corner.x= std::min(s_MainMenuLimits.right,s_StartRect.right)+margin.right;
 
 	if (m_Options&CONTAINER_TOP)
 	{
 		if (s_bBehindTaskbar)
-			corner.y=max(s_MainMenuLimits.top,s_StartRect.top)+margin.top;
+			corner.y= std::max(s_MainMenuLimits.top,s_StartRect.top)+margin.top;
 		else
-			corner.y=max(s_MainMenuLimits.top,s_StartRect.top);
+			corner.y= std::max(s_MainMenuLimits.top,s_StartRect.top);
 	}
 	else
 		corner.y=s_MainMenuLimits.bottom+margin.bottom;

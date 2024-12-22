@@ -4,6 +4,9 @@
 
 #define STRICT_TYPED_ITEMIDS
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
+#define _ATL_ALL_WARNINGS
+#define VC_EXTRALEAN
+#define NOMINMAX
 #include <windows.h>
 #include <stdio.h>
 #include <atlstr.h>
