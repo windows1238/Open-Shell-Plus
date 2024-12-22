@@ -25,6 +25,7 @@ public:
 	~CItemManager( void );
 
 	static int SMALL_ICON_SIZE;
+	static int MEDIUM_ICON_SIZE;
 	static int LARGE_ICON_SIZE;
 	static int EXTRA_LARGE_ICON_SIZE;
 
@@ -42,9 +43,11 @@ public:
 	enum TIconSizeType
 	{
 		ICON_SIZE_TYPE_SMALL,
+		ICON_SIZE_TYPE_MEDIUM,
 		ICON_SIZE_TYPE_LARGE,
 		ICON_SIZE_TYPE_EXTRA_LARGE,
 		ICON_SIZE_TYPE_SMALL_METRO,
+		ICON_SIZE_TYPE_MEDIUM_METRO,
 		ICON_SIZE_TYPE_LARGE_METRO,
 		ICON_SIZE_TYPE_EXTRA_LARGE_METRO,
 
@@ -72,13 +75,14 @@ public:
 
 	enum
 	{
-		INFO_LINK=1, // bLink, appid, bNoPin, bNoNew, targetPidl, targetPath, arguments
-		INFO_METRO=2, // bLink, bMetroLink, bMetroApp, appid, metroName, package, packagePath, iconPath, color
-		INFO_LINK_APPID=4, // the appid is validated by the app resolver (for jumplists and UserAssist items). Can only be used from the main thread
+		INFO_LINK = 1, // bLink, appid, bNoPin, bNoNew, targetPidl, targetPath, arguments
+		INFO_METRO = 2, // bLink, bMetroLink, bMetroApp, appid, metroName, package, packagePath, iconPath, color
+		INFO_LINK_APPID = 4, // the appid is validated by the app resolver (for jumplists and UserAssist items). Can only be used from the main thread
 
-		INFO_SMALL_ICON=16,
-		INFO_LARGE_ICON=32,
-		INFO_EXTRA_LARGE_ICON=64,
+		INFO_SMALL_ICON = 16,
+		INFO_MEDIUM_ICON = 24,
+		INFO_LARGE_ICON = 32,
+		INFO_EXTRA_LARGE_ICON = 64,
 
 		INFO_NO_PATH=8192, // don't trust the parsing name
 		INFO_VALIDATE_FILE=16384, // if the path doesn't exist returns NULL
@@ -86,7 +90,7 @@ public:
 		INFO_STARTSCREEN_ICON=65536,
 
 		INFO_DATA=INFO_LINK|INFO_METRO|INFO_LINK_APPID,
-		INFO_ICON=INFO_SMALL_ICON|INFO_LARGE_ICON|INFO_EXTRA_LARGE_ICON,
+		INFO_ICON = INFO_SMALL_ICON|INFO_MEDIUM_ICON|INFO_LARGE_ICON|INFO_EXTRA_LARGE_ICON,
 	};
 
 	enum TLocation
@@ -103,7 +107,7 @@ public:
 	{
 		ItemInfo( void )
 		{
-			smallIcon=largeIcon=extraLargeIcon=NULL;
+			smallIcon = mediumIcon = largeIcon = extraLargeIcon = NULL;
 			validFlags=refreshFlags=0;
 			bIconOnly=bTemp=bLink=bExplicitAppId=bNoPin=bNoNew=bMetroLink=bMetroApp=bProtectedLink=false;
 			writestamp.dwHighDateTime=writestamp.dwLowDateTime=0;
@@ -116,6 +120,7 @@ public:
 
 		// these are replaced atomically with pointers that are always valid
 		const IconInfo *smallIcon;
+		const IconInfo *mediumIcon;
 		const IconInfo *largeIcon;
 		const IconInfo *extraLargeIcon;
 
@@ -319,14 +324,14 @@ private:
 	// doesn't require a lock
 	void RefreshItemInfo( ItemInfo *pInfo, int refreshFlags, IShellItem *pItem, bool bHasWriteLock );
 
-	void FindInCache( unsigned int hash, int &refreshFlags, const IconInfo *&smallIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon );
-	void StoreInCache( unsigned int hash, const wchar_t *path, HBITMAP hSmallBitmap, HBITMAP hLargeBitmap, HBITMAP hExtraLargeBitmap, int refreshFlags, const IconInfo *&smallIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, bool bTemp, bool bMetro );
-	void LoadShellIcon( IShellItem *pItem, int refreshFlags, const IconInfo *&smallIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, const DWORD *pMetroColor );
-	void LoadMetroIcon( IShellItem *pItem, int &refreshFlags, const IconInfo *&smallIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, const DWORD *pMetroColor );
-	void LoadCustomIcon( const wchar_t *iconPath, int iconIndex, int refreshFlags, const IconInfo *&smallIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, bool bTemp );
-	HICON LoadShellIcon( int index, int iconSize );
-	HICON LoadShellIcon( int iconSize, IExtractIcon *pExtractW, const wchar_t *location, IExtractIconA *pExtractA, const char *locationA, int index );
-	HBITMAP BitmapFromIcon( HICON hIcon, int iconSize, bool bDestroyIcon=true );
+	void FindInCache(unsigned int hash, int &refreshFlags, const IconInfo *&smallIcon, const IconInfo *&mediumIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon);
+	void StoreInCache(unsigned int hash, const wchar_t *path, HBITMAP hSmallBitmap, HBITMAP hMediumBitmap, HBITMAP hLargeBitmap, HBITMAP hExtraLargeBitmap, int refreshFlags, const IconInfo *&smallIcon, const IconInfo *&mediumIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, bool bTemp, bool bMetro);
+	void LoadShellIcon(IShellItem *pItem, int refreshFlags, const IconInfo *&smallIcon, const IconInfo *&mediumIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, const DWORD *pMetroColor);
+	void LoadMetroIcon(IShellItem *pItem, int &refreshFlags, const IconInfo *&smallIcon, const IconInfo *&mediumIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, const DWORD *pMetroColor);
+	void LoadCustomIcon(const wchar_t *iconPath, int iconIndex, int refreshFlags, const IconInfo *&smallIcon, const IconInfo *&mediumIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, bool bTemp);
+	HICON LoadShellIcon(int index, int iconSize);
+	HICON LoadShellIcon(int iconSize, IExtractIcon *pExtractW, const wchar_t *location, IExtractIconA *pExtractA, const char *locationA, int index);
+	HBITMAP BitmapFromIcon(HICON hIcon, int iconSize, bool bDestroyIcon = true);
 
 	bool m_bInitialized;
 
@@ -348,6 +353,7 @@ private:
 	std::vector<HBITMAP> m_OldBitmaps;
 
 	const IconInfo *m_DefaultSmallIcon;
+	const IconInfo *m_DefaultMediumIcon;
 	const IconInfo *m_DefaultLargeIcon;
 	const IconInfo *m_DefaultExtraLargeIcon;
 

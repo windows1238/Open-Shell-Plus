@@ -1273,8 +1273,10 @@ MenuSkin::TIconSize MenuSkin::ParseIconSize( const wchar_t *str )
 {
 	if (str)
 	{
-		if (_wcsicmp(str,L"small")==0)
+		if (_wcsicmp(str, L"small") == 0)
 			return ICON_SIZE_SMALL;
+		else if (_wcsicmp(str, L"medium") == 0)
+			return ICON_SIZE_MEDIUM;
 		else if (_wcsicmp(str,L"large")==0)
 			return ICON_SIZE_LARGE;
 		else if (_wcsicmp(str,L"none")==0)
@@ -3009,12 +3011,14 @@ bool MenuSkin::LoadSkin( HMODULE hMod, const wchar_t *variation, const wchar_t *
 		if (i==COLUMN2_INLINE)
 			textHeight=0;
 		int iconHeight=0;
-		if (i==LIST_SEPARATOR_SPLIT || i==SUBMENU_SEPARATOR_SPLIT)
-			iconHeight=More_bitmap_Size.cy;
-		else if (i==SHUTDOWN_BUTTON || i==SHUTDOWN_BUTTON_SEARCH || i==SHUTDOWN_BUTTON_JUMP)
-			iconHeight=Shutdown_bitmap_Size.cy;
-		else if (settings.iconSize==ICON_SIZE_SMALL)
-			iconHeight=g_ItemManager.SMALL_ICON_SIZE;
+		if (i == LIST_SEPARATOR_SPLIT || i == SUBMENU_SEPARATOR_SPLIT)
+			iconHeight = More_bitmap_Size.cy;
+		else if (i == SHUTDOWN_BUTTON || i == SHUTDOWN_BUTTON_SEARCH || i == SHUTDOWN_BUTTON_JUMP)
+			iconHeight = Shutdown_bitmap_Size.cy;
+		else if (settings.iconSize == ICON_SIZE_SMALL)
+			iconHeight = g_ItemManager.SMALL_ICON_SIZE;
+		else if (settings.iconSize == ICON_SIZE_MEDIUM)
+			iconHeight = g_ItemManager.MEDIUM_ICON_SIZE;
 		else if (settings.iconSize==ICON_SIZE_LARGE)
 			iconHeight=g_ItemManager.LARGE_ICON_SIZE;
 		else if (settings.iconSize==ICON_SIZE_PROGRAMS)

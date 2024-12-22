@@ -475,12 +475,14 @@ static HBITMAP LoadMetroBitmap2( const wchar_t *location, int bitmapSize, DWORD 
 
 void CItemManager::LoadIconData::Init( void )
 {
-	m_IconSizes[0]=SMALL_ICON_SIZE;
-	m_IconSizes[1]=LARGE_ICON_SIZE;
-	m_IconSizes[2]=EXTRA_LARGE_ICON_SIZE;
-	m_IconSizes[3]=SMALL_ICON_SIZE-2;
-	m_IconSizes[4]=LARGE_ICON_SIZE-2;
-	m_IconSizes[5]=EXTRA_LARGE_ICON_SIZE-2;
+	m_IconSizes[0] = SMALL_ICON_SIZE;
+	m_IconSizes[1] = MEDIUM_ICON_SIZE;
+	m_IconSizes[2] = LARGE_ICON_SIZE;
+	m_IconSizes[3] = EXTRA_LARGE_ICON_SIZE;
+	m_IconSizes[4] = SMALL_ICON_SIZE - 2;
+	m_IconSizes[5] = MEDIUM_ICON_SIZE - 2;
+	m_IconSizes[6] = LARGE_ICON_SIZE - 2;
+	m_IconSizes[7] = EXTRA_LARGE_ICON_SIZE - 2;
 
 	for (int i=0;i<_countof(m_TempLists);i++)
 	{
@@ -507,6 +509,7 @@ void CItemManager::LoadIconData::Close( void )
 }
 
 int CItemManager::SMALL_ICON_SIZE;
+int CItemManager::MEDIUM_ICON_SIZE;
 int CItemManager::LARGE_ICON_SIZE;
 int CItemManager::EXTRA_LARGE_ICON_SIZE=64;
 int CItemManager::s_DPI;
@@ -522,7 +525,7 @@ CItemManager::CItemManager( void )
 	memset(m_CriticalSectionOwners,0,sizeof(m_CriticalSectionOwners));
 	m_StartEvent=m_WorkEvent=m_ExitEvent=m_DoneEvent=m_PreloadItemsThread=m_RefreshInfoThread=m_SaveCacheThread=NULL;
 	m_MainThreadId=m_PreloadItemsThreadId=m_RefreshInfoThreadId=0;
-	m_DefaultSmallIcon=m_DefaultLargeIcon=m_DefaultExtraLargeIcon=NULL;
+	m_DefaultSmallIcon = m_DefaultMediumIcon = m_DefaultLargeIcon = m_DefaultExtraLargeIcon = NULL;
 	m_bHasNewPrograms[0]=m_bHasNewPrograms[1]=m_bHasNewApps[0]=m_bHasNewApps[1]=m_bPreloadIcons=m_bPreloadFavorites=false;
 	m_LoadingStage=LOAD_STOPPED;
 	m_LastCacheSave=0;
@@ -551,8 +554,9 @@ void CItemManager::Init( void )
 		}
 	}
 
-	SMALL_ICON_SIZE=GetSettingInt(L"SmallIconSize");
-	LARGE_ICON_SIZE=GetSettingInt(L"LargeIconSize");
+	SMALL_ICON_SIZE = GetSettingInt(L"SmallIconSize");
+	MEDIUM_ICON_SIZE = GetSettingInt(L"MediumIconSize");
+	LARGE_ICON_SIZE = GetSettingInt(L"LargeIconSize");
 	m_OldSysAccentColor=GetSystemAccentColor();
 	g_bInvertMetroIcons=GetSettingBool(L"InvertMetroIcons");
 	m_bOldInvertIcons=g_bInvertMetroIcons;
@@ -621,10 +625,11 @@ void CItemManager::Init( void )
 	LoadCacheFile();
 
 	ItemInfo &item=m_ItemInfos.emplace(0,ItemInfo())->second;
-	item.bIconOnly=true;
-	item.smallIcon=m_DefaultSmallIcon;
-	item.largeIcon=m_DefaultLargeIcon;
-	item.extraLargeIcon=m_DefaultExtraLargeIcon;
+	item.bIconOnly = true;
+	item.smallIcon = m_DefaultSmallIcon;
+	item.mediumIcon = m_DefaultMediumIcon;
+	item.largeIcon = m_DefaultLargeIcon;
+	item.extraLargeIcon = m_DefaultExtraLargeIcon;
 
 	for (int i=0;i<RWLOCK_COUNT;i++)
 		InitializeSRWLock(&m_RWLocks[i]);
@@ -702,12 +707,20 @@ void CItemManager::CreateDefaultIcons( void )
 	icon.bTemp=false;
 	icon.bMetro=false;
 	icon.timestamp.dwLowDateTime=icon.timestamp.dwHighDateTime=0;
+
 	icon.sizeType=ICON_SIZE_TYPE_SMALL;
 	if (index>=0)
 		icon.bitmap=BitmapFromIcon(LoadShellIcon(index,SMALL_ICON_SIZE),SMALL_ICON_SIZE);
 	else
 		icon.bitmap=NULL;
 	m_DefaultSmallIcon=&m_IconInfos.emplace(0,icon)->second;
+
+	icon.sizeType = ICON_SIZE_TYPE_MEDIUM;
+	if (index >= 0)
+		icon.bitmap = BitmapFromIcon(LoadShellIcon(index, MEDIUM_ICON_SIZE), MEDIUM_ICON_SIZE);
+	else
+		icon.bitmap = NULL;
+	m_DefaultMediumIcon = &m_IconInfos.emplace(0, icon)->second;
 
 	icon.sizeType=ICON_SIZE_TYPE_LARGE;
 	if (index>=0)
@@ -772,7 +785,8 @@ void CItemManager::ResetTempIcons( void )
 			std::list<ItemInfo*>::iterator next=it; ++next;
 			if ((*it)->bTemp)
 			{
-				Assert(!(*it)->largeIcon && !(*it)->extraLargeIcon && ((*it)->smallIcon==m_DefaultSmallIcon || (*it)->smallIcon->bTemp));
+				Assert(!(*it)->largeIcon && !(*it)->extraLargeIcon && !(*it)->mediumIcon &&
+					((*it)->smallIcon == m_DefaultSmallIcon || (*it)->smallIcon->bTemp));
 				m_ItemQueue.erase(it);
 			}
 			it=next;
@@ -797,6 +811,11 @@ void CItemManager::ResetTempIcons( void )
 				{
 					it->second.smallIcon=m_DefaultSmallIcon;
 					it->second.validFlags&=~(INFO_SMALL_ICON|metroFlags);
+				}
+				if (it->second.mediumIcon && (it->second.mediumIcon->bTemp || (it->second.mediumIcon->bMetro && bResetMetro)))
+				{
+					it->second.mediumIcon = m_DefaultMediumIcon;
+					it->second.validFlags &= ~(INFO_MEDIUM_ICON | metroFlags);
 				}
 				if (it->second.largeIcon && (it->second.largeIcon->bTemp || (it->second.largeIcon->bMetro && bResetMetro)))
 				{
@@ -905,9 +924,10 @@ const CItemManager::ItemInfo *CItemManager::GetItemInfo( IShellItem *pItem, PIDL
 			pInfo->PATH=PATH;
 			pInfo->createstamp=createTime;
 			pInfo->writestamp=writeTime;
-			pInfo->smallIcon=m_DefaultSmallIcon;
-			pInfo->largeIcon=m_DefaultLargeIcon;
-			pInfo->extraLargeIcon=m_DefaultExtraLargeIcon;
+			pInfo->smallIcon = m_DefaultSmallIcon;
+			pInfo->mediumIcon = m_DefaultMediumIcon;
+			pInfo->largeIcon = m_DefaultLargeIcon;
+			pInfo->extraLargeIcon = m_DefaultExtraLargeIcon;
 			pInfo->validFlags=0;
 		}
 		else
@@ -989,9 +1009,10 @@ const CItemManager::ItemInfo *CItemManager::GetItemInfo( CString path, int refre
 			pInfo->PATH=PATH;
 			pInfo->createstamp=createTime;
 			pInfo->writestamp=writeTime;
-			pInfo->smallIcon=m_DefaultSmallIcon;
-			pInfo->largeIcon=m_DefaultLargeIcon;
-			pInfo->extraLargeIcon=m_DefaultExtraLargeIcon;
+			pInfo->smallIcon = m_DefaultSmallIcon;
+			pInfo->mediumIcon = m_DefaultMediumIcon;
+			pInfo->largeIcon = m_DefaultLargeIcon;
+			pInfo->extraLargeIcon = m_DefaultExtraLargeIcon;
 			pInfo->validFlags=0;
 		}
 		else
@@ -1084,12 +1105,14 @@ const CItemManager::ItemInfo *CItemManager::GetCustomIcon( const wchar_t *locati
 			pInfo->bTemp=bTemp;
 			pInfo->iconPath=location;
 			pInfo->iconIndex=index;
-			pInfo->smallIcon=m_DefaultSmallIcon;
-			pInfo->largeIcon=m_DefaultLargeIcon;
-			pInfo->extraLargeIcon=m_DefaultExtraLargeIcon;
+			pInfo->smallIcon = m_DefaultSmallIcon;
+			pInfo->mediumIcon = m_DefaultMediumIcon;
+			pInfo->largeIcon = m_DefaultLargeIcon;
+			pInfo->extraLargeIcon = m_DefaultExtraLargeIcon;
 		}
 
 		if (iconSizeType==ICON_SIZE_TYPE_SMALL) refreshFlags|=INFO_SMALL_ICON;
+		if (iconSizeType == ICON_SIZE_TYPE_MEDIUM) refreshFlags |= INFO_MEDIUM_ICON;
 		if (iconSizeType==ICON_SIZE_TYPE_LARGE) refreshFlags|=INFO_LARGE_ICON;
 		if (iconSizeType==ICON_SIZE_TYPE_EXTRA_LARGE) refreshFlags|=INFO_EXTRA_LARGE_ICON;
 		refreshFlags&=~pInfo->validFlags;
@@ -2040,16 +2063,16 @@ void CItemManager::RefreshItemInfo( ItemInfo *pInfo, int refreshFlags, IShellIte
 			// load icons
 			if (newInfo.bIconOnly)
 			{
-				LoadCustomIcon(newInfo.iconPath,newInfo.iconIndex,refreshFlags&INFO_ICON,newInfo.smallIcon,newInfo.largeIcon,newInfo.extraLargeIcon,newInfo.bTemp);
+				LoadCustomIcon(newInfo.iconPath, newInfo.iconIndex, refreshFlags &INFO_ICON, newInfo.smallIcon, newInfo.mediumIcon, newInfo.largeIcon, newInfo.extraLargeIcon, newInfo.bTemp);
 			}
 			else if (newInfo.bMetroLink || newInfo.bMetroApp)
 			{
 				if (pAppItem || SUCCEEDED(SHCreateItemInKnownFolder(FOLDERID_AppsFolder2,0,newInfo.appid,IID_IShellItem,(void**)&pAppItem)))
 				{
 					int iconFlags=refreshFlags&INFO_ICON;
-					LoadMetroIcon(pAppItem,iconFlags,newInfo.smallIcon,newInfo.largeIcon,newInfo.extraLargeIcon,&newInfo.iconColor);
+					LoadMetroIcon(pAppItem, iconFlags, newInfo.smallIcon, newInfo.mediumIcon, newInfo.largeIcon, newInfo.extraLargeIcon, &newInfo.iconColor);
 					if (iconFlags)
-						LoadShellIcon(pItem?pItem:pAppItem,iconFlags,newInfo.smallIcon,newInfo.largeIcon,newInfo.extraLargeIcon,&newInfo.iconColor);
+						LoadShellIcon(pItem ? pItem : pAppItem, iconFlags, newInfo.smallIcon, newInfo.mediumIcon, newInfo.largeIcon, newInfo.extraLargeIcon, &newInfo.iconColor);
 				}
 			}
 			else if (_wcsicmp(PathFindExtension(newInfo.path),L".settingcontent-ms")==0)
@@ -2058,11 +2081,11 @@ void CItemManager::RefreshItemInfo( ItemInfo *pInfo, int refreshFlags, IShellIte
 				DoEnvironmentSubst(iconPath,_countof(iconPath));
 				newInfo.iconPath=iconPath;
 				newInfo.iconIndex=-10;
-				LoadCustomIcon(newInfo.iconPath,newInfo.iconIndex,refreshFlags&INFO_ICON,newInfo.smallIcon,newInfo.largeIcon,newInfo.extraLargeIcon,false);
+				LoadCustomIcon(newInfo.iconPath, newInfo.iconIndex, refreshFlags &INFO_ICON, newInfo.smallIcon, newInfo.mediumIcon, newInfo.largeIcon, newInfo.extraLargeIcon, false);
 			}
 			else
 			{
-				LoadShellIcon(pItem,(refreshFlags&INFO_ICON)|(bStartScreen?INFO_STARTSCREEN_ICON:0),newInfo.smallIcon,newInfo.largeIcon,newInfo.extraLargeIcon,NULL);
+				LoadShellIcon(pItem, (refreshFlags &INFO_ICON) | (bStartScreen ? INFO_STARTSCREEN_ICON : 0), newInfo.smallIcon, newInfo.mediumIcon, newInfo.largeIcon, newInfo.extraLargeIcon, NULL);
 			}
 		}
 	}
@@ -2099,6 +2122,8 @@ void CItemManager::RefreshItemInfo( ItemInfo *pInfo, int refreshFlags, IShellIte
 
 		if (refreshFlags&INFO_SMALL_ICON)
 			pInfo->smallIcon=newInfo.smallIcon;
+		if (refreshFlags & INFO_MEDIUM_ICON)
+			pInfo->mediumIcon = newInfo.mediumIcon;
 		if (refreshFlags&INFO_LARGE_ICON)
 			pInfo->largeIcon=newInfo.largeIcon;
 		if (refreshFlags&INFO_EXTRA_LARGE_ICON)
@@ -2247,7 +2272,7 @@ HICON CItemManager::LoadShellIcon( int iconSize, IExtractIcon *pExtractW, const 
 	return hIcon;
 }
 
-void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const IconInfo *&smallIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, const DWORD *pMetroColor )
+void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const IconInfo *&smallIcon, const IconInfo *&mediumIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, const DWORD *pMetroColor )
 {
 	if (!pItem)
 		return;
@@ -2262,12 +2287,15 @@ void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const Ico
 			if (SUCCEEDED(pLink->GetIconLocation(location,_countof(location),&index)) && (!location[0] || _wcsicmp(PathFindFileName(location),L"StartScreen.exe")==0))
 			{
 				unsigned int hash=CalcFNVHash(STARTSCREEN_COMMAND);
-				HBITMAP hSmallBitmap=NULL, hLargeBitmap=NULL, hExtraLargeBitmap=NULL;
+				HBITMAP hSmallBitmap = NULL, hMediumBitmap = NULL, hLargeBitmap = NULL, hExtraLargeBitmap = NULL;
 				if (refreshFlags&INFO_SMALL_ICON)
 				{
 					hSmallBitmap=GetStartScreenIcon(SMALL_ICON_SIZE);
 				}
-
+				if (refreshFlags & INFO_MEDIUM_ICON)
+				{
+					hMediumBitmap = GetStartScreenIcon(MEDIUM_ICON_SIZE);
+				}
 				if (refreshFlags&INFO_LARGE_ICON)
 				{
 					hLargeBitmap=GetStartScreenIcon(LARGE_ICON_SIZE);
@@ -2278,7 +2306,7 @@ void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const Ico
 					hExtraLargeBitmap=GetStartScreenIcon(EXTRA_LARGE_ICON_SIZE);
 				}
 
-				StoreInCache(hash,NULL,hSmallBitmap,hLargeBitmap,hExtraLargeBitmap,refreshFlags,smallIcon,largeIcon,extraLargeIcon,false,false);
+				StoreInCache(hash, NULL, hSmallBitmap, hMediumBitmap, hLargeBitmap, hExtraLargeBitmap, refreshFlags, smallIcon, mediumIcon, largeIcon, extraLargeIcon, false, false);
 				return;
 			}
 		}
@@ -2332,11 +2360,11 @@ void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const Ico
 		hash=CalcFNVHash(pMetroColor,4,hash);
 
 	if (!bTransient)
-		FindInCache(hash,refreshFlags,smallIcon,largeIcon,extraLargeIcon);
+		FindInCache(hash, refreshFlags, smallIcon, mediumIcon, largeIcon, extraLargeIcon);
 	if (!refreshFlags) return;
 
 	// extract icon
-	HBITMAP hSmallBitmap=NULL, hLargeBitmap=NULL, hExtraLargeBitmap=NULL;
+	HBITMAP hSmallBitmap = NULL, hMediumBitmap = NULL, hLargeBitmap = NULL, hExtraLargeBitmap = NULL;
 
 	wchar_t metroLocation[_MAX_PATH];
 	Strcpy(metroLocation,_countof(metroLocation),location);
@@ -2346,6 +2374,10 @@ void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const Ico
 		{
 			hSmallBitmap=LoadMetroBitmap(metroLocation,SMALL_ICON_SIZE,*pMetroColor);
 		}
+		if (refreshFlags & INFO_MEDIUM_ICON)
+		{
+			hMediumBitmap = LoadMetroBitmap(metroLocation, MEDIUM_ICON_SIZE, *pMetroColor);
+		}
 		if (refreshFlags&INFO_LARGE_ICON)
 		{
 			hLargeBitmap=LoadMetroBitmap(metroLocation,LARGE_ICON_SIZE,*pMetroColor);
@@ -2354,10 +2386,10 @@ void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const Ico
 		{
 			hExtraLargeBitmap=LoadMetroBitmap(metroLocation,EXTRA_LARGE_ICON_SIZE,*pMetroColor);
 		}
-		if (hSmallBitmap || hLargeBitmap || hExtraLargeBitmap)
+		if (hSmallBitmap || hMediumBitmap || hLargeBitmap || hExtraLargeBitmap)
 		{
 			metroLocation[1]='#';
-			StoreInCache(hash,metroLocation,hSmallBitmap,hLargeBitmap,hExtraLargeBitmap,refreshFlags,smallIcon,largeIcon,extraLargeIcon,bTransient,true);
+			StoreInCache(hash, metroLocation, hSmallBitmap, hMediumBitmap, hLargeBitmap, hExtraLargeBitmap, refreshFlags, smallIcon, mediumIcon, largeIcon, extraLargeIcon, bTransient, true);
 			return;
 		}
 	}
@@ -2369,6 +2401,10 @@ void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const Ico
 		{
 			hSmallBitmap=LoadMetroBitmap2(metroLocation,SMALL_ICON_SIZE,*pMetroColor);
 		}
+		if (refreshFlags & INFO_MEDIUM_ICON)
+		{
+			hMediumBitmap = LoadMetroBitmap2(metroLocation, MEDIUM_ICON_SIZE, *pMetroColor);
+		}
 		if (refreshFlags&INFO_LARGE_ICON)
 		{
 			hLargeBitmap=LoadMetroBitmap2(metroLocation,LARGE_ICON_SIZE,*pMetroColor);
@@ -2377,10 +2413,10 @@ void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const Ico
 		{
 			hExtraLargeBitmap=LoadMetroBitmap2(metroLocation,EXTRA_LARGE_ICON_SIZE,*pMetroColor);
 		}
-		if (hSmallBitmap || hLargeBitmap || hExtraLargeBitmap)
+		if (hSmallBitmap || hMediumBitmap || hLargeBitmap || hExtraLargeBitmap)
 		{
 			metroLocation[1]='#';
-			StoreInCache(hash,metroLocation,hSmallBitmap,hLargeBitmap,hExtraLargeBitmap,refreshFlags,smallIcon,largeIcon,extraLargeIcon,bTransient,true);
+			StoreInCache(hash, metroLocation, hSmallBitmap, hMediumBitmap, hLargeBitmap, hExtraLargeBitmap, refreshFlags, smallIcon, mediumIcon, largeIcon, extraLargeIcon, bTransient, true);
 			return;
 		}
 	}
@@ -2388,10 +2424,11 @@ void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const Ico
 	if (GetWinVersion()>=WIN_VER_WIN10)
 		pMetroColor=NULL;
 
-	int smallIconSize=SMALL_ICON_SIZE;
-	int largeIconSize=LARGE_ICON_SIZE;
-	int extraLargeIconSize=EXTRA_LARGE_ICON_SIZE;
-	HICON hSmallIcon=NULL, hLargeIcon=NULL, hExtraLargeIcon=NULL;
+	int smallIconSize = SMALL_ICON_SIZE;
+	int mediumIconSize = MEDIUM_ICON_SIZE;
+	int largeIconSize = LARGE_ICON_SIZE;
+	int extraLargeIconSize = EXTRA_LARGE_ICON_SIZE;
+	HICON hSmallIcon = NULL, hMediumIcon = NULL, hLargeIcon = NULL, hExtraLargeIcon = NULL;
 	if (bNotFileName)
 	{
 		CAbsolutePidl pidl;
@@ -2400,6 +2437,8 @@ void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const Ico
 		{
 			if (refreshFlags&INFO_SMALL_ICON)
 				hSmallIcon=LoadShellIcon(info.iIcon,smallIconSize);
+			if (refreshFlags & INFO_MEDIUM_ICON)
+				hMediumIcon = LoadShellIcon(info.iIcon, mediumIconSize);
 			if (refreshFlags&INFO_LARGE_ICON)
 				hLargeIcon=LoadShellIcon(info.iIcon,largeIconSize);
 			if (refreshFlags&INFO_EXTRA_LARGE_ICON)
@@ -2410,6 +2449,8 @@ void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const Ico
 			// fall back to the extractor
 			if (refreshFlags&INFO_SMALL_ICON)
 				hSmallIcon=LoadShellIcon(smallIconSize,pExtractW,location,pExtractA,locationA,index);
+			if (refreshFlags & INFO_MEDIUM_ICON)
+				hMediumIcon = LoadShellIcon(mediumIconSize, pExtractW, location, pExtractA, locationA, index);
 			if (refreshFlags&INFO_LARGE_ICON)
 				hLargeIcon=LoadShellIcon(largeIconSize,pExtractW,location,pExtractA,locationA,index);
 			if (refreshFlags&INFO_EXTRA_LARGE_ICON)
@@ -2421,6 +2462,8 @@ void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const Ico
 		DoEnvironmentSubst(location,_countof(location));
 		if (refreshFlags&INFO_SMALL_ICON)
 			hSmallIcon=ShExtractIcon(location,index==-1?0:index,smallIconSize);
+		if (refreshFlags & INFO_MEDIUM_ICON)
+			hMediumIcon = ShExtractIcon(location, index == -1 ? 0 : index, mediumIconSize);
 		if (refreshFlags&INFO_LARGE_ICON)
 			hLargeIcon=ShExtractIcon(location,index==-1?0:index,largeIconSize);
 		if (refreshFlags&INFO_EXTRA_LARGE_ICON)
@@ -2432,6 +2475,13 @@ void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const Ico
 			hSmallBitmap=BitmapFromMetroIcon(hSmallIcon,SMALL_ICON_SIZE,smallIconSize,*pMetroColor);
 		else
 			hSmallBitmap=BitmapFromIcon(hSmallIcon,smallIconSize);
+	}
+	if (hMediumIcon)
+	{
+		if (pMetroColor)
+			hMediumBitmap = BitmapFromMetroIcon(hMediumIcon, MEDIUM_ICON_SIZE, mediumIconSize, *pMetroColor);
+		else
+			hMediumBitmap = BitmapFromIcon(hMediumIcon, mediumIconSize);
 	}
 	if (hLargeIcon)
 	{
@@ -2449,7 +2499,7 @@ void CItemManager::LoadShellIcon( IShellItem *pItem, int refreshFlags, const Ico
 	}
 	if (pMetroColor)
 		location[1]='#';
-	StoreInCache(hash,bNotFileName?NULL:location,hSmallBitmap,hLargeBitmap,hExtraLargeBitmap,refreshFlags,smallIcon,largeIcon,extraLargeIcon,bTransient,false);
+	StoreInCache(hash, bNotFileName ? NULL : location, hSmallBitmap, hMediumBitmap, hLargeBitmap, hExtraLargeBitmap, refreshFlags, smallIcon, mediumIcon, largeIcon, extraLargeIcon, bTransient, false);
 }
 
 static bool SetResContextTargetSize( IResourceContext *pResContext, int size )
@@ -2471,7 +2521,7 @@ static bool SetResContextTargetSize( IResourceContext *pResContext, int size )
 	return SUCCEEDED(pResContext->SetScale(scale));
 }
 
-void CItemManager::LoadMetroIcon( IShellItem *pItem, int &refreshFlags, const IconInfo *&smallIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, const DWORD *pMetroColor )
+void CItemManager::LoadMetroIcon( IShellItem *pItem, int &refreshFlags, const IconInfo *&smallIcon, const IconInfo *&mediumIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, const DWORD *pMetroColor )
 {
 	unsigned int hash;
 	{
@@ -2482,11 +2532,11 @@ void CItemManager::LoadMetroIcon( IShellItem *pItem, int &refreshFlags, const Ic
 
 	hash=CalcFNVHash(pMetroColor,4,hash);
 
-	FindInCache(hash,refreshFlags,smallIcon,largeIcon,extraLargeIcon);
+	FindInCache(hash, refreshFlags, smallIcon, mediumIcon, largeIcon, extraLargeIcon);
 	if (!refreshFlags) return;
 
 	// extract icon
-	HBITMAP hSmallBitmap=NULL, hLargeBitmap=NULL, hExtraLargeBitmap=NULL;
+	HBITMAP hSmallBitmap=NULL, hMediumBitmap = NULL, hLargeBitmap=NULL, hExtraLargeBitmap=NULL;
 
 	CComPtr<IPropertyStore> pStore;
 	pItem->BindToHandler(NULL,BHID_PropertyStore,IID_IPropertyStore,(void**)&pStore);
@@ -2509,6 +2559,7 @@ void CItemManager::LoadMetroIcon( IShellItem *pItem, int &refreshFlags, const Ic
 	if (FAILED(pResManager->GetDefaultContext(IID_PPV_ARGS(&pResContext))))
 		return;
 	int iconFlags=0;
+
 	if ((refreshFlags&INFO_SMALL_ICON) && SetResContextTargetSize(pResContext,SMALL_ICON_SIZE))
 	{
 		CComString pLocation;
@@ -2516,7 +2567,17 @@ void CItemManager::LoadMetroIcon( IShellItem *pItem, int &refreshFlags, const Ic
 		{
 			hSmallBitmap=LoadMetroBitmap0(pLocation,SMALL_ICON_SIZE,*pMetroColor);
 			refreshFlags&=~INFO_SMALL_ICON;
-			StoreInCache(hash,L"",hSmallBitmap,NULL,NULL,INFO_SMALL_ICON,smallIcon,largeIcon,extraLargeIcon,false,true);
+			StoreInCache(hash, L"", hSmallBitmap, NULL, NULL, NULL, INFO_SMALL_ICON, smallIcon, mediumIcon, largeIcon, extraLargeIcon, false, true);
+		}
+	}
+	if ((refreshFlags & INFO_MEDIUM_ICON) && SetResContextTargetSize(pResContext, MEDIUM_ICON_SIZE))
+	{
+		CComString pLocation;
+		if (SUCCEEDED(pResMap->GetFilePath(iconName, &pLocation)))
+		{
+			hMediumBitmap = LoadMetroBitmap0(pLocation, MEDIUM_ICON_SIZE, *pMetroColor);
+			refreshFlags &= ~INFO_MEDIUM_ICON;
+			StoreInCache(hash, L"", NULL, hMediumBitmap, NULL, NULL, INFO_MEDIUM_ICON, smallIcon, mediumIcon, largeIcon, extraLargeIcon, false, true);
 		}
 	}
 	if ((refreshFlags&INFO_LARGE_ICON) && SetResContextTargetSize(pResContext,LARGE_ICON_SIZE))
@@ -2526,7 +2587,7 @@ void CItemManager::LoadMetroIcon( IShellItem *pItem, int &refreshFlags, const Ic
 		{
 			hLargeBitmap=LoadMetroBitmap0(pLocation,LARGE_ICON_SIZE,*pMetroColor);
 			refreshFlags&=~INFO_LARGE_ICON;
-			StoreInCache(hash,L"",NULL,hLargeBitmap,NULL,INFO_LARGE_ICON,smallIcon,largeIcon,extraLargeIcon,false,true);
+			StoreInCache(hash, L"", NULL, NULL, hLargeBitmap, NULL, INFO_LARGE_ICON, smallIcon, mediumIcon, largeIcon, extraLargeIcon, false, true);
 		}
 	}
 	if ((refreshFlags&INFO_EXTRA_LARGE_ICON) && SetResContextTargetSize(pResContext,EXTRA_LARGE_ICON_SIZE))
@@ -2536,37 +2597,42 @@ void CItemManager::LoadMetroIcon( IShellItem *pItem, int &refreshFlags, const Ic
 		{
 			hExtraLargeBitmap=LoadMetroBitmap0(pLocation,EXTRA_LARGE_ICON_SIZE,*pMetroColor);
 			refreshFlags&=~INFO_EXTRA_LARGE_ICON;
-			StoreInCache(hash,L"",NULL,NULL,hExtraLargeBitmap,INFO_EXTRA_LARGE_ICON,smallIcon,largeIcon,extraLargeIcon,false,true);
+			StoreInCache(hash, L"", NULL, NULL, NULL, hExtraLargeBitmap, INFO_EXTRA_LARGE_ICON, smallIcon, mediumIcon, largeIcon, extraLargeIcon, false, true);
 		}
 	}
 }
 
-void CItemManager::FindInCache( unsigned int hash, int &refreshFlags, const IconInfo *&smallIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon )
+void CItemManager::FindInCache( unsigned int hash, int &refreshFlags, const IconInfo *&smallIcon, const IconInfo *&mediumIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon )
 {
 	// look in the cache
 	RWLock lock(this,false,RWLOCK_ICONS);
 	std::multimap<unsigned int,IconInfo>::iterator it=m_IconInfos.find(hash);
 	for (;it!=m_IconInfos.end() && it->first==hash;++it)
 	{
-		if ((refreshFlags&INFO_SMALL_ICON) && it->second.sizeType==ICON_SIZE_TYPE_SMALL)
+		if ((refreshFlags&INFO_SMALL_ICON) && it->second.sizeType == ICON_SIZE_TYPE_SMALL)
 		{
-			smallIcon=&it->second;
-			refreshFlags&=~INFO_SMALL_ICON;
+			smallIcon = &it->second;
+			refreshFlags &= ~INFO_SMALL_ICON;
+		}
+		if ((refreshFlags & INFO_MEDIUM_ICON) && it->second.sizeType == ICON_SIZE_TYPE_MEDIUM)
+		{
+			mediumIcon = &it->second;
+			refreshFlags &= ~INFO_MEDIUM_ICON;
 		}
 		if ((refreshFlags&INFO_LARGE_ICON) && it->second.sizeType==ICON_SIZE_TYPE_LARGE)
 		{
-			largeIcon=&it->second;
-			refreshFlags&=~INFO_LARGE_ICON;
+			largeIcon = &it->second;
+			refreshFlags &= ~INFO_LARGE_ICON;
 		}
 		if ((refreshFlags&INFO_EXTRA_LARGE_ICON) && it->second.sizeType==ICON_SIZE_TYPE_EXTRA_LARGE)
 		{
-			extraLargeIcon=&it->second;
-			refreshFlags&=~INFO_EXTRA_LARGE_ICON;
+			extraLargeIcon = &it->second;
+			refreshFlags &= ~INFO_EXTRA_LARGE_ICON;
 		}
 	}
 }
 
-void CItemManager::StoreInCache( unsigned int hash, const wchar_t *path, HBITMAP hSmallBitmap, HBITMAP hLargeBitmap, HBITMAP hExtraLargeBitmap, int refreshFlags, const IconInfo *&smallIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, bool bTemp, bool bMetro )
+void CItemManager::StoreInCache( unsigned int hash, const wchar_t *path, HBITMAP hSmallBitmap, HBITMAP hMediumBitmap, HBITMAP hLargeBitmap, HBITMAP hExtraLargeBitmap, int refreshFlags, const IconInfo *&smallIcon, const IconInfo *&mediumIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, bool bTemp, bool bMetro )
 {
 	RWLock lock(this,true,RWLOCK_ICONS);
 	std::multimap<unsigned int,IconInfo>::iterator it=m_IconInfos.find(hash);
@@ -2576,69 +2642,91 @@ void CItemManager::StoreInCache( unsigned int hash, const wchar_t *path, HBITMAP
 		{
 			if (hSmallBitmap)
 			{
-				HBITMAP old=it->second.bitmap;
-				it->second.bitmap=hSmallBitmap;
+				HBITMAP old = it->second.bitmap;
+				it->second.bitmap = hSmallBitmap;
 				if (old) m_OldBitmaps.push_back(old);
-				hSmallBitmap=NULL;
+				hSmallBitmap = NULL;
 			}
-			smallIcon=&it->second;
-			refreshFlags&=~INFO_SMALL_ICON;
+			smallIcon = &it->second;
+			refreshFlags &= ~INFO_SMALL_ICON;
 		}
-		if ((refreshFlags&INFO_LARGE_ICON) && it->second.sizeType==ICON_SIZE_TYPE_LARGE)
+		if ((refreshFlags & INFO_MEDIUM_ICON) && it->second.sizeType == ICON_SIZE_TYPE_MEDIUM)
+		{
+			if (hMediumBitmap)
+			{
+				HBITMAP old = it->second.bitmap;
+				it->second.bitmap = hMediumBitmap;
+				if (old) m_OldBitmaps.push_back(old);
+				hMediumBitmap = NULL;
+			}
+			mediumIcon = &it->second;
+			refreshFlags &= ~INFO_MEDIUM_ICON;
+		}
+		if ((refreshFlags & INFO_LARGE_ICON) && it->second.sizeType == ICON_SIZE_TYPE_LARGE)
 		{
 			if (hLargeBitmap)
 			{
-				HBITMAP old=it->second.bitmap;
-				it->second.bitmap=hLargeBitmap;
+				HBITMAP old = it->second.bitmap;
+				it->second.bitmap = hLargeBitmap;
 				if (old) m_OldBitmaps.push_back(old);
-				hLargeBitmap=NULL;
+				hLargeBitmap = NULL;
 			}
-			largeIcon=&it->second;
-			refreshFlags&=~INFO_LARGE_ICON;
+			largeIcon = &it->second;
+			refreshFlags &= ~INFO_LARGE_ICON;
 		}
-		if ((refreshFlags&INFO_EXTRA_LARGE_ICON) && it->second.sizeType==ICON_SIZE_TYPE_EXTRA_LARGE)
+		if ((refreshFlags & INFO_EXTRA_LARGE_ICON) && it->second.sizeType == ICON_SIZE_TYPE_EXTRA_LARGE)
 		{
 			if (hExtraLargeBitmap)
 			{
-				HBITMAP old=it->second.bitmap;
+				HBITMAP old = it->second.bitmap;
 				it->second.bitmap=hExtraLargeBitmap;
 				if (old) m_OldBitmaps.push_back(old);
-				hExtraLargeBitmap=NULL;
+				hExtraLargeBitmap = NULL;
 			}
-			extraLargeIcon=&it->second;
-			refreshFlags&=~INFO_EXTRA_LARGE_ICON;
+			extraLargeIcon = &it->second;
+			refreshFlags &= ~INFO_EXTRA_LARGE_ICON;
 		}
 	}
 
 	if ((refreshFlags&INFO_SMALL_ICON) && hSmallBitmap)
 	{
-		IconInfo *pInfo=&m_IconInfos.emplace(hash,IconInfo())->second;
-		pInfo->sizeType=ICON_SIZE_TYPE_SMALL;
-		pInfo->bTemp=bTemp;
-		pInfo->bMetro=bMetro;
+		IconInfo *pInfo = &m_IconInfos.emplace(hash, IconInfo())->second;
+		pInfo->sizeType = ICON_SIZE_TYPE_SMALL;
+		pInfo->bTemp = bTemp;
+		pInfo->bMetro = bMetro;
 		pInfo->SetPath(path);
-		pInfo->bitmap=hSmallBitmap;
-		smallIcon=pInfo;
+		pInfo->bitmap = hSmallBitmap;
+		smallIcon = pInfo;
 	}
-	if ((refreshFlags&INFO_LARGE_ICON) && hLargeBitmap)
+	if ((refreshFlags & INFO_MEDIUM_ICON) && hMediumBitmap)
 	{
-		IconInfo *pInfo=&m_IconInfos.emplace(hash,IconInfo())->second;
-		pInfo->sizeType=ICON_SIZE_TYPE_LARGE;
-		pInfo->bTemp=bTemp;
-		pInfo->bMetro=bMetro;
+		IconInfo *pInfo = &m_IconInfos.emplace(hash, IconInfo())->second;
+		pInfo->sizeType = ICON_SIZE_TYPE_MEDIUM;
+		pInfo->bTemp = bTemp;
+		pInfo->bMetro = bMetro;
 		pInfo->SetPath(path);
-		pInfo->bitmap=hLargeBitmap;
-		largeIcon=pInfo;
+		pInfo->bitmap = hMediumBitmap;
+		mediumIcon = pInfo;
 	}
-	if ((refreshFlags&INFO_EXTRA_LARGE_ICON) && hExtraLargeBitmap)
+	if ((refreshFlags & INFO_LARGE_ICON) && hLargeBitmap)
 	{
-		IconInfo *pInfo=&m_IconInfos.emplace(hash,IconInfo())->second;
-		pInfo->sizeType=ICON_SIZE_TYPE_EXTRA_LARGE;
-		pInfo->bTemp=bTemp;
-		pInfo->bMetro=bMetro;
+		IconInfo *pInfo = &m_IconInfos.emplace(hash, IconInfo())->second;
+		pInfo->sizeType = ICON_SIZE_TYPE_LARGE;
+		pInfo->bTemp = bTemp;
+		pInfo->bMetro = bMetro;
 		pInfo->SetPath(path);
-		pInfo->bitmap=hExtraLargeBitmap;
-		extraLargeIcon=pInfo;
+		pInfo->bitmap = hLargeBitmap;
+		largeIcon = pInfo;
+	}
+	if ((refreshFlags & INFO_EXTRA_LARGE_ICON) && hExtraLargeBitmap)
+	{
+		IconInfo *pInfo = &m_IconInfos.emplace(hash, IconInfo())->second;
+		pInfo->sizeType = ICON_SIZE_TYPE_EXTRA_LARGE;
+		pInfo->bTemp = bTemp;
+		pInfo->bMetro = bMetro;
+		pInfo->SetPath(path);
+		pInfo->bitmap = hExtraLargeBitmap;
+		extraLargeIcon = pInfo;
 	}
 }
 
@@ -2674,11 +2762,11 @@ void CItemManager::IconInfo::SetPath( const wchar_t *path )
 	timestamp.dwHighDateTime=timestamp.dwLowDateTime=0;
 }
 
-void CItemManager::LoadCustomIcon(const wchar_t *iconPath, int iconIndex, int refreshFlags, const IconInfo *&smallIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, bool bTemp)
+void CItemManager::LoadCustomIcon(const wchar_t *iconPath, int iconIndex, int refreshFlags, const IconInfo *&smallIcon, const IconInfo *&mediumIcon, const IconInfo *&largeIcon, const IconInfo *&extraLargeIcon, bool bTemp)
 {
 	unsigned int hash = CalcFNVHash(iconPath, CalcFNVHash(&iconIndex, 4));
 
-	FindInCache(hash, refreshFlags, smallIcon, largeIcon, extraLargeIcon);
+	FindInCache(hash, refreshFlags, smallIcon, mediumIcon, largeIcon, extraLargeIcon);
 	if (!refreshFlags)
 		return;
 
@@ -2701,18 +2789,19 @@ void CItemManager::LoadCustomIcon(const wchar_t *iconPath, int iconIndex, int re
 	};
 
 	// extract icon
-	HBITMAP hSmallBitmap = nullptr, hLargeBitmap = nullptr, hExtraLargeBitmap = nullptr;
+	HBITMAP hSmallBitmap = nullptr, hMediumBitmap = nullptr, hLargeBitmap = nullptr, hExtraLargeBitmap = nullptr;
 
 	if (refreshFlags & INFO_SMALL_ICON)
 		hSmallBitmap = ExtractIconAsBitmap(SMALL_ICON_SIZE);
-
+	if (refreshFlags & INFO_MEDIUM_ICON)
+		hMediumBitmap = ExtractIconAsBitmap(MEDIUM_ICON_SIZE);
 	if (refreshFlags & INFO_LARGE_ICON)
 		hLargeBitmap = ExtractIconAsBitmap(LARGE_ICON_SIZE);
 
 	if (refreshFlags & INFO_EXTRA_LARGE_ICON)
 		hExtraLargeBitmap = ExtractIconAsBitmap(EXTRA_LARGE_ICON_SIZE);
 
-	StoreInCache(hash, bTemp ? nullptr : iconPath, hSmallBitmap, hLargeBitmap, hExtraLargeBitmap, refreshFlags, smallIcon, largeIcon, extraLargeIcon, bTemp, false);
+	StoreInCache(hash, bTemp ? nullptr : iconPath, hSmallBitmap, hMediumBitmap, hLargeBitmap, hExtraLargeBitmap, refreshFlags, smallIcon, mediumIcon, largeIcon, extraLargeIcon, bTemp, false);
 }
 
 // Recursive function to preload the items for a folder
@@ -3068,6 +3157,7 @@ namespace
 		int pathLen;
 		int PATHLen;
 		int smallIcon;
+		int mediumIcon;
 		int largeIcon;
 		int extraLargeIcon;
 		int validFlags;
@@ -3257,9 +3347,10 @@ void CItemManager::LoadCacheFile( void )
 		DWORD build;
 		if (tag==GetVersionEx(g_Instance,&build) && ReadCacheFile(file)==CACHE_FILE_VERSION)
 		{
-			int size1=ReadCacheFile(file);
-			int size2=ReadCacheFile(file);
-			int size3=ReadCacheFile(file);
+			int size1 = ReadCacheFile(file);
+			int size2 = ReadCacheFile(file);
+			int size3 = ReadCacheFile(file);
+			int size4 = ReadCacheFile(file);
 			int langHash=ReadCacheFile(file);
 			bError=false;
 			tag=ReadCacheFile(file);
@@ -3282,7 +3373,7 @@ void CItemManager::LoadCacheFile( void )
 					bError=true;
 					break;
 				}
-				if (size1==SMALL_ICON_SIZE && size2==LARGE_ICON_SIZE && size3==EXTRA_LARGE_ICON_SIZE && CompareModuleTimeStamp(info.PATH,info.timestamp,modules))
+				if (size1 == SMALL_ICON_SIZE && size2 == MEDIUM_ICON_SIZE && size3 == LARGE_ICON_SIZE && size4 == EXTRA_LARGE_ICON_SIZE && CompareModuleTimeStamp(info.PATH,info.timestamp,modules))
 				{
 					if (!ReadCacheFile(file,hdc,info.bitmap,data.bitmapW,data.bitmapH))
 					{
@@ -3337,23 +3428,29 @@ void CItemManager::LoadCacheFile( void )
 				info.iconColor=data.iconColor;
 				info.iconIndex=data.iconIndex;
 
-				info.smallIcon=data.smallIcon<(int)remapIcons.size()?remapIcons[data.smallIcon]:NULL;
+				info.smallIcon = data.smallIcon < (int)remapIcons.size() ? remapIcons[data.smallIcon] : NULL;
 				if (!info.smallIcon)
 				{
-					info.validFlags&=~INFO_SMALL_ICON;
-					info.smallIcon=m_DefaultSmallIcon;
+					info.validFlags &= ~INFO_SMALL_ICON;
+					info.smallIcon = m_DefaultSmallIcon;
 				}
-				info.largeIcon=data.largeIcon<(int)remapIcons.size()?remapIcons[data.largeIcon]:NULL;
+				info.mediumIcon = data.mediumIcon < (int)remapIcons.size() ? remapIcons[data.mediumIcon] : NULL;
+				if (!info.mediumIcon)
+				{
+					info.validFlags &= ~INFO_MEDIUM_ICON;
+					info.mediumIcon = m_DefaultMediumIcon;
+				}
+				info.largeIcon = data.largeIcon < (int)remapIcons.size() ? remapIcons[data.largeIcon] : NULL;
 				if (!info.largeIcon)
 				{
-					info.validFlags&=~INFO_LARGE_ICON;
-					info.largeIcon=m_DefaultLargeIcon;
+					info.validFlags &= ~INFO_LARGE_ICON;
+					info.largeIcon = m_DefaultLargeIcon;
 				}
-				info.extraLargeIcon=data.extraLargeIcon<(int)remapIcons.size()?remapIcons[data.extraLargeIcon]:NULL;
+				info.extraLargeIcon = data.extraLargeIcon < (int)remapIcons.size() ? remapIcons[data.extraLargeIcon] : NULL;
 				if (!info.extraLargeIcon)
 				{
-					info.validFlags&=~INFO_EXTRA_LARGE_ICON;
-					info.extraLargeIcon=m_DefaultExtraLargeIcon;
+					info.validFlags &= ~INFO_EXTRA_LARGE_ICON;
+					info.extraLargeIcon = m_DefaultExtraLargeIcon;
 				}
 
 				bError=bError || !ReadCacheFile(file,info.pidl,data.pidlSize);
@@ -3406,9 +3503,10 @@ DWORD CALLBACK CItemManager::SaveCacheFileThread( void *param )
 	WriteCacheFile(file,'CLSH');
 	WriteCacheFile(file,GetVersionEx(g_Instance));
 	WriteCacheFile(file,CACHE_FILE_VERSION);
-	WriteCacheFile(file,SMALL_ICON_SIZE);
-	WriteCacheFile(file,LARGE_ICON_SIZE);
-	WriteCacheFile(file,EXTRA_LARGE_ICON_SIZE);
+	WriteCacheFile(file, SMALL_ICON_SIZE);
+	WriteCacheFile(file, MEDIUM_ICON_SIZE);
+	WriteCacheFile(file, LARGE_ICON_SIZE);
+	WriteCacheFile(file, EXTRA_LARGE_ICON_SIZE);
 	{
 		wchar_t languages[100];
 		DWORD size=0;
@@ -3499,10 +3597,13 @@ DWORD CALLBACK CItemManager::SaveCacheFileThread( void *param )
 
 		std::map<const IconInfo*,int>::const_iterator remapIt=remapIcons.find((*it)->second.smallIcon);
 		data.smallIcon=(remapIt==remapIcons.end()?0:remapIt->second);
-		remapIt=remapIcons.find((*it)->second.largeIcon);
-		data.largeIcon=(remapIt==remapIcons.end()?0:remapIt->second);
-		remapIt=remapIcons.find((*it)->second.extraLargeIcon);
-		data.extraLargeIcon=(remapIt==remapIcons.end()?0:remapIt->second);
+
+		remapIt = remapIcons.find((*it)->second.mediumIcon);
+		data.mediumIcon = (remapIt == remapIcons.end() ? 0 : remapIt->second);
+		remapIt = remapIcons.find((*it)->second.largeIcon);
+		data.largeIcon = (remapIt == remapIcons.end() ? 0 : remapIt->second);
+		remapIt = remapIcons.find((*it)->second.extraLargeIcon);
+		data.extraLargeIcon = (remapIt == remapIcons.end() ? 0 : remapIt->second);
 
 		data.validFlags=(*it)->second.validFlags;
 		data.targetPidlSize=(*it)->second.targetPidl?ILGetSize((*it)->second.targetPidl):0;
@@ -3599,6 +3700,9 @@ int CItemManager::GetIconSize(TIconSizeType iconSizeType) const
 	case ICON_SIZE_TYPE_SMALL_METRO:
 		return SMALL_ICON_SIZE;
 
+	case ICON_SIZE_TYPE_MEDIUM:
+	case ICON_SIZE_TYPE_MEDIUM_METRO:
+		return MEDIUM_ICON_SIZE;
 	case ICON_SIZE_TYPE_LARGE:
 	case ICON_SIZE_TYPE_LARGE_METRO:
 		return LARGE_ICON_SIZE;
