@@ -275,7 +275,7 @@ bool CMenuContainer::DragOut( int index, bool bApp )
 	// get IDataObject for the current item
 	CComPtr<IDataObject> pDataObj;
 	bool bProtectedLink=false;
-	if (bApp && GetWinVersion()<WIN_VER_WIN10)
+	if (bApp && GetWinVersion()<_WIN32_WINNT_WIN10)
 		pDataObj=CreateMetroDataObject(item.pItemInfo);
 	else
 	{

@@ -539,7 +539,7 @@ static bool GetPidlPath( PIDLIST_ABSOLUTE pidl, wchar_t *path )
 	path[0]=0;
 	if (SHGetPathFromIDList(pidl,path) && *path)
 		return true;
-	if (GetWinVersion()>=WIN_VER_WIN7)
+	if (GetWinVersion()>= _WIN32_WINNT_WIN7)
 	{
 		// maybe it is a library - try the default save folder
 		CComPtr<IShellItem> pShellItem;
@@ -1747,7 +1747,7 @@ void CBandWindow::UpdateToolbar( void )
 
 				if (m_pBrowserBag)
 				{
-					if (GetWinVersion()>=WIN_VER_WIN8)
+					if (GetWinVersion()>= _WIN32_WINNT_WIN8)
 					{
 						VARIANT val={VT_EMPTY};
 						if (SUCCEEDED(m_pBrowserBag->Read(g_ComboPaneEnabled,&val,NULL)) && val.vt==VT_BOOL && !val.boolVal)
@@ -1983,7 +1983,7 @@ void CBandWindow::SetBrowsers( IShellBrowser *pBrowser, IWebBrowser2 *pWebBrowse
 
 CExplorerBand::CExplorerBand( void )
 {
-	m_bSubclassRebar=GetWinVersion()>=WIN_VER_WIN7;
+	m_bSubclassRebar=GetWinVersion()>= _WIN32_WINNT_WIN7;
 	m_bSubclassedRebar=false;
 	m_TopWindow=NULL;
 }

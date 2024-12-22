@@ -452,7 +452,7 @@ static void WriteLogFile( FILE *f )
 			pPath.Clear();
 		fwprintf(f,L"\tCommon Programs folder: '%s'\r\n",pPath?pPath:L"");
 	}
-	if (HIWORD(winVer)<WIN_VER_WIN8)
+	if (HIWORD(winVer)<_WIN32_WINNT_WIN8)
 	{
 		DWORD count;
 		if (ReadRegistryValue(HKEY_LOCAL_MACHINE,L"Software\\Microsoft\\Windows\\CurrentVersion\\WindowsUpdate\\Auto Update\\UAS",L"UpdateCount",count)==ERROR_SUCCESS)
@@ -487,7 +487,7 @@ static void WriteLogFile( FILE *f )
 		}
 	}
 
-	if (HIWORD(winVer)>=WIN_VER_WIN81)
+	if (HIWORD(winVer)>=_WIN32_WINNT_WINBLUE)
 	{
 		DWORD metro;
 		if (ReadRegistryValue(HKEY_CURRENT_USER,L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartPage",L"OpenAtLogon",metro)==ERROR_SUCCESS)
@@ -779,7 +779,7 @@ static void WriteLogFile( FILE *f )
 
 	if (bClassicMenu)
 	{
-		if (HIWORD(winVer)>=WIN_VER_WIN8)
+		if (HIWORD(winVer)>=_WIN32_WINNT_WIN8)
 		{
 			CString guid;
 			LONG res=ReadRegistryValue(HKEY_CLASSES_ROOT,L"CLSID\\{ECD4FC4D-521C-11D0-B792-00A0C90312E1}\\TreatAs",NULL,guid);
