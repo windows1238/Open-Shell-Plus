@@ -539,7 +539,9 @@ static bool GetPidlPath( PIDLIST_ABSOLUTE pidl, wchar_t *path )
 	path[0]=0;
 	if (SHGetPathFromIDList(pidl,path) && *path)
 		return true;
+#if _WIN32_WINNT < _WIN32_WINNT_WIN7
 	if (GetWinVersion()>= _WIN32_WINNT_WIN7)
+#endif
 	{
 		// maybe it is a library - try the default save folder
 		CComPtr<IShellItem> pShellItem;
@@ -1983,7 +1985,12 @@ void CBandWindow::SetBrowsers( IShellBrowser *pBrowser, IWebBrowser2 *pWebBrowse
 
 CExplorerBand::CExplorerBand( void )
 {
-	m_bSubclassRebar=GetWinVersion()>= _WIN32_WINNT_WIN7;
+	m_bSubclassRebar =
+#if _WIN32_WINNT < _WIN32_WINNT_WIN7
+		GetWinVersion() >= _WIN32_WINNT_WIN7;
+#else
+		true;
+#endif
 	m_bSubclassedRebar=false;
 	m_TopWindow=NULL;
 }

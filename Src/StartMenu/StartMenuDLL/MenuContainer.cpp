@@ -7725,7 +7725,9 @@ HWND CMenuContainer::ToggleStartMenu( int taskbarId, bool bKeyboard, bool bAllPr
 	}
 
 	// the taskbar on Windows 7 (and most likely later versions) is always on top even though it doesn't have the ABS_ALWAYSONTOP flag.
+#if _WIN32_WINNT < _WIN32_WINNT_WIN7
 	if (GetWinVersion()>=_WIN32_WINNT_WIN7)
+#endif
 	{
 		// also check the WS_EX_TOPMOST style - maybe some tool like DisableTaskbarOnTop is messing with it
 		if (::GetWindowLong(s_TaskBar,GWL_EXSTYLE)&WS_EX_TOPMOST)

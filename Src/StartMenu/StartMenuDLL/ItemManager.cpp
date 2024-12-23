@@ -123,7 +123,9 @@ static CComPtr<IApplicationResolver> g_pAppResolver;
 // Creates the app id resolver object
 static void CreateAppResolver( void )
 {
+#if _WIN32_WINNT < _WIN32_WINNT_WIN7
 	if (GetWinVersion()>=_WIN32_WINNT_WIN7)
+#endif
 	{
 		CComPtr<IUnknown> pUnknown;
 		pUnknown.CoCreateInstance(CLSID_ApplicationResolver);
@@ -1938,7 +1940,9 @@ void CItemManager::RefreshItemInfo( ItemInfo *pInfo, int refreshFlags, IShellIte
 				}
 				if (pStore)
 				{
+#if _WIN32_WINNT < _WIN32_WINNT_WIN7
 					if (GetWinVersion()>=_WIN32_WINNT_WIN7)
+#endif
 					{
 						newInfo.appid=GetPropertyStoreString(pStore,PKEY_AppUserModel_ID);
 						newInfo.bExplicitAppId=!newInfo.appid.IsEmpty();
