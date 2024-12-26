@@ -848,6 +848,7 @@
 #define IDS_MEDIUM_SIZE_SM				8000
 #define IDS_MEDIUM_SIZE_SM_TIP			8001
 
+
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED

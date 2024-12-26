@@ -5,7 +5,7 @@
 // StringUtils is also available under the CPOL license as part of the FormatString article
 // on CodeProject: http://www.codeproject.com/KB/string/FormatString.aspx
 
-#include <stdafx.h>
+#include "stdafx.h"
 #include "StringUtils.h"
 #include <stdio.h>
 #include <assert.h>
