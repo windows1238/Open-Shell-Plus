@@ -3106,6 +3106,9 @@ static void InitStartMenuDLL( void )
 			taskBar.chevron=FindWindowEx(tray,NULL,L"Button",NULL);
 		if (taskBar.chevron)
 			SetWindowSubclass(taskBar.chevron,SubclassTrayChevronProc,'CLSH',taskBar.taskbarId);
+		taskBar.news=FindWindowEx(g_TaskBar,NULL,L"DynamicContent2",NULL);
+		if (taskBar.news)
+			SetWindowSubclass(taskBar.news,SubclassTrayChevronProc,'CLSH',taskBar.taskbarId);
 	}
 
 	HandleTaskbarParts(taskBar,true);
@@ -3295,6 +3298,8 @@ if (!g_bTrimHooks)
 		}
 		if (it->second.chevron)
 			RemoveWindowSubclass(it->second.chevron,SubclassTrayChevronProc,'CLSH');
+		if (it->second.news)
+			RemoveWindowSubclass(it->second.news,SubclassTrayChevronProc,'CLSH');
 		if (it->second.desktop)
 			RemoveWindowSubclass(it->second.desktop,SubclassDesktopButtonProc,'CLSH');
 		if (it->second.bTimer)
