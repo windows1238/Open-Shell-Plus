@@ -1216,6 +1216,19 @@ void EnableHotkeys( THotkeys enable )
 	}
 }
 
+bool IsTouchTaskbar(void)
+{
+	if (!IsWin11())
+		return false;
+
+	CRegKey regKey;
+	if (regKey.Open(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer") != ERROR_SUCCESS)
+		return false;
+
+	DWORD val;
+	return regKey.QueryDWORDValue(L"TabletPostureTaskbar", val) == ERROR_SUCCESS && val;
+}
+
 static void UpdateStartButtonPosition(const TaskbarInfo* taskBar, const WINDOWPOS* pPos)
 {
 	if (IsStartButtonSmallIcons(taskBar->taskbarId) != IsTaskbarSmallIcons())
@@ -1223,10 +1236,13 @@ static void UpdateStartButtonPosition(const TaskbarInfo* taskBar, const WINDOWPO
 
 	RECT rcTask;
 	GetWindowRect(taskBar->taskBar, &rcTask);
-	if (RECT rc; GetWindowRgnBox(taskBar->taskBar, &rc) != ERROR)
+	if (IsTouchTaskbar())
 	{
-		MapWindowPoints(taskBar->taskBar, NULL, (POINT*)&rc, 2);
-		rcTask = rc;
+		if (RECT rc; GetWindowRgnBox(taskBar->taskBar, &rc) != ERROR)
+		{
+			MapWindowPoints(taskBar->taskBar, NULL, (POINT*)&rc, 2);
+			rcTask = rc;
+		}
 	}
 	MONITORINFO info;
 	UINT uEdge = GetTaskbarPosition(taskBar->taskBar, &info, NULL, NULL);
