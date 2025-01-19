@@ -3230,6 +3230,7 @@ static void RecreateStartButton( size_t taskbarId )
 			{
 				RECT rc;
 				GetWindowRect(btn,&rc);
+				MapWindowPoints(NULL,taskBar.taskBar,(POINT*)&rc,2); // convert to taskbar coordinates
 				SetWindowPos(btn,HWND_TOP,rc.left,rc.top,0,0,SWP_NOSIZE|SWP_NOACTIVATE|SWP_NOZORDER);
 			}
 		}
