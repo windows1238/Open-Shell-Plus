@@ -1344,7 +1344,7 @@ static void UpdateStartButtonPosition(const TaskbarInfo* taskBar, const WINDOWPO
 
 		// Start button on Win11 is a bit shifted to the right
 		// We will shift our Aero button to cover original button
-		if (IsWin11() && (x == info.rcMonitor.left) && (GetStartButtonType() == START_BUTTON_AERO))
+		if (IsWin11() && (x == info.rcMonitor.left) && (GetStartButtonType() == START_BUTTON_AERO) && !g_epTaskbar)
 			x += ScaleForDpi(taskBar->taskBar, 6);
 	}
 
