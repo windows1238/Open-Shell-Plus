@@ -1292,7 +1292,7 @@ BEGIN
     IDS_TASK_TEXTCOLOR_TIP  "Select the color for the text on the taskbar"
     IDS_SELECT_LAST         "Select the last item in shutdown menu"
     IDS_SELECT_LAST_TIP     "When this is checked, the last item will be selected by default when the shutdown menu is opened with the keyboard"
-    IDS_CLEAR_CACHE         "Clear cached information"
+    IDS_CLEAR_CACHE         "Clear Cached Icons"
 END
 
 STRINGTABLE 
