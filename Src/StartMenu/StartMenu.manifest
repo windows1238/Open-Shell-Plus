@@ -3,10 +3,10 @@
 <assemblyIdentity
     version="1.0.0.0"
     processorArchitecture="X86"
-    name="Open-Shell.Menu"
+    name="Open-Shell-Plus.Menu"
     type="win32"
 />
-<description>Open-Shell Menu</description>
+<description>Open-Shell-Plus Menu</description>
 <dependency>
     <dependentAssembly>
         <assemblyIdentity
